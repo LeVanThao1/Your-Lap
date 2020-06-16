@@ -2,6 +2,7 @@ const User = require('../models/users');
 const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
+
 const deleteUser = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -13,7 +14,6 @@ const deleteUser = async (req, res, next) => {
         return res.status(200).json({
             message : 'delete user successful',
         });
-        // return ResponseSuccess('delete user successful', null, res);
     } catch (e) {
         next(e);
     }
@@ -89,4 +89,36 @@ const updateUser = async (req, res, next) => {
     }
 };
 
-const login
+const login = async (req, res, next) => {
+    try {
+        const data = req.body;
+        const salt  = bcrypt.genSaltSync('10');
+        const hashPassword = bcrypt.hashSync(data.password, salt);
+        // const password = hashPassword;
+        const user = await User.findOne({ where: { username: data.username } });
+        if (!user) {
+            // return next(new Error('USERNAME_NOT_EXISTED'));
+            return next(new Error('USER_NOT_FOUND'));
+        }
+        const isValidatePassword = bcrypt.compareSync(data.password, user.password);
+        if (!isValidatePassword) {
+            return next(new Error('PASSWORD_IS_INCORRECT'));
+        }
+        const token = sign({ _id: user._id });
+        return res.status(200).json({
+            message: "login successfully",
+            access_token: token
+        });
+    } catch (e) {
+        return next(e);
+    }
+};
+
+module.exports = {
+    getAllUser,
+    getUser,
+    login,
+    updateUser,
+    deleteUser,
+    createUser,
+}
