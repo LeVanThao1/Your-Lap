@@ -8,27 +8,30 @@ const productSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        min: 30
-    },
-    image: [{
-        type: String,
+        min: 30,
         require: true
+    },
+    images: [{
+        type: String,
+        require: true,
     }],
     price: {
         type: Number,
-        require: true
+        require: true,
     },
     NSX: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'NSX'
+        ref: 'NSX',
+        require: true,
     },
     amount: {
         type: Number,
         require: true
     },
-    loaiSP: {
+    typeProduct: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'ProductType'
+        ref: 'ProductType',
+        require: true,
     },
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -36,6 +39,11 @@ const productSchema = new mongoose.Schema({
     }],
     deleteAt: {
         type: Date
+    },
+    postBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        require: true
     }
 }, {timestamps: true});
 

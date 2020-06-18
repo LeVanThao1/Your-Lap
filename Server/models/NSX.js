@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const nsxSChema = new mongoose.Schema({
     name: {
         type: String,
-        max: 30,
         min: 10,
         require:true
     },

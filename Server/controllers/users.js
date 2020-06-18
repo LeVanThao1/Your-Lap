@@ -2,6 +2,7 @@ const User = require('../models/users');
 const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
+const Cart = require('../models/cart')
 
 const deleteUser = async (req, res, next) => {
     try {
@@ -22,7 +23,7 @@ const deleteUser = async (req, res, next) => {
 const getUser = async (req, res, next) => {
     try {
         const {id} = req.params;
-        const user = await User.findOne({_id: id}).lean();
+        const user = await User.findOne({_id: id, deleteAt: undefined}).lean();
         if(!user) return next(new Error('USER_NOT_FOUND'));
         return res.status(200).json({
             message: 'User',
@@ -35,7 +36,7 @@ const getUser = async (req, res, next) => {
 
 const getAllUser = async (req, res, next) => {
     try {
-        const listUser = await User.find().select('-password').lean();
+        const listUser = await User.find({deleteAt: undefined}).select('-password').lean();
         return res.status(200).json({
             message: 'ListUser',
             listUser
@@ -52,6 +53,13 @@ const createUser = async (req, res, next) => {
         const hashPassword = bcrypt.hashSync(data.password, salt);
         data.password = hashPassword;
         const createdUser = await User.create(data);
+        if(createUser) {
+            const cart = {
+                user: createUser._id,
+                cart: []
+            };
+            await Cart.create(cart);
+        }
         return res.status(200).json({
             message: "create user successfully",
             createdUser
@@ -69,7 +77,7 @@ const updateUser = async (req, res, next) => {
         const hashPassword = bcrypt.hashSync(data.password, salt);
         data.password = hashPassword;
         _.omitBy(data, _.isNull);
-        const existedUser = await User.getOne({ _id: id });
+        const existedUser = await User.findOne({ _id: id });
         if (!existedUser) {
             return next(new Error('USER_NOT_FOUND'));
         }
@@ -81,7 +89,7 @@ const updateUser = async (req, res, next) => {
         return res.status(200).json({
             message : 'update successful',
             data: userUpdate,
-            data_update: newValues
+            data_update: updateInfo
         });
         
     } catch (e) {

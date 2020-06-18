@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const productTypeSchema = new mongoose.Schema({
     name: {
         type: String,
-        min: 10,
+        min: 3,
         require: true
     },
     depot: {

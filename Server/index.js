@@ -3,7 +3,9 @@ const app = express();
 const port = 3001;
 const cors = require('cors')
 const mongoose = require('mongoose');
-
+const NSXRoute = require('./apis/NSX');
+const PTRoute = require('./apis/productType');
+const ProductRoute = require('./apis/product');
 const userRoute = require('./apis/user.js');
 const bodyParser = require('body-parser');
 const models = require('./models')
@@ -28,5 +30,8 @@ app.use(cors(headers));
 app.options('*', cors(headers));
 
 userRoute.load(app);
+NSXRoute.load(app);
+ProductRoute.load(app);
+PTRoute.load(app);
 // mongoose.connect(, { useUnifiedTopology: true, useNewUrlParser: true });       
 app.listen(port, () => console.log('Server listen on port ' + port));
