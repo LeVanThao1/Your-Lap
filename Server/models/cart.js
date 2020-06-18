@@ -6,10 +6,17 @@ const cartSchema = new mongoose.Schema({
         ref: 'User'
     },
     carts: [{
-        product: {
-            type: 
+        productId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product'
+        },
+        amount: {
+            type: Number
+        },
+        price: {
+            type: Number
         }
-    }] 
+    }], 
     deleteAt: {
         type: Date
     }

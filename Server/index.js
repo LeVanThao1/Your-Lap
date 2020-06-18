@@ -3,21 +3,29 @@ const app = express();
 const port = 3001;
 const cors = require('cors')
 const mongoose = require('mongoose');
-const URI = 'mongodb+srv://vanthaodhdt:ta210402@cluster0-nolvx.mongodb.net/YourLap?retryWrites=true&w=majority';
+
 const userRoute = require('./apis/user.js');
 const bodyParser = require('body-parser');
+const models = require('./models')
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
-const connectDB = async () => {
-    await mongoose.connect(URI, {
-      useUnifiedTopology: true,
-      useNewUrlParser: true
-    });
-    console.log('db connected..!');
-}
-connectDB()
+models
+.connectDB()
+.then(console.log('connect db successfully'))
+.catch(function (e) {
+    console.error(e);
+    process.exit(1);
+});
+const headers = {
+    // 'allowedHeaders': ['Content-Type', 'Authorization'],
+    'origin': '*',
+    // 'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    // 'preflightContinue': true
+};
+app.use(cors(headers));
+app.options('*', cors(headers));
 
 userRoute.load(app);
 // mongoose.connect(, { useUnifiedTopology: true, useNewUrlParser: true });       

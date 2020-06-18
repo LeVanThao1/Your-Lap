@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         max: 30,
         min: 10,
-        require:true
+        required:true
     },
     gender: {
         type: String,
@@ -14,9 +14,18 @@ const userSchema = new mongoose.Schema({
     dateOfBirth: {
         type: Date
     },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        min: 6,
+        required: true
+    },
     type: {
         type: String,
-        emun: ['member', 'admin'],
+        enum: ['member', 'admin'],
         default: 'member'
     },
     address: {
@@ -30,9 +39,6 @@ const userSchema = new mongoose.Schema({
     state: {
         type: Boolean,
         default: false
-    },
-    cart: {
-        type: mongoose.Schema.Types.ObjectId
     },
     deleteAt: {
         type: Date

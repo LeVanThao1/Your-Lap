@@ -10,7 +10,7 @@ const deleteUser = async (req, res, next) => {
         if (!userDelete) {
             return next(new Error('USER_NOT_FOUND'));
         }
-        await userRepository.updateOne({ _id: id }, {data: {$set: { deleteAt: new Date() }}} );
+        await User.updateOne({ _id: id }, {data: {$set: { deleteAt: new Date() }}} );
         return res.status(200).json({
             message : 'delete user successful',
         });
@@ -68,8 +68,8 @@ const updateUser = async (req, res, next) => {
         const salt = bcrypt.genSaltSync(2);
         const hashPassword = bcrypt.hashSync(data.password, salt);
         data.password = hashPassword;
-        lodash.omitBy(data, lodash.isNull);
-        const existedUser = await userRepository.getOne({where: { _id: id }, select: '_id'});
+        _.omitBy(data, _.isNull);
+        const existedUser = await User.getOne({ _id: id });
         if (!existedUser) {
             return next(new Error('USER_NOT_FOUND'));
         }
@@ -95,7 +95,7 @@ const login = async (req, res, next) => {
         const salt  = bcrypt.genSaltSync('10');
         const hashPassword = bcrypt.hashSync(data.password, salt);
         // const password = hashPassword;
-        const user = await User.findOne({ where: { username: data.username } });
+        const user = await User.findOne({ email: data.email });
         if (!user) {
             // return next(new Error('USERNAME_NOT_EXISTED'));
             return next(new Error('USER_NOT_FOUND'));
@@ -104,10 +104,11 @@ const login = async (req, res, next) => {
         if (!isValidatePassword) {
             return next(new Error('PASSWORD_IS_INCORRECT'));
         }
-        const token = sign({ _id: user._id });
+        // const token = sign({ _id: user._id });
         return res.status(200).json({
             message: "login successfully",
-            access_token: token
+            // access_token: token
+            user: user
         });
     } catch (e) {
         return next(e);
