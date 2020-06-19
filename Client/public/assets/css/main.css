@@ -1356,3 +1356,12 @@ i.home-product-item__like-icon-fill {
     text-align: center;
     color: #5e5e5e;
 }
+
+/* -------- Like & Dislike products */
+.like {
+    color: var(--primary-color);
+}
+
+.dislike {
+    color: var(--white-color);
+}
