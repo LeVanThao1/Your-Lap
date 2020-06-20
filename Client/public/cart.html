@@ -289,13 +289,13 @@
                                         </span>
                                     </div>
                                     <div class="cart_content__quanity">
-                                        <button class="cart_content__quanity-btn">
+                                        <button class="cart_content__quanity-btn quantity-btn__decrease">
                                             <i class="cart_content__quanity-icon fas fa-minus"></i>
                                         </button>
                                         <form action="#">
                                             <input class="cart_content__quanity-input" type="text" value="1">
                                         </form>
-                                        <button class="cart_content__quanity-btn">
+                                        <button class="cart_content__quanity-btn quantity-btn__increase">
                                             <i class="cart_content__quanity-icon fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -325,13 +325,13 @@
                                         </span>
                                     </div>
                                     <div class="cart_content__quanity">
-                                        <button class="cart_content__quanity-btn">
+                                        <button class="cart_content__quanity-btn quantity-btn__decrease">
                                             <i class="cart_content__quanity-icon fas fa-minus"></i>
                                         </button>
                                         <form action="#">
                                             <input class="cart_content__quanity-input" type="text" value="2">
                                         </form>
-                                        <button class="cart_content__quanity-btn">
+                                        <button class="cart_content__quanity-btn quantity-btn__increase">
                                             <i class="cart_content__quanity-icon fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -361,13 +361,13 @@
                                         </span>
                                     </div>
                                     <div class="cart_content__quanity">
-                                        <button class="cart_content__quanity-btn">
+                                        <button class="cart_content__quanity-btn quantity-btn__decrease">
                                             <i class="cart_content__quanity-icon fas fa-minus"></i>
                                         </button>
                                         <form action="#">
-                                            <input class="cart_content__quanity-input" type="text" value="1">
+                                            <input class="cart_content__quanity-input" type="text" value="3">
                                         </form>
-                                        <button class="cart_content__quanity-btn">
+                                        <button class="cart_content__quanity-btn quantity-btn__increase">
                                             <i class="cart_content__quanity-icon fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -482,11 +482,11 @@
                             <img src="assets/img/qr_code.png" alt="Download QR" class="footer__download-qr">
                             <div class="footer__download-apps">
                                 <a href="#" class="footer__download-apps-link">
-                                    <img src="/assets/img/google_play.png" alt="Google play"
+                                    <img src="./assets/img/google_play.png" alt="Google play"
                                         class="footer__download-apps-img">
                                 </a>
                                 <a href="#" class="footer__download-apps-link">
-                                    <img src="/assets/img/app_store.png" alt="App store"
+                                    <img src="./assets/img/app_store.png" alt="App store"
                                         class="footer__download-apps-img">
                                 </a>
                             </div>
@@ -502,61 +502,79 @@
             </div>
         </footer>
     </div>
-    <!-- ------------------------------------------------------------------------------ -->
-    <!-- Dùng để xuất hiện phần Thanh toán ngay trên trang chủ của website -->
-    <!-- Modal layout : Mở khóa từ thẻ div bên dưới này-------------------------------------->
-    <div class="modal">
-        <div class="modal__overlay">
+    <script type="text/javascript">
+        var btnGiams = document.getElementsByClassName('quantity-btn__decrease');
+        // console.log(btnGiams);
+        var btnTangs = document.getElementsByClassName('quantity-btn__increase');
+        // console.log(btnTangs);
 
-        </div>
+        for(var i = 0 ; i< btnGiams.length ; i++){
 
-        <div class="modal__body">
+            var btnGiam = btnGiams[i];
+            // console.log(btnGiam);
+            
+            btnGiam.addEventListener('click',function(){
+                var inputValue =  this.parentElement.querySelectorAll('form input');
+                // console.log(inputValue[0]);
+                let value = inputValue[0].value;
+                value = +value;
+                // console.log(value);
+                if(value > 0)
+                {
+                    inputValue[0].value = value - 1;
+                }
+            });
 
+        }
 
-            <!-- Buy form -->
-            <div class="auth-form">
-                <div class="auth-form__container auth-form__pay">
+        for(var j = 0 ; j< btnTangs.length ; j++){
+            var btnTang = btnTangs[j];
+            // console.log(btnTang);
 
-                    <div class="auth-form__header">
-                        <h3 class="auth-form__heading">Địa chỉ giao/nhận hàng</h3>
-                    </div>
+            btnTang.addEventListener('click',function(){
+                var inputValue =  this.parentElement.querySelectorAll('form input');
+                // console.log(inputValue[0]);
+                let value = inputValue[0].value;
+                value = +value;
+                    inputValue[0].value = value + 1;
+            });
 
-                    <form class="auth-form__form">
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Họ và tên">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Số điện thoại">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Tỉnh/Thành phố">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Quận/Huyện">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Phường/Xã">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Tòa nhà/Tên đường...">
-                        </div>
-                    </form>
+        }
 
-                    <div class="auth-form__aside">
-                        <p class="auth-form__policy-text">
-                            Chúng tôi sẽ chuyển hàng và thanh toán sau khi nhận hàng.
-                        </p>
-                    </div>
+        var thanhTien = document.getElementsByClassName('cart-total-prices__cal-number');
+        var giaMotSPs =document.getElementsByClassName('cart_content__price--current');
+        var result = 0;
+        for(var k = 0 ; k <giaMotSPs.length ; k++){
+            var giaMotSP = giaMotSPs[k];
+            var text = giaMotSP.innerText;
+            var currentValue = text.match(/\d/g).join('');
+            // console.log(currentValue);
+            var spLuongs = giaMotSP.parentElement.parentElement.querySelectorAll('.cart_content__quanity form input');
+            var spLuong = spLuongs[0].value;
+            // console.log(spLuong);
+            result += currentValue * spLuong;
+            // console.log(typeof result);
+        }  
+        var kq = ['đ'];
+        var d = 0;
+        // console.log(typeof (result % 10 + ''));
+        // kq.unshift((result % 10) + '');
+        // console.log(kq);
+        while(result > 0) {
+            kq.unshift((result % 10) + '');
+            result = Math.floor(result / 10);
+            d++;
+            if(d == 3) {
+                kq.unshift('.');
+                d = 0;
+            }
+        }
+        kq = kq.join('');
+        thanhTien[0].innerText = kq;
+        var phaiTra = document.getElementsByClassName('cart-total-prices__cur-number');
+        phaiTra[0].innerHTML = `${kq}<i>(Đã bao gồm VAT nếu có)</i>`;
 
-                    <div class="auth-form__controls">
-                        <button class="btn auth-form__controls-back">TRỞ LẠI</button>
-                        <button class="btn btn--primary">HOÀN THÀNH</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </script>
 </body>
 
 </html>
