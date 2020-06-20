@@ -3,7 +3,7 @@ const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
 const Cart = require('../models/cart')
-const { sign } = require('../helper/jwt-helper')
+const { sign, verify } = require('../helper/jwt-helper')
 
 const deleteUser = async (req, res, next) => {
     try {
@@ -117,6 +117,24 @@ const login = async (req, res, next) => {
         return res.status(200).json({
             message: "login successfully",
             access_token: token,
+            userId: user._id,
+            username: user.fullname
+        });
+    } catch (e) {
+        return next(e);
+    }
+};
+
+const geUserWithToken = async (req, res, next) => {
+    try {
+        const token = req.query.token;
+        const user = verify(token);
+        if (!user) {
+            // return next(new Error('USERNAME_NOT_EXISTED'));
+            return next(new Error('TOKEN_KHONG_HOP_LE'));
+        }
+        return res.status(200).json({
+            message: "token hop le",
         });
     } catch (e) {
         return next(e);
@@ -130,4 +148,5 @@ module.exports = {
     updateUser,
     deleteUser,
     createUser,
+    geUserWithToken
 }

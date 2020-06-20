@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.13.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
 
 <body>
@@ -26,12 +26,12 @@
                             <div class="header__qr">
                                 <img src="./assets/img/qr_code.png" alt="QR Code" class="header__qr-img">
                                 <div class="header__qr-apps">
-                                    <a href="#" class="header__qr-link">
+                                    <a href="" class="header__qr-link logo">
                                         <img src="./assets/img/google_play.png" alt="Google Play"
                                             class="header__qr-download-img">
                                     </a>
 
-                                    <a href="#" class="header__qr-link">
+                                    <a href="" class="header__qr-link">
                                         <img src="./assets/img/app_store.png" alt="App Store"
                                             class="header__qr-download-img">
                                     </a>
@@ -108,10 +108,10 @@
                         <!-- <li class="header__navbar-item header__navbar-item--bold header__navbar-item--separate">Đăng ký</li>
                             <li class="header__navbar-item header__navbar-item--bold">Đăng nhập</li> -->
                         <!-- ----- Khi đã đăng nhập thì mở phần dưới này------- ---------------->
-                        <li class="header__navbar-item header__navbar-user">
-                            <img src="https://yt3.ggpht.com/a-/AOh14GipqfexOZj7ZjGVROd29XTD08hyTx28Gl7dC5IP=s88-c-k-c0xffffffff-no-rj-mo"
+                        <li class="header__navbar-item header__navbar-user ">
+                            <!-- <img src="https://yt3.ggpht.com/a-/AOh14GipqfexOZj7ZjGVROd29XTD08hyTx28Gl7dC5IP=s88-c-k-c0xffffffff-no-rj-mo"
                                 alt="photo" class="header__navbar-user-img">
-                            <span class="header__navbar-user-name">Anh Lâm</span>
+                            <span class="header__navbar-user-name"></span>
                             <ul class="header__navbar-user-menu">
                                 <li class="header__navbar-user-item">
                                     <a href="#">Tài khoản của tôi</a>
@@ -125,7 +125,7 @@
                                 <li class="header__navbar-user-item header__navbar-user-item--separate">
                                     <a href="#">Đăng xuất</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </li>
                     </ul>
 
@@ -263,7 +263,7 @@
 
                             <ul class="category-list">
                                 <!-- Thằng nào có category-item--active thì sẽ được hiệu ứng select -->
-                                <li class="category-item category-item--active">
+                                <!-- <li class="category-item category-item--active">
                                     <a href="#" class="category-item__link">Dòng máy Apple</a>
                                 </li>
                                 <li class="category-item">
@@ -271,7 +271,7 @@
                                 </li>
                                 <li class="category-item">
                                     <a href="#" class="category-item__link">Dòng máy Asus</a>
-                                </li>
+                                </li> -->
                             </ul>
                         </nav>
                     </div>
@@ -315,328 +315,9 @@
 
                         <div class="home-product">
                             <!-- Grid --- Row ---- column -->
-                            <div class="grid__row">
+                            <div class="grid__row allProduct">
                                 <!-- Product item -->
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
+                                
 
                             </div>
                         </div>
@@ -882,7 +563,13 @@
         </div>
         
     </div> -->
-
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/until.js"></script>
+    <script src="./js/Homepage/LoadUser.js"></script>
+    <script src="./js/Homepage/LoadCategory.js"></script>
+    <script src="./js/Homepage/LoadProduct.js"></script>
+    <script src="./js/Homepage/linked.js"></script>
 </body>
 
 </html>

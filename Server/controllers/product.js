@@ -58,7 +58,7 @@ const getAllProducts = async (req, res, next) => {
             ).populate(
                 {
                     path: 'typeProduct NSX',
-                    select: 'name'
+                    select: 'name nation'
                 }
             );
         return res.status(200).json({

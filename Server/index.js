@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3001;
 const cors = require('cors')
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const NSXRoute = require('./apis/NSX');
 const PTRoute = require('./apis/productType');
 const ProductRoute = require('./apis/product');
@@ -33,5 +33,21 @@ userRoute.load(app);
 NSXRoute.load(app);
 ProductRoute.load(app);
 PTRoute.load(app);
+
+app.use(function (err, req, res, next) {
+    // console.log(JSON.stringify(err, null, 2));
+    if (Array.isArray(err.errors)) {
+        const messagese = err.errors.map(function(item) {
+            return item.message;
+        });
+        return res.status(400).json({
+            error : messagese
+        });
+    }
+    return res.json({
+        message: err.message || 'have error'
+    });
+});
+
 // mongoose.connect(, { useUnifiedTopology: true, useNewUrlParser: true });       
 app.listen(port, () => console.log('Server listen on port ' + port));
