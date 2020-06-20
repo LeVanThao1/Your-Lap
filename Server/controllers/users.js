@@ -3,6 +3,7 @@ const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
 const Cart = require('../models/cart')
+const { sign } = require('../helper/jwt-helper')
 
 const deleteUser = async (req, res, next) => {
     try {
@@ -112,11 +113,10 @@ const login = async (req, res, next) => {
         if (!isValidatePassword) {
             return next(new Error('PASSWORD_IS_INCORRECT'));
         }
-        // const token = sign({ _id: user._id });
+        const token = sign({ _id: user._id });
         return res.status(200).json({
             message: "login successfully",
-            // access_token: token
-            user: user
+            access_token: token,
         });
     } catch (e) {
         return next(e);
