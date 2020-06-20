@@ -350,13 +350,13 @@
                                             <span class="quantity-text">Số Lượng</span>
                                             <div class="quantity-show">
                                                 <div class="quantity-show__control">
-                                                    <button class="quantity-btn">
+                                                    <button class="quantity-btn" id="quantity-btn__decrease">
                                                         <i class="quantity-icon fas fa-minus"></i>
                                                     </button>
                                                     <form action="#">
                                                         <input class="quantity-input" type="text" value="1">
                                                     </form>
-                                                    <button class="quantity-btn">
+                                                    <button class="quantity-btn" id="quantity-btn__increase">
                                                         <i class="quantity-icon fas fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -464,11 +464,11 @@
                             <img src="assets/img/qr_code.png" alt="Download QR" class="footer__download-qr">
                             <div class="footer__download-apps">
                                 <a href="#" class="footer__download-apps-link">
-                                    <img src="/assets/img/google_play.png" alt="Google play"
+                                    <img src="./assets/img/google_play.png" alt="Google play"
                                         class="footer__download-apps-img">
                                 </a>
                                 <a href="#" class="footer__download-apps-link">
-                                    <img src="/assets/img/app_store.png" alt="App store"
+                                    <img src="./assets/img/app_store.png" alt="App store"
                                         class="footer__download-apps-img">
                                 </a>
                             </div>
@@ -594,7 +594,30 @@
         </div>
         
     </div> -->
-
+    <script type="text/javascript">
+        var btnGiam = document.getElementById('quantity-btn__decrease');
+        var btnTang = document.getElementById('quantity-btn__increase');
+        var inputValue = document.getElementsByClassName('quantity-input');
+        btnGiam.addEventListener('click',function(){
+            let value = inputValue[0].value;
+            value = +value;
+            if(value > 0)
+                {
+                    inputValue[0].value = value - 1;
+                }
+        });
+        btnTang.addEventListener('click',function(){
+            let value = inputValue[0].value;
+            value = +value;
+            var text = document.getElementsByClassName('quantity-available');
+            text = text[0].innerText;
+            var currentValue = text.match(/\d/g);
+            currentValue = +currentValue;
+            if(value < currentValue){
+                inputValue[0].value = value + 1;
+            }
+        });
+    </script>
 </body>
 
 </html>

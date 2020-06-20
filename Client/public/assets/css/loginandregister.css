@@ -2,7 +2,7 @@
 
 
 .modal__overlay {
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../img/background_login.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../img/background_thanhtoan.jpg);
     background-position: center;
 	background-size: cover;
 	/*background-attachment: fixed;*/
@@ -158,7 +158,7 @@
 
 #register {
     /* display: none; */
-    left: 500px;
+    left: -500px;
 }
 #login {
     /* display: none; */

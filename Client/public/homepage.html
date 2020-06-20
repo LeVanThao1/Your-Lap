@@ -117,9 +117,6 @@
                                     <a href="#">Tài khoản của tôi</a>
                                 </li>
                                 <li class="header__navbar-user-item">
-                                    <a href="#">Địa chỉ của tôi</a>
-                                </li>
-                                <li class="header__navbar-user-item">
                                     <a href="#">Đơn mua</a>
                                 </li>
                                 <li class="header__navbar-user-item header__navbar-user-item--separate">
@@ -317,9 +314,10 @@
                             <!-- Grid --- Row ---- column -->
                             <div class="grid__row">
                                 <!-- Product item -->
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
+                                <div class="grid__column-3">
+                                    <div class="home-product-item" href="#">
+                                        <a href="#" class="home-product-wrapp">
+                                            <div class="home-product-item__img"
                                             style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
                                         </div>
                                         <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
@@ -327,12 +325,21 @@
                                             <span class="home-product-item__price-old">33.990.000đ</span>
                                             <span class="home-product-item__price-current">33.790.000đ</span>
                                         </div>
+                                        </a>
+                                        
                                         <div class="home-product-item__action">
                                             <!-- Sản phẩm được like thì thêm class ...--liked vào -->
                                             <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                                <i class="home-product-item__like-icon-empty far fa-heart" onclick="liked(this)"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart" onclick="unliked(this)"></i>
                                             </span>
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
                                             <span class="home-product-item__sold">đã bán</span>
                                         </div>
                                         <div class="home-product-item__origin">
@@ -347,11 +354,12 @@
                                             <span class="home-product-item__sale-off-percent">10%</span>
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
+                                <div class="grid__column-3">
+                                    <div class="home-product-item" href="#">
+                                        <a href="#" class="home-product-wrapp">
+                                            <div class="home-product-item__img"
                                             style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
                                         </div>
                                         <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
@@ -359,12 +367,21 @@
                                             <span class="home-product-item__price-old">33.990.000đ</span>
                                             <span class="home-product-item__price-current">33.790.000đ</span>
                                         </div>
+                                        </a>
+                                        
                                         <div class="home-product-item__action">
                                             <!-- Sản phẩm được like thì thêm class ...--liked vào -->
                                             <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                                <i class="home-product-item__like-icon-empty far fa-heart" onclick="liked(this)"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart" onclick="unliked(this)"></i>
                                             </span>
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
                                             <span class="home-product-item__sold">đã bán</span>
                                         </div>
                                         <div class="home-product-item__origin">
@@ -379,11 +396,12 @@
                                             <span class="home-product-item__sale-off-percent">10%</span>
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
+                                <div class="grid__column-3">
+                                    <div class="home-product-item" href="#">
+                                        <a href="#" class="home-product-wrapp">
+                                            <div class="home-product-item__img"
                                             style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
                                         </div>
                                         <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
@@ -391,12 +409,21 @@
                                             <span class="home-product-item__price-old">33.990.000đ</span>
                                             <span class="home-product-item__price-current">33.790.000đ</span>
                                         </div>
+                                        </a>
+                                        
                                         <div class="home-product-item__action">
                                             <!-- Sản phẩm được like thì thêm class ...--liked vào -->
                                             <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                                <i class="home-product-item__like-icon-empty far fa-heart" onclick="liked(this)"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart" onclick="unliked(this)"></i>
                                             </span>
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
                                             <span class="home-product-item__sold">đã bán</span>
                                         </div>
                                         <div class="home-product-item__origin">
@@ -411,11 +438,12 @@
                                             <span class="home-product-item__sale-off-percent">10%</span>
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
+                                <div class="grid__column-3">
+                                    <div class="home-product-item" href="#">
+                                        <a href="#" class="home-product-wrapp">
+                                            <div class="home-product-item__img"
                                             style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
                                         </div>
                                         <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
@@ -423,12 +451,21 @@
                                             <span class="home-product-item__price-old">33.990.000đ</span>
                                             <span class="home-product-item__price-current">33.790.000đ</span>
                                         </div>
+                                        </a>
+                                        
                                         <div class="home-product-item__action">
                                             <!-- Sản phẩm được like thì thêm class ...--liked vào -->
                                             <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                                <i class="home-product-item__like-icon-empty far fa-heart" onclick="liked(this)"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart" onclick="unliked(this)"></i>
                                             </span>
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
                                             <span class="home-product-item__sold">đã bán</span>
                                         </div>
                                         <div class="home-product-item__origin">
@@ -443,11 +480,12 @@
                                             <span class="home-product-item__sale-off-percent">10%</span>
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
+                                <div class="grid__column-3">
+                                    <div class="home-product-item" href="#">
+                                        <a href="#" class="home-product-wrapp">
+                                            <div class="home-product-item__img"
                                             style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
                                         </div>
                                         <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
@@ -455,12 +493,21 @@
                                             <span class="home-product-item__price-old">33.990.000đ</span>
                                             <span class="home-product-item__price-current">33.790.000đ</span>
                                         </div>
+                                        </a>
+                                        
                                         <div class="home-product-item__action">
                                             <!-- Sản phẩm được like thì thêm class ...--liked vào -->
                                             <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                                <i class="home-product-item__like-icon-empty far fa-heart" onclick="liked(this)"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart" onclick="unliked(this)"></i>
                                             </span>
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
                                             <span class="home-product-item__sold">đã bán</span>
                                         </div>
                                         <div class="home-product-item__origin">
@@ -475,11 +522,12 @@
                                             <span class="home-product-item__sale-off-percent">10%</span>
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
+                                <div class="grid__column-3">
+                                    <div class="home-product-item" href="#">
+                                        <a href="#" class="home-product-wrapp">
+                                            <div class="home-product-item__img"
                                             style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
                                         </div>
                                         <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
@@ -487,12 +535,21 @@
                                             <span class="home-product-item__price-old">33.990.000đ</span>
                                             <span class="home-product-item__price-current">33.790.000đ</span>
                                         </div>
+                                        </a>
+                                        
                                         <div class="home-product-item__action">
                                             <!-- Sản phẩm được like thì thêm class ...--liked vào -->
                                             <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                                <i class="home-product-item__like-icon-empty far fa-heart" onclick="liked(this)"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart" onclick="unliked(this)"></i>
                                             </span>
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
                                             <span class="home-product-item__sold">đã bán</span>
                                         </div>
                                         <div class="home-product-item__origin">
@@ -507,11 +564,12 @@
                                             <span class="home-product-item__sale-off-percent">10%</span>
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
+                                <div class="grid__column-3">
+                                    <div class="home-product-item" href="#">
+                                        <a href="#" class="home-product-wrapp">
+                                            <div class="home-product-item__img"
                                             style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
                                         </div>
                                         <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
@@ -519,12 +577,21 @@
                                             <span class="home-product-item__price-old">33.990.000đ</span>
                                             <span class="home-product-item__price-current">33.790.000đ</span>
                                         </div>
+                                        </a>
+                                        
                                         <div class="home-product-item__action">
                                             <!-- Sản phẩm được like thì thêm class ...--liked vào -->
                                             <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                                <i class="home-product-item__like-icon-empty far fa-heart" onclick="liked(this)"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart" onclick="unliked(this)"></i>
                                             </span>
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
                                             <span class="home-product-item__sold">đã bán</span>
                                         </div>
                                         <div class="home-product-item__origin">
@@ -539,11 +606,12 @@
                                             <span class="home-product-item__sale-off-percent">10%</span>
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
+                                <div class="grid__column-3">
+                                    <div class="home-product-item" href="#">
+                                        <a href="#" class="home-product-wrapp">
+                                            <div class="home-product-item__img"
                                             style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
                                         </div>
                                         <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
@@ -551,12 +619,21 @@
                                             <span class="home-product-item__price-old">33.990.000đ</span>
                                             <span class="home-product-item__price-current">33.790.000đ</span>
                                         </div>
+                                        </a>
+                                        
                                         <div class="home-product-item__action">
                                             <!-- Sản phẩm được like thì thêm class ...--liked vào -->
                                             <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                                <i class="home-product-item__like-icon-empty far fa-heart" onclick="liked(this)"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart" onclick="unliked(this)"></i>
                                             </span>
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
                                             <span class="home-product-item__sold">đã bán</span>
                                         </div>
                                         <div class="home-product-item__origin">
@@ -571,75 +648,15 @@
                                             <span class="home-product-item__sale-off-percent">10%</span>
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item__img"
-                                            style="background-image: url(https://cdn.tgdd.vn/Products/Images/44/106875/apple-macbook-air-mqd32sa-a-i5-5350u-600x600.jpg);">
-                                        </div>
-                                        <h4 class="home-product-item__name">Laptop Apple Macbook Pro 2019 MUHN2SA/A</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">33.990.000đ</span>
-                                            <span class="home-product-item__price-current">33.790.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <!-- Sản phẩm được like thì thêm class ...--liked vào -->
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <span class="home-product-item__sold">đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-brand">Apple</span>
-                                            <span class="home-product-item__origin-name">America</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
+                                
 
                             </div>
                         </div>
+                        
+                    </div>
+                    <div class="grid__column-12">
                         <ul class="pagination home-product__pagination">
                             <!-- active là hiện được bấm -->
                             <li class="pagination-item">
@@ -713,13 +730,13 @@
                         <h3 class="footer__heading">Lời cảm ơn</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
-                                <a href="#" class="footer-item__link">Cảm ơn đã sử dụng dịch vụ của chúng tôi</a>
+                                <a href="#" class="footer-item__link footer-item__link--nopoiter">Cảm ơn đã sử dụng dịch vụ của chúng tôi</a>
                             </li>
                             <li class="footer-item">
-                                <a href="#" class="footer-item__link">Cảm ơn đã đánh giá tốt</a>
+                                <a href="#" class="footer-item__link footer-item__link--nopoiter">Cảm ơn đã đánh giá tốt</a>
                             </li>
                             <li class="footer-item">
-                                <a href="#" class="footer-item__link">Cảm ơn vì đã tin tưởng</a>
+                                <a href="#" class="footer-item__link footer-item__link--nopoiter">Cảm ơn vì đã tin tưởng</a>
                             </li>
                         </ul>
                     </div>
@@ -752,11 +769,11 @@
                             <img src="assets/img/qr_code.png" alt="Download QR" class="footer__download-qr">
                             <div class="footer__download-apps">
                                 <a href="#" class="footer__download-apps-link">
-                                    <img src="/assets/img/google_play.png" alt="Google play"
+                                    <img src="./assets/img/google_play.png" alt="Google play"
                                         class="footer__download-apps-img">
                                 </a>
                                 <a href="#" class="footer__download-apps-link">
-                                    <img src="/assets/img/app_store.png" alt="App store"
+                                    <img src="./assets/img/app_store.png" alt="App store"
                                         class="footer__download-apps-img">
                                 </a>
                             </div>
@@ -882,7 +899,21 @@
         </div>
         
     </div> -->
+    <script type="text/javascript">
+        function liked(e){
+            e.style.display = 'none';
+            var isLike = e.parentElement.getElementsByClassName('home-product-item__like-icon-fill');
+            isLike[0].style.display = 'inline-block';
+        }
 
+        function unliked(e){
+            e.style.display = 'none';
+            var isUnlike = e.parentElement.getElementsByClassName('home-product-item__like-icon-empty');
+            isUnlike[0].style.display = 'block';
+        }
+
+    </script>
+</body>
 </body>
 
 </html>
