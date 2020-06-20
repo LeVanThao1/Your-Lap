@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
 const NSX = require('../models/NSX');
 const ProductType = require('../models/productType')
+const { verify } = require('../helper/jwt-helper');
 
 const deleteProduct = async (req, res, next) => {
     try {
@@ -46,16 +47,20 @@ const getProduct = async (req, res, next) => {
 
 const getAllProducts = async (req, res, next) => {
     try {
-        const ListProducts = await Product.find({deleteAt: undefined}).lean().populate(
-            {
-                path: 'postBy',
-                select: 'fullname'
-            },
-            {
-                path: 'typeProduct NSX',
-                select: 'name'
-            }
-        );
+        const ListProducts = await Product
+            .find({deleteAt: undefined})
+            .lean()
+            .populate(
+                {
+                    path: 'postBy',
+                    select: 'fullname'
+                }
+            ).populate(
+                {
+                    path: 'typeProduct NSX',
+                    select: 'name'
+                }
+            );
         return res.status(200).json({
             message: 'ListProducts',
             ListProducts
@@ -66,25 +71,31 @@ const getAllProducts = async (req, res, next) => {
 }
 const createProduct = async (req, res, next) => {
     try {
+        console.log(req.files);
         const data = req.body;
+        data.images = [];
+        req.files.forEach(img => {
+            data.images.push(img.filename);
+        });
         // const salt = bcrypt.genSaltSync(2);
         // console.log(data);
         // const hashPassword = bcrypt.hashSync(data.password, salt);
         // data.password = hashPassword;
         console.log(data);
-        // const existedNSX = await NSX.findOne({_id: data.NSX});
-        // if(!existedNSX) {
-        //     return new Error('NSX NOT FOUND')
-        // }
-        // const existedTypeProduct = await ProductType.findOne({_id: data.typeProduct});
-        // if(!existedTypeProduct) {
-        //     return new Error('Type Product NOT FOUND')
-        // }
-        // const createdProduct = await Product.create(data);
-        // return res.status(200).json({
-        //     message: "create product successfully",
-        //     createdProduct
-        // });
+        data.postBy = req.user._id;
+        const existedNSX = await NSX.findOne({_id: data.NSX});
+        if(!existedNSX) {
+            return new Error('NSX NOT FOUND')
+        }
+        const existedTypeProduct = await ProductType.findOne({_id: data.typeProduct});
+        if(!existedTypeProduct) {
+            return new Error('Type Product NOT FOUND')
+        }
+        const createdProduct = await Product.create(data);
+        return res.status(200).json({
+            message: "create product successfully",
+            createdProduct
+        });
     } catch (e) {
         next(e);
     }
