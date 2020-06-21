@@ -15,7 +15,8 @@
     <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
         rel='stylesheet'>
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap" rel="stylesheet"
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,12 +28,12 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link headingbav" href="#">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Setting</a>
+                <a class="nav-link headingbav" href="#">Setting</a>
               </li>
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Dropdown
                 </a>
@@ -44,8 +45,8 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
+                <a class="nav-link" href="login.html" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> -->
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-5">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -77,7 +78,7 @@
                     <div class="col-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">                            
-                        <a class="nav-link active" href="index.html">Trang chủ</a>
+                            <a class="nav-link active" href="admin.html">Trang chủ</a>
                       </li>
                       <li class="nav-item">                          
                         <a class="nav-link active" href="new-feed.html"><div class="icon"></div>Bản tin</a>
@@ -86,7 +87,7 @@
                         <a class="nav-link active" href="notification.html">  <div class="icon"></div>Thông báo</a>
                       </li>
                       <li class="nav-item">                       
-                        <a class="nav-link active" href="mes.html"> <div class="icon"></div>Tin nhắn</a>
+                        <a class="nav-link active" href="mes.html"> <div class="icon"></div>Khuyến mãi</a>
                       </li>
                       <li class="nav-item">                        
                         <a class="nav-link active" href="product.html"><div class="icon"></div>Quản lý sản phẩm</a>
@@ -99,12 +100,16 @@
                         
                         <a class="nav-link" href="order.html"><div class="icon"></div>Quản lý đơn hàng</a>
                       </li>
-                      <li class="nav-item">
-                       
-                        <a class="nav-link" href="qlkho.html"> <div class="icon"></div>Quản lý kho</a>
+                      <li class="nav-item">                       
+                        <a class="nav-link" href="typeProduct.html"> <div class="icon"></div>Loại sản phẩm</a>
+                      </li>
+                      <li class="nav-item">                       
+                        <a class="nav-link" href="producer.html"> <div class="icon"></div>Nhà sản xuất</a>
+                      </li>
+                      <li class="nav-item">                
+                        <a class="nav-link" href="rate.html"> <div class="icon"></div>Đánh giá</a>
                       </li>
                       <li class="nav-item">
-                       
                         <a class="nav-link" href="charts.html"> <div class="icon"></div>Thống kê</a>
                       </li>
                       <li class="nav-item">
@@ -112,84 +117,81 @@
                       </li>
                     </ul>
                   </div>
-                       <div class="col-9">
-                          
-                          <div class="content content-t">
-                            <div class="module message">
-                              <div class="main-header">
-                                <h5>Quản lý sản phẩm</h5>
-                              </div>
-                              <div class="child-header">
-                              <div class="dropdown">
-                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                     Sắp xếp
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                      <button class="dropdown-item" type="button">Tên sp A-Z</button>
-                                      <button class="dropdown-item" type="button">Tên sp Z-A</button>
-                                      <button class="dropdown-item" type="button">Mã NSX</button>
-                                      <button class="dropdown-item" type="button">Số lượng tăng</button>
-                                      <button class="dropdown-item" type="button">Số lượng giảm</button>
-                                      <button class="dropdown-item" type="button">Ngày cập nhật</button>
-                                    </div>
-                                  </div>
-                              </div>
-                               <!-- content - user -->
-                            <div class="module-body table">
-                                    <table class="table table-message">
-                                        <tbody>
-                                            <tr class="heading">
-                                                <td class="cell-check">
-                                                   Mã SP
-                                                </td>
-                                                <td class="cell-icon">
-                                                    Tên SP
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    Mã NSX
-                                                </td>
-                                                <td class="cell-title">
-                                                   Số lượng
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                  Ngày cập nhật
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                  Mô tả
-                                                </td>
-                                            </tr>
-                                            <tr class="unread">                               
-                                                  <td class="cell-check">
-                                                    P1P2k3
-                                                    </td>
-                                                    <td class="cell-icon">
-                                                        ABC123
-                                                    </td>
-                                                    <td class="cell-author hidden-phone hidden-tablet">
-                                                        Dell
-                                                    </td>
-                                                    <td class="cell-title">
-                                                        100
-                                                    </td>
-                                                    <td class="cell-icon hidden-phone hidden-tablet">
-                                                      Jan 02 2020
-                                                    </td>
-                                                    <td class="cell-time align-right">
-                                                        Như đầu buồi
-                                                    </td>                                     
-                                            </tr>
-
-                                    </tbody>
-                              </table>
-                            </div>
-                            <!--  content- user -->
-                            </div>                  
-                           
-                          </div>
-                        
-                        
-                        
+                  <div class="col-9">
+                    <div class="content content-t">
+                      <div class="module message">
+                        <div class="main-header">
+                          <h5>Chi tiết khuyến mãi</h5>
                         </div>
+                    <div class="child-header">
+                      <form>
+                          <div class="form-group row">
+                            <label for="inputIdPr" class="col-sm-3 col-form-label">Mã khuyến mãi</label>
+                            <div class="col-sm-9">
+                              <input type="id" class="form-control" id="inputIdPr">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputNamePr" class="col-sm-3 col-form-label">Mã khách hàng</label>
+                            <div class="col-sm-9">
+                              <input type="name" class="form-control" id="inputNamePr">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputIdNSX" class="col-sm-3 col-form-label">Số tiến khuyến mãi</label>
+                            <div class="col-sm-9">
+                              <input type="id" class="form-control" id="inputIdNSX">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputBuyPrice" class="col-sm-3 col-form-label">Ngày bắt đầu</label>
+                            <div class="col-sm-9">
+                              <input type="date" class="form-control" id="inputBuyPrice">
+                            </div>
+                          </div>     
+                          <div class="form-group row">
+                            <label for="inputDate" class="col-sm-3 col-form-label">Ngày kết thúc</label>
+                            <div class="col-sm-9">
+                              <input type="date" class="form-control" id="inputEmail3">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputIdNSX" class="col-sm-3 col-form-label">Loại khuyến mãi</label>
+                            <div class="col-sm-9">
+                              <input type="id" class="form-control" id="inputIdNSX">
+                            </div>
+                        </div> 
+                          <!-- <div class="form-group row">
+
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Nội dung</label>
+                            <div class="col-sm-9">
+                               <textarea name="" id="" cols="30" rows="6"></textarea>
+                            </div>
+                          </div> -->
+                    <!-- Brower-img -->
+                    <!--   <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Ảnh</span>
+                      </div>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                      </div>
+                    </div> -->
+                    <!-- Brower-img -->
+                          <div class="form-group row">
+                            <div class="col-sm-12 btn-add">
+                              <button type="submit" class="btn btn-primary btn-add">BACK</button>
+                            </div>
+                          </div>
+                      </form>
+                        </div>
+                         <!-- content - user -->
+                      
+                      <!--  content- user -->
+                      </div>      
+                    </div>
+                  </div>
             </div> 
               </div>
                
@@ -203,6 +205,8 @@
         
 <!-- /////////////////////////////////         -->
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="./js//handleManageUser.js"></script>
 </body>
    
 </html>

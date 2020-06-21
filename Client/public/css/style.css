@@ -4,6 +4,12 @@
 	box-sizing: border-box;
 }
 
+.headingbav{
+	font-size: 19px;
+	font-weight: 400;
+	color: #d60c0c!important;
+}
+
 .nav-avatar{
 	background-color: #eee;
 }
@@ -31,12 +37,12 @@
 	width: 100%;
 	max-width: 18em;
 	margin-top:25px;
-	background-color: #2D2B32;
+	background-color: #d60c0c;
 }
 
 
 .col-3 li{
-	border-bottom: 1px solid #737373;
+	border-bottom: 1px solid #FFF;
 	margin:10px;
 	align-items: center;
 	text-align: center;
@@ -45,7 +51,8 @@
 .col-3 a{
 	align-items: center;
 	text-align: center;
-	color: #767676;
+	font-weight: 500;
+	color: #FFF;
 }
 
 .col-3 i{
@@ -54,7 +61,7 @@
 }
 
 .col-3 li>a:hover{
-	color: #efefef;
+	color: #bbb;
 }
 
 .col-3 li:hover{
@@ -158,6 +165,8 @@ table{
 }
 
 .heading{
+	font-size: 17px;
+	font-weight: 600;
 	background-color: #29B7D3;
 	color: #fff;
 }
@@ -181,7 +190,7 @@ table{
 	opacity: .6;
 	filter: alpha(opacity=60)
 }
-.message .table-message tbody tr:hover td {
+.message .table-message tbody tr.unread:hover td {
 	background: #E8F6E4;
 	cursor: pointer
 }
