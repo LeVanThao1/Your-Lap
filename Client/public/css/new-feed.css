@@ -15,6 +15,7 @@
 	align-items: center;
 	text-align: center;
 	align-content: center;
+	object-fit: contain;
 	padding: 45px 10px;
 }
 
