@@ -166,7 +166,7 @@ ul.hom-page__list>li.home-path__item:first-child >a.home-page__link>i.home-path_
     min-width: 158px;
     height: 48px;
     color: var(--primary-color);
-    background-color: #ff57221a;
+    background-color: #ffffff1a;
     box-sizing: border-box;
     border: 1px solid var(--primary-color);
     font-size: 1.6rem;
@@ -174,7 +174,7 @@ ul.hom-page__list>li.home-path__item:first-child >a.home-page__link>i.home-path_
 }
 
 .info-product__add--cart:hover {
-    background-color: #f5cbcba3;
+    background-color: #ff57221a;
 }
 
 .info-product__icon {
@@ -236,6 +236,7 @@ ul.hom-page__list>li.home-path__item:first-child >a.home-page__link>i.home-path_
 
 .product-comment__text {
     width: 100%;
+    font-size: 1.3rem;
     outline: none;
     border-radius: 2px;
 }

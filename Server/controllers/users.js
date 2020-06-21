@@ -74,9 +74,11 @@ const updateUser = async (req, res, next) => {
     try {
         const { id } = req.params;
         const data = req.body;
-        const salt = bcrypt.genSaltSync(2);
-        const hashPassword = bcrypt.hashSync(data.password, salt);
-        data.password = hashPassword;
+        if(data.password) {
+            const salt = bcrypt.genSaltSync(2);
+            const hashPassword = bcrypt.hashSync(data.password, salt);
+            data.password = hashPassword;
+        }
         _.omitBy(data, _.isNull);
         const existedUser = await User.findOne({ _id: id });
         if (!existedUser) {

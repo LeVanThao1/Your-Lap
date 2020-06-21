@@ -45,7 +45,7 @@ app.use(function (err, req, res, next) {
         });
     }
     return res.json({
-        message: err.message || 'have error'
+        message: err || 'have error'
     });
 });
 

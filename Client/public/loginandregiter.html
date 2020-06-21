@@ -75,7 +75,7 @@
 
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng nhập</h3>
-                        <span class="auth-form_switch-btn" id="pass-to-register">Đăng ký</span>
+                        <a href="#register"><span class="auth-form_switch-btn" id="pass-to-register">Đăng ký</span></a>
                     </div>
 
                     <form class="auth-form__form">
@@ -102,7 +102,7 @@
 
                     <div class="auth-form__controls">
                         <button class="btn auth-form__controls-back">TRỞ LẠI</button>
-                        <button class="btn btn--primary Login">ĐĂNG NHẬP</button>
+                        <button class="btn btn--primary Login" >ĐĂNG NHẬP</button>
                     </div>
                 </div>
 
@@ -121,18 +121,29 @@
 
     </div>
     <script type="text/javascript">
+        if(window.location.hash === "#register") {
+            $('#login').css("left", "-500px")
+            $('#register').css("left", "0")
+        }
         var pass_login = document.getElementById("pass-to-login");
         var pass_register = document.getElementById("pass-to-register");
         var login = document.getElementById("login");
         var register = document.getElementById("register");
 
-        pass_login.addEventListener('click',function(){
-            register.style.left = '500px';
-            login.style.left = '0';
+        $('#pass-to-login').click(function(){
+            // register.style.left = '-500px';
+            // login.style.left = '0';
+
+            $('#login').css("left", "0");
+            $('#register').css("left", "500px");
         });
-        pass_register.addEventListener('click',function(){
-            register.style.left = '0';
-            login.style.left = '500px';
+        $('#pass-to-register').click(function(){
+            // register.style.left = '0';
+            // login.style.left = '500px';
+
+            $('#login').css("left", "-500px")
+
+            $('#register').css("left", "0")
         });
     </script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>

@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
 const NSX = require('../models/NSX');
 const ProductType = require('../models/productType')
-const { verify } = require('../helper/jwt-helper');
+const cloudinary = require('../helper/cloudinary');
+const fs = require('fs')
 
 const deleteProduct = async (req, res, next) => {
     try {
@@ -70,13 +71,23 @@ const getAllProducts = async (req, res, next) => {
     }
 }
 const createProduct = async (req, res, next) => {
+    const uploader = async(path) => await cloudinary.uploads(path,'Images');
     try {
+        const urls = [];
+        const files = req.files;
+        for(const file of files) {
+            const {path} = file;
+            const newPath = await uploader(path);
+
+            urls.push(newPath);
+            fs.unlinkSync(path);
+        }
         console.log(req.files);
         const data = req.body;
-        data.images = [];
-        req.files.forEach(img => {
-            data.images.push(img.filename);
-        });
+        data.images = urls;
+        // req.files.forEach(img => {
+        //     data.images.push(img.filename);
+        // });
         // const salt = bcrypt.genSaltSync(2);
         // console.log(data);
         // const hashPassword = bcrypt.hashSync(data.password, salt);

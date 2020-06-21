@@ -26,12 +26,12 @@
                             <div class="header__qr">
                                 <img src="./assets/img/qr_code.png" alt="QR Code" class="header__qr-img">
                                 <div class="header__qr-apps">
-                                    <a href="" class="header__qr-link logo">
+                                    <a href="#" class="header__qr-link">
                                         <img src="./assets/img/google_play.png" alt="Google Play"
                                             class="header__qr-download-img">
                                     </a>
 
-                                    <a href="" class="header__qr-link">
+                                    <a href="#" class="header__qr-link">
                                         <img src="./assets/img/app_store.png" alt="App Store"
                                             class="header__qr-download-img">
                                     </a>
@@ -108,16 +108,13 @@
                         <!-- <li class="header__navbar-item header__navbar-item--bold header__navbar-item--separate">Đăng ký</li>
                             <li class="header__navbar-item header__navbar-item--bold">Đăng nhập</li> -->
                         <!-- ----- Khi đã đăng nhập thì mở phần dưới này------- ---------------->
-                        <li class="header__navbar-item header__navbar-user ">
-                            <!-- <img src="https://yt3.ggpht.com/a-/AOh14GipqfexOZj7ZjGVROd29XTD08hyTx28Gl7dC5IP=s88-c-k-c0xffffffff-no-rj-mo"
+                        <li class="header__navbar-item header__navbar-user">
+                         <!--    <img src="https://yt3.ggpht.com/a-/AOh14GipqfexOZj7ZjGVROd29XTD08hyTx28Gl7dC5IP=s88-c-k-c0xffffffff-no-rj-mo"
                                 alt="photo" class="header__navbar-user-img">
-                            <span class="header__navbar-user-name"></span>
+                            <span class="header__navbar-user-name">Anh Lâm</span>
                             <ul class="header__navbar-user-menu">
                                 <li class="header__navbar-user-item">
                                     <a href="#">Tài khoản của tôi</a>
-                                </li>
-                                <li class="header__navbar-user-item">
-                                    <a href="#">Địa chỉ của tôi</a>
                                 </li>
                                 <li class="header__navbar-user-item">
                                     <a href="#">Đơn mua</a>
@@ -125,8 +122,8 @@
                                 <li class="header__navbar-user-item header__navbar-user-item--separate">
                                     <a href="#">Đăng xuất</a>
                                 </li>
-                            </ul> -->
-                        </li>
+                            </ul>-->
+                        </li> 
                     </ul>
 
                 </nav>
@@ -318,9 +315,13 @@
                             <div class="grid__row allProduct">
                                 <!-- Product item -->
                                 
+                                
 
                             </div>
                         </div>
+                        
+                    </div>
+                    <div class="grid__column-12">
                         <ul class="pagination home-product__pagination">
                             <!-- active là hiện được bấm -->
                             <li class="pagination-item">
@@ -394,13 +395,13 @@
                         <h3 class="footer__heading">Lời cảm ơn</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
-                                <a href="#" class="footer-item__link">Cảm ơn đã sử dụng dịch vụ của chúng tôi</a>
+                                <a href="#" class="footer-item__link footer-item__link--nopoiter">Cảm ơn đã sử dụng dịch vụ của chúng tôi</a>
                             </li>
                             <li class="footer-item">
-                                <a href="#" class="footer-item__link">Cảm ơn đã đánh giá tốt</a>
+                                <a href="#" class="footer-item__link footer-item__link--nopoiter">Cảm ơn đã đánh giá tốt</a>
                             </li>
                             <li class="footer-item">
-                                <a href="#" class="footer-item__link">Cảm ơn vì đã tin tưởng</a>
+                                <a href="#" class="footer-item__link footer-item__link--nopoiter">Cảm ơn vì đã tin tưởng</a>
                             </li>
                         </ul>
                     </div>
@@ -433,11 +434,11 @@
                             <img src="assets/img/qr_code.png" alt="Download QR" class="footer__download-qr">
                             <div class="footer__download-apps">
                                 <a href="#" class="footer__download-apps-link">
-                                    <img src="/assets/img/google_play.png" alt="Google play"
+                                    <img src="./assets/img/google_play.png" alt="Google play"
                                         class="footer__download-apps-img">
                                 </a>
                                 <a href="#" class="footer__download-apps-link">
-                                    <img src="/assets/img/app_store.png" alt="App store"
+                                    <img src="./assets/img/app_store.png" alt="App store"
                                         class="footer__download-apps-img">
                                 </a>
                             </div>
@@ -458,21 +459,17 @@
     <!-- Modal layout : Mở khóa từ thẻ div bên dưới này-------------------------------------->
     <!-- <div class="modal">
         <div class="modal__overlay">
-
         </div>
-
         <div class="modal__body"> -->
 
 
             <!-- Register form -->
             <!-- <div class="auth-form">
                 <div class="auth-form__container">
-
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng ký</h3>
                         <span class="auth-form_switch-btn">Đăng nhập</span>
                     </div>
-
                     <form class="auth-form__form">
                         <div class="auth-form__group">
                             <input type="text" class="auth-form__input" placeholder="Nhập email của bạn">
@@ -484,7 +481,6 @@
                             <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
                         </div>
                     </form>
-
                     <div class="auth-form__aside">
                         <p class="auth-form__policy-text">
                             Bằng việc đăng ký, bạn đã đồng ý với chúng tôi về
@@ -492,13 +488,11 @@
                             <a href="#" class="auth-form__text-link">Chính sách bảo mật</a>
                         </p>
                     </div>
-
                     <div class="auth-form__controls">
                         <button class="btn auth-form__controls-back">TRỞ LẠI</button>
                         <button class="btn btn--primary">ĐĂNG KÝ</button>
                     </div>
                 </div>
-
                 <div class="auth-form__socials">
                     <a href="" class="auth-form__socials--facebook btn btn--side-s btn--with-icon">
                         <i class="auth-form__socials-icon fab fa-facebook-square"></i>
@@ -519,7 +513,6 @@
                         <h3 class="auth-form__heading">Đăng nhập</h3>
                         <span class="auth-form_switch-btn">Đăng ký</span>  
                     </div>
-
                     <form class="auth-form__form">
                         <div class="auth-form__group">
                             <input type="text" class="auth-form__input" placeholder="Nhập email của bạn">
@@ -529,7 +522,6 @@
                         </div>
                     
                     </form>
-
                     <div class="auth-form__aside">
                         <div class="auth-form__help">
                             <a href="#" class="auth-form__help-link auth-form__help-forgot">
@@ -541,13 +533,11 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="auth-form__controls">
                         <button class="btn auth-form__controls-back">TRỞ LẠI</button>
                         <button class="btn btn--primary">ĐĂNG NHẬP</button>
                     </div>
                 </div>
-
                 <div class="auth-form__socials">
                     <a href="" class="auth-form__socials--facebook btn btn--side-s btn--with-icon">
                         <i class="auth-form__socials-icon fab fa-facebook-square"></i>
@@ -563,6 +553,20 @@
         </div>
         
     </div> -->
+    <script type="text/javascript">
+        function liked(e){
+            e.style.display = 'none';
+            var isLike = e.parentElement.getElementsByClassName('home-product-item__like-icon-fill');
+            isLike[0].style.display = 'inline-block';
+        }
+
+        function unliked(e){
+            e.style.display = 'none';
+            var isUnlike = e.parentElement.getElementsByClassName('home-product-item__like-icon-empty');
+            isUnlike[0].style.display = 'block';
+        }
+
+    </script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/until.js"></script>
