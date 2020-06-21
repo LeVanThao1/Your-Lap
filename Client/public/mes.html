@@ -15,7 +15,7 @@
     <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
         rel='stylesheet'>
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap" rel="stylesheet"
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,10 +27,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link headingbav" href="#">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Setting</a>
+                <a class="nav-link headingbav" href="#">Setting</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,7 +86,7 @@
                         <a class="nav-link active" href="notification.html">  <div class="icon"></div>Thông báo</a>
                       </li>
                       <li class="nav-item">                       
-                        <a class="nav-link active" href="mes.html"> <div class="icon"></div>Tin nhắn</a>
+                        <a class="nav-link active" href="mes.html"> <div class="icon"></div>Khuyến mãi</a>
                       </li>
                       <li class="nav-item">                        
                         <a class="nav-link active" href="product.html"><div class="icon"></div>Quản lý sản phẩm</a>
@@ -99,9 +99,14 @@
                         
                         <a class="nav-link" href="order.html"><div class="icon"></div>Quản lý đơn hàng</a>
                       </li>
-                      <li class="nav-item">
-                       
-                        <a class="nav-link" href="qlkho.html"> <div class="icon"></div>Quản lý kho</a>
+                      <li class="nav-item">                       
+                        <a class="nav-link" href="typeProduct.html"> <div class="icon"></div>Loại sản phẩm</a>
+                      </li>
+                      <li class="nav-item">                       
+                        <a class="nav-link" href="producer.html"> <div class="icon"></div>Nhà sản xuất</a>
+                      </li>
+                      <li class="nav-item">                 
+                        <a class="nav-link" href="rate.html"> <div class="icon"></div>Đánh giá</a>
                       </li>
                       <li class="nav-item">
                        
@@ -117,21 +122,24 @@
                             <div class="module message">
                               
                               <div class="main-header">
-                                <h5>Tin nhắn</h5>
+                                <h5>Khuyến mãi</h5>
                               </div>
                               <div class="child-header">
                                 <div class="dropdown">
-                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Hộp thư
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-primary">Gửi</a>
+                                    </div>
+                                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                       <button class="dropdown-item" type="button">Hộp thư đến</button>
                                       <button class="dropdown-item" type="button">Thư đã gửi</button>
                                       <button class="dropdown-item" type="button">Thư nháp</button>
                                       <button class="dropdown-item" type="button">Thùng rác</button>
                                       <button class="dropdown-item" type="button">Cài đặt</button>
-                                    </div>
+                                    </div> -->
                                   </div>
+                                  <div class="pull-center">
+                                    <a href="mesDetails.html" class="btn btn-primary">Temp Details</a>
+                                    </div>
                                   <div class="pull-right">
                                         <a href="#" class="btn btn-primary">Xoá</a>
                                     </div>
@@ -148,7 +156,7 @@
                                                 <td class="cell-icon">
                                                 </td>
                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                                    Người gửi
+                                                    Người nhận
                                                 </td>
                                                 <td class="cell-title">
                                                     Chủ đề
@@ -160,8 +168,8 @@
                                                     Ngày gửi
                                                 </td>
                                             </tr>
-                                            <tr class="unread">
-                                                 <td class="cell-check">
+                                            <tr class="unread" >
+                                                <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                     </td>
                                                     <td class="cell-icon">
@@ -174,11 +182,11 @@
                                                         Play with a dog
                                                     </td>
                                                     <td class="cell-icon hidden-phone hidden-tablet">
-                                                       <i class="far fa-eye"></i>
+                                                       Đã gửi
                                                     </td>
                                                     <td class="cell-time align-right">
-                                                        18:24
-                                                    </td
+                                                        10/10/2020 18:24
+                                                    </td>
                                             </tr>
                                             <tr class="unread starred">
                                                 <td class="cell-check">
@@ -194,10 +202,10 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Đã gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
                                             <tr class="unread">
@@ -214,10 +222,30 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                  
+                                                    Chưa gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
+                                                </td>
+                                            </tr>
+                                            <tr class="unread">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    Jhon
+                                                </td>
+                                                <td class="cell-title">
+                                                    Play with a dog
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    Đã gửi
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
                                             <tr class="unread">
@@ -234,70 +262,10 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Chưa gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
-                                                </td>
-                                            </tr>
-                                            <tr class="read starred">
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                    <i class="icon-star"></i>
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    John Wick
-                                                </td>
-                                                <td class="cell-title">
-                                                    Play with a dog
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                    18:24
-                                                </td>
-                                            </tr>
-                                            <tr class="read">
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                    <i class="icon-star"></i>
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    John Wick
-                                                </td>
-                                                <td class="cell-title">
-                                                    Play with a dog
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                  
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                    18:24
-                                                </td>
-                                            </tr>
-                                            <tr class="read starred">
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                    <i class="icon-star"></i>
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    John Wick
-                                                </td>
-                                                <td class="cell-title">
-                                                    Play with a dog
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
                                             <tr class="unread">
@@ -314,10 +282,50 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                  
+                                                    Chưa gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
+                                                </td>
+                                            </tr>
+                                            <tr class="unread">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    John Wick
+                                                </td>
+                                                <td class="cell-title">
+                                                    Play with a dog
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    Đã gửi
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    10/10/2020 18:24
+                                                </td>
+                                            </tr>
+                                            <tr class="unread">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    John Wick
+                                                </td>
+                                                <td class="cell-title">
+                                                    Play with a dog
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    Chưa gửi
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
                                             <tr class="unread starred">
@@ -334,10 +342,10 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Đã gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
                                             <tr class="unread">
@@ -354,10 +362,10 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Đã gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
                                             <tr class="unread">
@@ -374,13 +382,13 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Đã gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
-                                            <tr class="read starred">
+                                            <tr class="unread starred">
                                                 <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                 </td>
@@ -394,13 +402,13 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Chưa gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
-                                            <tr class="read">
+                                            <tr class="unread">
                                                 <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                 </td>
@@ -414,13 +422,13 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Đã gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
-                                            <tr class="read starred">
+                                            <tr class="unread starred">
                                                 <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                 </td>
@@ -434,13 +442,13 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Đã gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
-                                            <tr class="read">
+                                            <tr class="unread">
                                                 <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                 </td>
@@ -454,13 +462,13 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Đã gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
-                                            <tr class="read starred">
+                                            <tr class="unread starred">
                                                 <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                 </td>
@@ -474,13 +482,13 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                   Chưa gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
-                                            <tr class="read">
+                                            <tr class="unread">
                                                 <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                 </td>
@@ -494,10 +502,10 @@
                                                     Play with a dog
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                   <i class="far fa-eye"></i>
+                                                    Chưa gửi
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:24
+                                                    10/10/2020 18:24
                                                 </td>
                                             </tr>
                                         </tbody>
