@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/css/infoUser.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.13.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
 
 <body>
@@ -304,11 +304,32 @@
                                 <div class="auth-form__group group_change_password">
                                     <label class="info_user_label" for=""></label>
                                     <div class="info_user_gender change_password">
-                                        <input id="password" type="checkbox" name="gender" class="auth-form__input input_radio">
-                                        <label class="info_user_label label_for_password" for="password">Thay Đổi Mật Khẩu</label>
+                                        <input id="submit_change_password" type="checkbox" name="gender" class="auth-form__input input_radio">
+                                        <label class="info_user_label label_for_password" for="submit_change_passwords">Thay Đổi Mật Khẩu</label>
                                     </div>
                                 </div>
+                                <!-- <div class="changepassword">
+                                    <div class="auth-form__group">
+                                        <label class="info_user_label" for="">Mật Khẩu Cũ</label>
+                                        <input spellcheck="false" required type="password" class="auth-form__input" value>
+                                    </div>
+                                    <div class="auth-form__group">
+                                        <label class="info_user_label" for="">Mật Khẩu Mới</label>
+                                        <input id="password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+                                    </div>
+                                    <div class="auth-form__group deleted_marinbottom">
+                                        <label class="info_user_label" for="">Nhập Lại Mật Khẩu</label>
+                                        <input id="confirm_password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+                                    </div>
+                                    <div class="auth-form__group group_change_password">
+                                        <div id="message" class="error-message"></div>
+                                    </div>
+                                </div> -->
+
                             </form>
+                            <div class="auth-form__group group_change_password">
+                                <button type="submit" class="btn btn--primary">Cập Nhật</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -409,6 +430,105 @@
         </footer>
     </div>
     <script type="text/javascript">
+        var x =     `<div class="changepassword">
+                        <div class="auth-form__group">
+                            <label class="info_user_label" for="">Mật Khẩu Cũ</label>
+                            <input spellcheck="false" required type="password" class="auth-form__input" value>
+                        </div>
+                        <div class="auth-form__group">
+                            <label class="info_user_label" for="">Mật Khẩu Mới</label>
+                            <input id="password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+                        </div>
+                        <div class="auth-form__group deleted_marinbottom">
+                            <label class="info_user_label" for="">Nhập Lại Mật Khẩu</label>
+                            <input id="confirm_password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+                        </div>
+                        <div class="auth-form__group group_change_password">
+                            <div id="message" class="error-message"></div>
+                        </div>
+                    </div>`;
+        var z = `<div class="auth-form__group">
+                        <label class="info_user_label" for="">Mật Khẩu Cũ</label>
+                        <input spellcheck="false" required type="password" class="auth-form__input" value>
+                    </div>
+                    <div class="auth-form__group">
+                        <label class="info_user_label" for="">Mật Khẩu Mới</label>
+                        <input id="password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+                    </div>
+                    <div class="auth-form__group deleted_marinbottom">
+                        <label class="info_user_label" for="">Nhập Lại Mật Khẩu</label>
+                        <input id="confirm_password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+                    </div>
+                    <div class="auth-form__group group_change_password">
+                        <div id="message" class="error-message"></div>
+                    </div>`;
+        // $('.changepassword').hide();
+        // $('#submit_change_password').click(function (e) {
+        //     console.log(e)
+        //     if(e.target.checked) {
+        //         $('.changepassword').show();
+        //     }
+        //     else {
+        //         $('.changepassword').hide();
+        //     }
+        // })  
+        
+        // var myForm = document.getElementsByClassName('auth-form__form');
+        // var y= myForm[0].innerHTML;
+        // var sub =    document.getElementById('submit_change_password');
+        // sub.addEventListener('click',function(){
+        //     console.log(this.checked);
+        //     if (this.checked){
+        //             myForm[0].innerHTML = y + z;
+        //             var lk = document.getElementById('submit_change_password');
+        //             lk.checked = true;
+        //         }
+        //         else{
+        //             // $('.changepassword').hide();
+        //             var lk = document.getElementById('submit_change_password');
+        //             console.log(sub.checked);
+        //             myForm[0].innerHTML = y;
+        //             lk.checked = false;
+        //         } 
+        
+        // });
+        var myForm = document.getElementsByClassName('auth-form__form');
+        var sub =    document.getElementById('submit_change_password');
+        sub.addEventListener('click',function(){
+            if(this.checked){
+                $('.auth-form__form')[0].append(
+                    `<div class="auth-form__group">
+                        <label class="info_user_label" for="">Mật Khẩu Cũ</label>
+                        <input spellcheck="false" required type="password" class="auth-form__input" value>
+                     </div>
+                    <div class="auth-form__group">
+                        <label class="info_user_label" for="">Mật Khẩu Mới</label>
+                        <input id="password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+                    </div>
+                    <div class="auth-form__group deleted_marinbottom">
+                        <label class="info_user_label" for="">Nhập Lại Mật Khẩu</label>
+                        <input id="confirm_password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+                    </div>
+                    <div class="auth-form__group group_change_password">
+                        <div id="message" class="error-message"></div>
+                    </div>`
+                )
+            }
+        });
+        function check() {
+            if (document.getElementById('password').value ==
+                document.getElementById('confirm_password').value) 
+            {
+                document.getElementById('message').style.color = 'blue';
+                document.getElementById('message').innerHTML = 'Mật khẩu hợp lệ';
+            } 
+            else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'Mật khẩu thay đổi phải trùng nhau';
+            }
+        }
+
+
     </script>
 </body>
 

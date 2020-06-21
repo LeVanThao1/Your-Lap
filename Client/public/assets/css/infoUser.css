@@ -37,3 +37,15 @@
 .info_user_gender.change_password {
     margin-left: 0;
 }
+.auth-form__group.deleted_marinbottom {
+    margin-bottom: 8px;
+}
+.error-message {
+    font-size: 1.3rem;
+    margin-right: 50px;
+}
+.auth-form__group.group_change_password .btn.btn--primary {
+    margin-right: 50px;
+    margin-bottom: 28px;
+    margin-top: 0;
+}
