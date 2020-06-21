@@ -267,7 +267,7 @@
 
 .cart-total-prices__btn-sale {
     width: 77px;
-    background-color: rgb(253, 216, 53);
+    background-color: var(--primary-color);
     text-decoration: none;
     border: none;
     border-radius: 2px;
@@ -275,7 +275,7 @@
     padding: 0 12px;
     outline: none;
     cursor: pointer;
-    color: rgb(133, 132, 132);
+    color: white;
 }
 
 /* ---------------------- Form địa chỉ giao/nhận hàng------------- */
