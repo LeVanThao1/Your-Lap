@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourLap Shop</title>
+    <title>Detail Infomation User</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/chitiet.css">
     <link rel="stylesheet" href="./assets/css/cart.css">
-    <link rel="stylesheet" href="./assets/css/donhang.css">
+    <link rel="stylesheet" href="./assets/css/infoUser.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.13.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
@@ -259,123 +259,57 @@
                 <div class="grid__row app_content">
                     <div class="grid__column-12">
                         <div class="cart-path">
-                            <h3 class="cart-path-cart">LỊCH SỬ MUA HÀNG</h3>
+                            <h3 class="cart-path-cart">THÔNG TIN KHÁCH HÀNG</h3>
                         </div>
                     </div>
 
                 </div>
                 <div class="grid__row cart_wrap">
                     <div class="grid__column-12">
-                        <ul class="cart_content">
-                            <li class="cart_content-child">
-                                <img src="https://salt.tikicdn.com/cache/200x200/ts/product/f8/89/09/8cf82b1d215d342c01b9cb5c77567265.jpg"
-                                    alt="photo" class="cart_content__img">
-                                <div class="cart_content__info">
-                                    <a href="#" class="cart_content__heading">Laptop Asus Vivobook A512DA-EJ422T AMD
-                                        R5-3500U/Win10 (15.6 FHD) - Hàng Chính Hãng</a>
-                                    <span class="cart_content__seller">Cung cấp bởi
-                                        <a href="#">Nhãn hàng Asus</a>
-                                    </span>
-                                    <div class="cart_content__actions">
-                                        <span class="cart_content__del">Xóa</span>
-                                        <span class="cart_content__buylater">Để dành mua sau</span>
+                        <div class="cart_content">
+                            <form class="auth-form__form" accept-charset="utf-8">
+                                <div class="auth-form__group">
+                                    <label class="info_user_label" for="">Tên Khách Hàng</label>
+                                    <input spellcheck="false" type="text" class="auth-form__input" value="Lê Anh Lâm">
+                                </div>
+                                <div class="auth-form__group">
+                                    <label class="info_user_label" for="">Email</label>
+                                    <input type="text" class="auth-form__input" disabled value="leanhlamit@gmail.com">
+                                </div>
+                                <div class="auth-form__group">
+                                    <label class="info_user_label" for="">Số Điện Thoại</label>
+                                    <input type="text" class="auth-form__input" value="0393347568">
+                                </div>
+                                <div class="auth-form__group">
+                                    <label class="info_user_label" for="">Giới Tính</label>
+                                    <div class="info_user_gender">
+                                        <input id="male" type="radio" name="gender" class="auth-form__input input_radio" value="nam" checked>
+                                        <label class="info_user_label" for="male">Nam</label>
+                                        <input id="female" type="radio" name="gender" class="auth-form__input input_radio" value="nữ">
+                                        <label class="info_user_label" for="female">Nữ</label>
                                     </div>
                                 </div>
-                                <div class="cart_content__details">
-                                    <div class="cart_content__price">
-                                        <span class="cart_content__price--current">13.179.000đ</span>
-                                        <span class="cart-content__discount-prices">
-                                            <span class="cart_content__price--old">15.990.000đ</span>
-                                            <span class="cart_content__discout--percent">-18%</span>
-                                        </span>
-                                    </div>
-                                    <div class="cart_content__quanity">
-                                        <button class="cart_content__quanity-btn">
-                                            <i class="cart_content__quanity-icon fas fa-minus"></i>
-                                        </button>
-                                        <form action="#">
-                                            <input class="cart_content__quanity-input" type="text" value="1">
-                                        </form>
-                                        <button class="cart_content__quanity-btn">
-                                            <i class="cart_content__quanity-icon fas fa-plus"></i>
-                                        </button>
+                                <div class="auth-form__group">
+                                    <label class="info_user_label" for="">Ngày Sinh</label>
+                                    <input type="date" class="auth-form__input" value="1999-11-17">
+                                </div>
+                                <div class="auth-form__group">
+                                    <label class="info_user_label" for="">Địa chỉ</label>
+                                    <input spellcheck="false" type="text" class="auth-form__input" value="08 Hà Văn Tín, TP. Đà Nẵng">
+                                </div>
+                                <div class="auth-form__group">
+                                    <label class="info_user_label" for="">Ngày Đăng ký</label>
+                                    <input type="date" class="auth-form__input" value="2020-02-02" disabled>
+                                </div>
+                                <div class="auth-form__group group_change_password">
+                                    <label class="info_user_label" for=""></label>
+                                    <div class="info_user_gender change_password">
+                                        <input id="password" type="checkbox" name="gender" class="auth-form__input input_radio">
+                                        <label class="info_user_label label_for_password" for="password">Thay Đổi Mật Khẩu</label>
                                     </div>
                                 </div>
-
-                            </li>
-                            <li class="cart_content-child">
-                                <img src="https://salt.tikicdn.com/cache/200x200/ts/product/f8/89/09/8cf82b1d215d342c01b9cb5c77567265.jpg"
-                                    alt="photo" class="cart_content__img">
-                                <div class="cart_content__info">
-                                    <a href="#" class="cart_content__heading">Laptop Asus Vivobook A512DA-EJ422T AMD
-                                        R5-3500U/Win10 (15.6 FHD) - Hàng Chính Hãng</a>
-                                    <span class="cart_content__seller">Cung cấp bởi
-                                        <a href="#">Nhãn hàng Asus</a>
-                                    </span>
-                                    <div class="cart_content__actions">
-                                        <span class="cart_content__del">Xóa</span>
-                                        <span class="cart_content__buylater">Để dành mua sau</span>
-                                    </div>
-                                </div>
-                                <div class="cart_content__details">
-                                    <div class="cart_content__price">
-                                        <span class="cart_content__price--current">13.179.000đ</span>
-                                        <span class="cart-content__discount-prices">
-                                            <span class="cart_content__price--old">15.990.000đ</span>
-                                            <span class="cart_content__discout--percent">-18%</span>
-                                        </span>
-                                    </div>
-                                    <div class="cart_content__quanity">
-                                        <button class="cart_content__quanity-btn">
-                                            <i class="cart_content__quanity-icon fas fa-minus"></i>
-                                        </button>
-                                        <form action="#">
-                                            <input class="cart_content__quanity-input" type="text" value="2">
-                                        </form>
-                                        <button class="cart_content__quanity-btn">
-                                            <i class="cart_content__quanity-icon fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </li>
-                            <li class="cart_content-child">
-                                <img src="https://salt.tikicdn.com/cache/200x200/ts/product/f8/89/09/8cf82b1d215d342c01b9cb5c77567265.jpg"
-                                    alt="photo" class="cart_content__img">
-                                <div class="cart_content__info">
-                                    <a href="#" class="cart_content__heading">Laptop Asus Vivobook A512DA-EJ422T AMD
-                                        R5-3500U/Win10 (15.6 FHD) - Hàng Chính Hãng</a>
-                                    <span class="cart_content__seller">Cung cấp bởi
-                                        <a href="#">Nhãn hàng Asus</a>
-                                    </span>
-                                    <div class="cart_content__actions">
-                                        <span class="cart_content__del">Xóa</span>
-                                        <span class="cart_content__buylater">Để dành mua sau</span>
-                                    </div>
-                                </div>
-                                <div class="cart_content__details">
-                                    <div class="cart_content__price">
-                                        <span class="cart_content__price--current">13.179.000đ</span>
-                                        <span class="cart-content__discount-prices">
-                                            <span class="cart_content__price--old">15.990.000đ</span>
-                                            <span class="cart_content__discout--percent">-18%</span>
-                                        </span>
-                                    </div>
-                                    <div class="cart_content__quanity">
-                                        <button class="cart_content__quanity-btn">
-                                            <i class="cart_content__quanity-icon fas fa-minus"></i>
-                                        </button>
-                                        <form action="#">
-                                            <input class="cart_content__quanity-input" type="text" value="1">
-                                        </form>
-                                        <button class="cart_content__quanity-btn">
-                                            <i class="cart_content__quanity-icon fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </li>
-                        </ul>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -474,6 +408,8 @@
             </div>
         </footer>
     </div>
+    <script type="text/javascript">
+    </script>
 </body>
 
 </html>

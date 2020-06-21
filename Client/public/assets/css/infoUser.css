@@ -1,0 +1,39 @@
+.auth-form__form {
+    padding: 20px 40px;
+}
+.auth-form__group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.auth-form__input {
+    margin-left: 78px;
+    margin-top: 0;
+    margin-right: 60px;
+    padding: 0 28px;
+}
+.info_user_label {
+    width: 110px;
+    min-width: 110px;
+    font-size: 1.4rem;
+    color: rgb(51, 51, 51);
+}
+.info_user_gender {
+    margin-left: 80px;
+    display: flex;
+}
+.auth-form__input.input_radio {
+    width: 24px;
+    height: 24px;
+    margin-left: 0;
+    margin-right: 10px;
+}
+.auth-form__group.group_change_password{
+    justify-content: center;
+}
+.info_user_label.label_for_password {
+    width: 300px;
+}
+.info_user_gender.change_password {
+    margin-left: 0;
+}

@@ -258,7 +258,7 @@
                 <div class="grid__row app_content">
                     <div class="grid__column-12">
                         <div class="cart-path">
-                            <h3 class="cart-path-cart">GIỎ HÀNG<span class="cart-path-quantity">(3 sản phẩm)</span></h3>
+                            <h3 class="cart-path-cart">GIỎ HÀNG</h3>
                         </div>
                     </div>
 
@@ -329,7 +329,7 @@
                                             <i class="cart_content__quanity-icon fas fa-minus"></i>
                                         </button>
                                         <form action="#">
-                                            <input class="cart_content__quanity-input" type="text" value="2">
+                                            <input class="cart_content__quanity-input" type="text" value="4">
                                         </form>
                                         <button class="cart_content__quanity-btn quantity-btn__increase">
                                             <i class="cart_content__quanity-icon fas fa-plus"></i>
@@ -523,6 +523,7 @@
                 {
                     inputValue[0].value = value - 1;
                 }
+                addPrice();
             });
 
         }
@@ -537,11 +538,13 @@
                 let value = inputValue[0].value;
                 value = +value;
                     inputValue[0].value = value + 1;
+                addPrice();
             });
 
         }
 
-        var thanhTien = document.getElementsByClassName('cart-total-prices__cal-number');
+        function addPrice(){
+            var thanhTien = document.getElementsByClassName('cart-total-prices__cal-number');
         var giaMotSPs =document.getElementsByClassName('cart_content__price--current');
         var result = 0;
         for(var k = 0 ; k <giaMotSPs.length ; k++){
@@ -560,6 +563,14 @@
         // console.log(typeof (result % 10 + ''));
         // kq.unshift((result % 10) + '');
         // console.log(kq);
+        var previewResult = result +'';
+        previewResult = previewResult.split('');
+        var chiaHetChoBa = false;
+        console.log(chiaHetChoBa);
+        if(previewResult.length % 3 ==0){
+            chiaHetChoBa = true;
+        }
+        console.log(chiaHetChoBa);
         while(result > 0) {
             kq.unshift((result % 10) + '');
             result = Math.floor(result / 10);
@@ -569,11 +580,18 @@
                 d = 0;
             }
         }
+        if(chiaHetChoBa == true){
+            kq.shift();
+        }
         kq = kq.join('');
         thanhTien[0].innerText = kq;
         var phaiTra = document.getElementsByClassName('cart-total-prices__cur-number');
         phaiTra[0].innerHTML = `${kq}<i>(Đã bao gồm VAT nếu có)</i>`;
 
+        }
+        addPrice();
+
+        
     </script>
 </body>
 
