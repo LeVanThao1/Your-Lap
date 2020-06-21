@@ -8,4 +8,5 @@ exports.load = (app) => {
     app.get('/api/v1/users/:id',  controllerUser.getUser);
     app.get( '/api/v1/users',  controllerUser.getAllUser);
     app.put('/api/v1/users/:id',  controllerUser.updateUser);
+    // app.get('/api/v1/users/token',  controllerUser.updateUser);
 }

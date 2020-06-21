@@ -1,8 +1,8 @@
 
 const controllerProduct = require('../controllers/product.js');
-const multer  = require('multer')
-const upload = multer({ dest: 'uploads/' })
+const upload = require('../helper/multer')
 const { checkAuthentication } = require('../middleware/authentication')
+
 
 exports.load = (app) => {
     app.post('/api/v1/products',[checkAuthentication, upload.array('images', 10)] ,controllerProduct.createProduct);
