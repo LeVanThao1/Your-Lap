@@ -15,8 +15,7 @@
     <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
         rel='stylesheet'>
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -45,7 +44,7 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.html" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li> -->
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-5">
@@ -78,7 +77,7 @@
                     <div class="col-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">                            
-                          <a class="nav-link active" href="admin.html">Trang chủ</a>
+                        <a class="nav-link active" href="admin.html">Trang chủ</a>
                       </li>
                       <li class="nav-item">                          
                         <a class="nav-link active" href="new-feed.html"><div class="icon"></div>Bản tin</a>
@@ -106,11 +105,10 @@
                       <li class="nav-item">                       
                         <a class="nav-link" href="producer.html"> <div class="icon"></div>Nhà sản xuất</a>
                       </li>
-                      <li class="nav-item">        
+                      <li class="nav-item">            
                         <a class="nav-link" href="rate.html"> <div class="icon"></div>Đánh giá</a>
                       </li>
-                      <li class="nav-item">
-                       
+                      <li class="nav-item">                       
                         <a class="nav-link" href="charts.html"> <div class="icon"></div>Thống kê</a>
                       </li>
                       <li class="nav-item">
@@ -119,10 +117,11 @@
                     </ul>
                   </div>
                        <div class="col-9">
+                          
                           <div class="content content-t">
                             <div class="module message">
                               <div class="main-header">
-                                <h5>Tài khoản người dùng</h5>
+                                <h5>Đánh giá</h5>
                               </div>
                               <div class="child-header">
                               <div class="dropdown">
@@ -130,83 +129,84 @@
                                      Sắp xếp
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                      <button class="dropdown-item" type="button">Tên KH A-Z</button>
-                                      <button class="dropdown-item" type="button">Tên KH Z-A</button>
-                                      <button class="dropdown-item" type="button">Mã khách hàng</button>
-                                      <button class="dropdown-item" type="button">Ngày đăng ký</button>
+                                      <button class="dropdown-item" type="button">Mã đánh giá A-Z</button>
+                                      <button class="dropdown-item" type="button">Mã đánh giá Z-A</button>
+                                      <button class="dropdown-item" type="button">Tiêu đề</button>
+                                      <button class="dropdown-item" type="button">Ngày đánh giá</button>
                                     </div>
                                   </div>
                                   <div class="pull-center">
-                                        <a href="uploadUser.html" class="btn btn-primary">Thêm</a>
+                                        <a href="uploadOrder.html" class="btn btn-primary">Thêm</a>
                                     </div>
                                     <div class="pull-center">
-                                      <a href="userDetail.html" class="btn btn-primary">TempDetail</a>
+                                      <a href="rateDetails.html" class="btn btn-primary">Temp Details</a>
                                   </div>
-                                  <div class="pull-right">
+                                   <div class="pull-right">
                                         <a href="#" class="btn btn-primary">Xoá</a>
                                     </div>
                               </div>
+
                                <!-- content - user -->
                             <div class="module-body table">
                                     <table class="table table-message">
                                         <tbody>
                                             <tr class="heading">
                                                 <td class="cell-check">
-                                                    
+                                                   
                                                 </td>
                                                 <td class="cell-icon">
-                                                   Mã KH
+                                                  Mã đánh giá
                                                 </td>
                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                                    Tên khách hàng
+                                                    Mã sản phẩm
                                                 </td>
                                                 <td class="cell-title">
-                                                   SĐT
+                                                   Tên sản phẩm
                                                 </td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
-                                                    Email
+                                                    Tiêu đề
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    Ngày đăng ký
+                                                    Ngày đặt hàng
                                                 </td>
                                             </tr>
-                                             <tr class="unread">
-                                                  <td class="cell-check">
+                                            <tr class="unread">
+                                                    <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                     </td>
-                                                  <td class="cell-check">
-                                                    ABC123
+                                                    <td class="cell-check">
+                                                    P1P2k3
                                                     </td>
-                                                
+                                                    <td class="cell-icon">
+                                                        ABC123
+                                                    </td>
                                                     <td class="cell-author hidden-phone hidden-tablet">
                                                         John Wick
                                                     </td>
-                                                    <td class="cell-title">
-                                                        0123456789
-                                                    </td>
+                                                  
                                                     <td class="cell-icon hidden-phone hidden-tablet">
-                                                      thaibao2990@gmail.com
+                                                      Khá chất lượng
                                                     </td>
                                                     <td class="cell-time align-right">
                                                         Jan 02 2020
-                                                    </td>                                               
-                                             </tr>
+                                                    </td>                                              
+                                            </tr>
                                              <tr class="unread">
-                                                  <td class="cell-check">
+                                                <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                     </td>
                                                   <td class="cell-check">
                                                     ABC123
                                                     </td>
-                                                
+                                                    <td class="cell-icon">
+                                                         ABC123
+                                                    </td>
                                                     <td class="cell-author hidden-phone hidden-tablet">
                                                         John Wick
                                                     </td>
-                                                    <td class="cell-title">
-                                                        0123456789
-                                                    </td>
+                                                   
                                                     <td class="cell-icon hidden-phone hidden-tablet">
-                                                      thaibao2990@gmail.com
+                                                       Được
                                                     </td>
                                                     <td class="cell-time align-right">
                                                         Jan 02 2020
@@ -217,17 +217,39 @@
                                                     <input type="checkbox" class="inbox-checkbox">
                                                     </td>
                                                   <td class="cell-check">
-                                                    ABC123
+                                                   J2k2p4
                                                     </td>
-                                                
+                                                    <td class="cell-icon">
+                                                         ABC123
+                                                    </td>
                                                     <td class="cell-author hidden-phone hidden-tablet">
                                                         John Wick
                                                     </td>
-                                                    <td class="cell-title">
-                                                        0123456789
-                                                    </td>
+                                                    
                                                     <td class="cell-icon hidden-phone hidden-tablet">
-                                                      thaibao2990@gmail.com
+                                                       Ngon
+                                                    </td>
+                                                    <td class="cell-time align-right">
+                                                        Jan 02 2020
+                                                    </td>                                              
+                                            </tr>
+                                             <tr class="unread">
+                                                  
+                                                  <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                    </td>
+                                                  <td class="cell-check">
+                                                    s9g9h8
+                                                    </td>
+                                                    <td class="cell-icon">
+                                                         ABC123
+                                                    </td>
+                                                    <td class="cell-author hidden-phone hidden-tablet">
+                                                        John Wick
+                                                    </td>
+                                                    
+                                                    <td class="cell-icon hidden-phone hidden-tablet">
+                                                        Mượt
                                                     </td>
                                                     <td class="cell-time align-right">
                                                         Jan 02 2020
@@ -238,53 +260,30 @@
                                                     <input type="checkbox" class="inbox-checkbox">
                                                     </td>
                                                   <td class="cell-check">
-                                                    ABC123
+                                                   M3k2l1
                                                     </td>
-                                                
+                                                    <td class="cell-icon">
+                                                         ABC123
+                                                    </td>
                                                     <td class="cell-author hidden-phone hidden-tablet">
                                                         John Wick
                                                     </td>
-                                                    <td class="cell-title">
-                                                        0123456789
-                                                    </td>
+                                                  
                                                     <td class="cell-icon hidden-phone hidden-tablet">
-                                                      thaibao2990@gmail.com
+                                                       Đang xác nhận
                                                     </td>
                                                     <td class="cell-time align-right">
                                                         Jan 02 2020
                                                     </td>                                              
                                             </tr>
-                                             <tr class="unread">
-                                                  <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                    </td>
-                                                  <td class="cell-check">
-                                                    ABC123
-                                                    </td>
-                                                
-                                                    <td class="cell-author hidden-phone hidden-tablet">
-                                                        John Wick
-                                                    </td>
-                                                    <td class="cell-title">
-                                                        0123456789
-                                                    </td>
-                                                    <td class="cell-icon hidden-phone hidden-tablet">
-                                                      thaibao2990@gmail.com
-                                                    </td>
-                                                    <td class="cell-time align-right">
-                                                        Jan 02 2020
-                                                    </td>                                              
-                                            </tr> 
                                     </tbody>
                               </table>
                             </div>
                             <!--  content- user -->
-                            </div>
-                            
-                            
+                            </div>                  
                            
                           </div>
-                           <!-- next- previous -->
+                         <!-- next- previous -->
                               <div class="page-navigation">
                                 <nav aria-label="Page navigation example">
                                   <ul class="pagination">
@@ -319,8 +318,6 @@
         
 <!-- /////////////////////////////////         -->
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="./js//handleManageUser.js"></script>
 </body>
    
 </html>
