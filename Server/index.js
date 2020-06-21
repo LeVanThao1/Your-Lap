@@ -7,6 +7,7 @@ const NSXRoute = require('./apis/NSX');
 const PTRoute = require('./apis/productType');
 const ProductRoute = require('./apis/product');
 const userRoute = require('./apis/user.js');
+const CartRoute = require('./apis/cart');
 const bodyParser = require('body-parser');
 const models = require('./models')
 app.use(bodyParser.urlencoded({extended : false}));
@@ -33,7 +34,7 @@ userRoute.load(app);
 NSXRoute.load(app);
 ProductRoute.load(app);
 PTRoute.load(app);
-
+CartRoute.load(app)
 app.use(function (err, req, res, next) {
     // console.log(JSON.stringify(err, null, 2));
     if (Array.isArray(err.errors)) {
@@ -45,7 +46,7 @@ app.use(function (err, req, res, next) {
         });
     }
     return res.json({
-        message: err || 'have error'
+        message: err.message || 'have error'
     });
 });
 
