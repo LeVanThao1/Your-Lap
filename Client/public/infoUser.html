@@ -308,7 +308,7 @@
                                         <label class="info_user_label label_for_password" for="submit_change_passwords">Thay Đổi Mật Khẩu</label>
                                     </div>
                                 </div>
-                                <!-- <div class="changepassword">
+                                <div class="changepassword">
                                     <div class="auth-form__group">
                                         <label class="info_user_label" for="">Mật Khẩu Cũ</label>
                                         <input spellcheck="false" required type="password" class="auth-form__input" value>
@@ -324,7 +324,7 @@
                                     <div class="auth-form__group group_change_password">
                                         <div id="message" class="error-message"></div>
                                     </div>
-                                </div> -->
+                                </div>
 
                             </form>
                             <div class="auth-form__group group_change_password">
@@ -462,16 +462,15 @@
                     <div class="auth-form__group group_change_password">
                         <div id="message" class="error-message"></div>
                     </div>`;
-        // $('.changepassword').hide();
-        // $('#submit_change_password').click(function (e) {
-        //     console.log(e)
-        //     if(e.target.checked) {
-        //         $('.changepassword').show();
-        //     }
-        //     else {
-        //         $('.changepassword').hide();
-        //     }
-        // })  
+        $('.changepassword').hide();
+        $('#submit_change_password').click(function (e) {
+            if(e.target.checked) {
+                $('.changepassword').show();
+            }
+            else {
+                $('.changepassword').hide();
+            }
+        })  
         
         // var myForm = document.getElementsByClassName('auth-form__form');
         // var y= myForm[0].innerHTML;
@@ -492,29 +491,29 @@
         //         } 
         
         // });
-        var myForm = document.getElementsByClassName('auth-form__form');
-        var sub =    document.getElementById('submit_change_password');
-        sub.addEventListener('click',function(){
-            if(this.checked){
-                $('.auth-form__form')[0].append(
-                    `<div class="auth-form__group">
-                        <label class="info_user_label" for="">Mật Khẩu Cũ</label>
-                        <input spellcheck="false" required type="password" class="auth-form__input" value>
-                     </div>
-                    <div class="auth-form__group">
-                        <label class="info_user_label" for="">Mật Khẩu Mới</label>
-                        <input id="password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
-                    </div>
-                    <div class="auth-form__group deleted_marinbottom">
-                        <label class="info_user_label" for="">Nhập Lại Mật Khẩu</label>
-                        <input id="confirm_password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
-                    </div>
-                    <div class="auth-form__group group_change_password">
-                        <div id="message" class="error-message"></div>
-                    </div>`
-                )
-            }
-        });
+        // var myForm = document.getElementsByClassName('auth-form__form');
+        // var sub =    document.getElementById('submit_change_password');
+        // sub.addEventListener('click',function(){
+        //     if(this.checked){
+        //         $('.auth-form__form')[0].append(
+        //             `<div class="auth-form__group">
+        //                 <label class="info_user_label" for="">Mật Khẩu Cũ</label>
+        //                 <input spellcheck="false" required type="password" class="auth-form__input" value>
+        //              </div>
+        //             <div class="auth-form__group">
+        //                 <label class="info_user_label" for="">Mật Khẩu Mới</label>
+        //                 <input id="password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+        //             </div>
+        //             <div class="auth-form__group deleted_marinbottom">
+        //                 <label class="info_user_label" for="">Nhập Lại Mật Khẩu</label>
+        //                 <input id="confirm_password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
+        //             </div>
+        //             <div class="auth-form__group group_change_password">
+        //                 <div id="message" class="error-message"></div>
+        //             </div>`
+        //         )
+        //     }
+        // });
         function check() {
             if (document.getElementById('password').value ==
                 document.getElementById('confirm_password').value) 
