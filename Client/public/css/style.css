@@ -242,3 +242,26 @@ form label{
 	color: #ffbd00;
 }
 
+.errors {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	padding: 15px;
+	pointer-events: none;
+}
+
+.error {
+	padding: 15px;
+	width: 50%;
+	margin: auto;
+	border-radius: 8px;
+	background-color: rgba(241, 117, 0, 0.918);
+	color: #FFF;
+	font-size: 14px;
+	/* transform: translateY(300px); */
+	pointer-events: all;
+	margin-bottom: 10px;	
+	animation: slide-in 1s ease-out forwards;
+}
