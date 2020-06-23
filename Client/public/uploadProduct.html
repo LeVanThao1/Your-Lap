@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&family=Lato:wght@700&family=Roboto&display=swap" rel="stylesheet">
@@ -124,61 +125,61 @@
                                 <h5>Thêm sản phẩm</h5>
                               </div>
                           <div class="child-header">
-                            <form>
+                            <form id="register">
                                 <div class="form-group row">
                                   <label for="productIDUpload" class="col-sm-3 col-form-label">Mã sản phẩm</label>
                                   <div class="col-sm-9">
-                                    <input type="id"  name="productIDUpload" class="form-control" id="inputIdPr">
+                                    <input type="text"  name="productIDUpload" class="form-control" id="productIDUpload" placeholder="Nhập mã sản phẩm">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="productNameUp" class="col-sm-3 col-form-label">Tên sản phẩm</label>
                                   <div class="col-sm-9">
-                                    <input type="name" name="productNameUp" class="form-control" id="inputNamePr">
+                                    <input type="name" name="productNameUp" class="form-control" id="productNameUp" placeholder="Nhập tên sản phẩm">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="producerIDUp" class="col-sm-3 col-form-label">Mã nhà sản xuất</label>
                                   <div class="col-sm-9">
-                                    <input type="id" name="producerIDUp" class="form-control" id="inputIdNSX">
+                                    <input type="id" name="producerIDUp" class="form-control" id="producerIDUp" placeholder="Nhập mã nhà sản xuất">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="typeProductIDUp" class="col-sm-3 col-form-label">Mã loại sản phẩm</label>
                                   <div class="col-sm-9">
-                                    <input type="id" name="typeProductIDUp" class="form-control" id="inputIdType">
+                                    <input type="id" name="typeProductIDUp" class="form-control" id="typeProductIDUp" placeholder="Nhập mã loại sản phẩm">
                                   </div>
                                 </div>
                                 
                                 <div class="form-group row">
                                   <label for="entryPriceUp" class="col-sm-3 col-form-label">Giá nhập</label>
                                   <div class="col-sm-9">
-                                    <input type="price" name="entryPriceUp" class="form-control" id="inputBuyPrice">
+                                    <input type="number" name="entryPriceUp" class="form-control" id="entryPriceUp" placeholder="Nhập giá">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="sellPriceUp" class="col-sm-3 col-form-label">Giá bán</label>
                                   <div class="col-sm-9">
-                                    <input type="price" name="sellPriceUp" class="form-control" id="inputSellPrice">
+                                    <input type="number" name="sellPriceUp" class="form-control" id="sellPriceUp" placeholder="Nhập giá bán">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="amountUp" class="col-sm-3 col-form-label">Số lượng</label>
                                   <div class="col-sm-9">
-                                    <input type="amount" name="amountUp" class="form-control" id="inputAmount">
+                                    <input type="number" name="amountUp" class="form-control" id="amountUp" placeholder="Nhập số lượng">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="dateUpdateUp" class="col-sm-3 col-form-label">Ngày cập nhật</label>
                                   <div class="col-sm-9">
-                                    <input type="date" name="dateUpdateUp" class="form-control" id="inputEmail3">
+                                    <input type="date" name="dateUpdateUp" class="form-control" id="dateUpdateUp">
                                   </div>
                                 </div>
                                 <div class="form-group row">
 
                                   <label for="descriptionUp" class="col-sm-3 col-form-label">Mô tả</label>
                                   <div class="col-sm-9">
-                                     <textarea name="descriptionUp" id="" cols="70" rows="6"></textarea>
+                                     <textarea name="descriptionUp" id="descriptionUp" cols="70" rows="6"></textarea>
                                   </div>
                                 </div>
                           <!-- Brower-img -->
@@ -195,8 +196,10 @@
                                
                                 <div class="form-group row">
                                   <div class="col-sm-12 btn-add">
-                                    <button type="submit" class="btn btn-primary btn-add">Thêm</button>
+                                    <input type="submit" value="SUBMIT" class="btn btn-primary btn-add"></input>
                                   </div>
+                                </div>
+                                <div class="errors">
                                 </div>
                             </form>
                               </div>
@@ -219,6 +222,7 @@
         
 <!-- /////////////////////////////////         -->
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="./js/obligatory.js"></script>
 </body>
    
 </html>
