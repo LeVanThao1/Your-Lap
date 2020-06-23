@@ -554,6 +554,25 @@
         
     </div> -->
     <script type="text/javascript">
+        function formatMoney(money){
+            money +="";
+            let format ='';
+            for(let i = 0 ; i < money.length ; i++){
+                if(i % 3 == 0 && i){
+                    format = money[money.length - i - 1] + '.' + format;
+                }
+                else {
+                    format = money[money.length - i - 1] + format;
+                }
+            }
+            return format + 'đ';
+        }
+
+        function addPercent(per){
+            per +="";
+            return per +'%';
+        }
+
         function liked(e){
             e.style.display = 'none';
             var isLike = e.parentElement.getElementsByClassName('home-product-item__like-icon-fill');
@@ -564,6 +583,46 @@
             e.style.display = 'none';
             var isUnlike = e.parentElement.getElementsByClassName('home-product-item__like-icon-empty');
             isUnlike[0].style.display = 'block';
+        }
+        var lists = document.getElementsByClassName('category-item');
+        for(var i = 0 ; i < lists.length ; i++){
+            var list = lists[i];
+            list.addEventListener('click',function(){
+                for(var j = 0 ; j < lists.length ; j++){
+                    let list = lists[j];
+                    list.setAttribute('class','category-item');
+                }
+                var action = this.getAttribute('class');
+                this.setAttribute('class',`${action} category-item--active`);
+            });
+        }
+
+        var priceOlds = document.getElementsByClassName('home-product-item__price-old');
+
+        for(let j = 0 ; j < priceOlds.length ; j++){
+            let priceOld = priceOlds[j];
+            let price = priceOld.innerText;
+            price = +price;
+            // console.log(priceOld);
+            var percent = priceOld.parentElement.parentElement.parentElement.getElementsByClassName('home-product-item__sale-off-percent')[0];
+            // console.log(percent);
+            let percentNumber = percent.innerText;
+            percentNumber = +percentNumber;
+            var priceAfter = Math.ceil(price * (100 - percentNumber) / 100);
+            var priceCurrent = priceOld.parentElement.getElementsByClassName('home-product-item__price-current')[0];
+            // console.log(priceCurrent);
+            priceCurrent.innerHTML = formatMoney(priceAfter);
+            priceOld.innerText = formatMoney(price);
+        }
+
+        
+        var percents = document.getElementsByClassName('home-product-item__sale-off-percent');
+
+        for(let a = 0 ; a < percents.length ; a++){
+            let per = percents[a];
+            let pt = per.innerText;
+            pt = +pt;
+            per.innerText = addPercent(pt);
         }
 
     </script>
