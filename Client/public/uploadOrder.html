@@ -124,49 +124,49 @@
                                 <h5>Thêm đơn hàng</h5>
                               </div>
                           <div class="child-header">
-                            <form>
+                            <form id="addOrder">
                                 <div class="form-group row">
-                                  <label for="inputIdPr" class="col-sm-3 col-form-label">Mã đơn hàng</label>
+                                  <label for="orderIDor" class="col-sm-3 col-form-label">Mã đơn hàng</label>
                                   <div class="col-sm-9">
-                                    <input type="id" class="form-control" id="inputIdPr">
+                                    <input type="id" name="orderIDor" class="form-control" id="orderIDor" placeholder="Nhập mã đơn hàng">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="inputNamePr" class="col-sm-3 col-form-label">Mã khách hàng</label>
+                                  <label for="cusIDor" class="col-sm-3 col-form-label">Mã khách hàng</label>
                                   <div class="col-sm-9">
-                                    <input type="name" class="form-control" id="inputNamePr">
+                                    <input type="name" name="cusIDor" class="form-control" id="cusIDor" placeholder="Nhập mã khách hàng">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="inputIdNSX" class="col-sm-3 col-form-label">Tên khách hàng</label>
+                                  <label for="cusNameor" class="col-sm-3 col-form-label">Tên khách hàng</label>
                                   <div class="col-sm-9">
-                                    <input type="id" class="form-control" id="inputIdNSX">
+                                    <input type="id" name="cusNameor" class="form-control" id="cusNameor" placeholder="Nhập tên khách hàng">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="inputIdType" class="col-sm-3 col-form-label">SĐT khách hàng</label>
+                                  <label for="cusPhoneNumberor" class="col-sm-3 col-form-label">SĐT khách hàng</label>
                                   <div class="col-sm-9">
-                                    <input type="id" class="form-control" id="inputIdType">
+                                    <input type="number" name="cusPhoneNumberor" class="form-control" id="cusPhoneNumberor" placeholder="Nhập số điện thoại khách hàng">
                                   </div>
                                 </div>
                                 
                                 <div class="form-group row">
-                                  <label for="inputBuyPrice" class="col-sm-3 col-form-label">Email khách hàng</label>
+                                  <label for="cusEmailor" class="col-sm-3 col-form-label">Email khách hàng</label>
                                   <div class="col-sm-9">
-                                    <input type="price" class="form-control" id="inputBuyPrice">
+                                    <input type="price" name="cusEmailor" class="form-control" id="cusEmailor" placeholder="Nhập email khách hàng">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="inputSellPrice" class="col-sm-3 col-form-label">Địa chỉ khách hàng</label>
+                                  <label for="cusAddor" class="col-sm-3 col-form-label">Địa chỉ khách hàng</label>
                                   <div class="col-sm-9">
-                                    <input type="price" class="form-control" id="inputSellPrice">
+                                    <input type="price" name="cusAddor" class="form-control" id="cusAddor">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="inputAmount" class="col-sm-3 col-form-label">Trạng thái đơn hàng</label>
+                                  <label for="statusOr" class="col-sm-3 col-form-label">Trạng thái đơn hàng</label>
                                   <div class="col-sm-9">
                                     <div class="btn-group">
-                                      <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <button class="btn btn-danger btn-sm dropdown-toggle" id="choiceBtn" type="button" name="statusOr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Lựa chọn
                                       </button>
                                       <div class="dropdown-menu">
@@ -178,16 +178,16 @@
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="inputDate" class="col-sm-3 col-form-label">Ngày cập nhật</label>
+                                  <label for="dateUpdateOr" class="col-sm-3 col-form-label">Ngày cập nhật</label>
                                   <div class="col-sm-9">
-                                    <input type="date" class="form-control" id="inputEmail3">
+                                    <input type="date" name="dateUpdateOr" class="form-control" id="dateUpdateOr">
                                   </div>
                                 </div>
                                 <div class="form-group row">
 
-                                  <label for="inputEmail3" class="col-sm-3 col-form-label">Mô tả</label>
+                                  <label for="descriptonOr" class="col-sm-3 col-form-label">Mô tả</label>
                                   <div class="col-sm-9">
-                                     <textarea name="" id="" cols="30" rows="6"></textarea>
+                                     <textarea name="descriptonOr" id="descriptonOr" cols="70" rows="6"></textarea>
                                   </div>
                                 </div>
                           <!-- Brower-img -->
@@ -206,6 +206,8 @@
                                   <div class="col-sm-12 btn-add">
                                     <button type="submit" class="btn btn-primary btn-add">Thêm</button>
                                   </div>
+                                </div>
+                                <div class="errors">                                  
                                 </div>
                             </form>
                               </div>
@@ -228,6 +230,7 @@
         
 <!-- /////////////////////////////////         -->
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="./js/addOrder.js"></script>
 </body>
    
 </html>

@@ -320,7 +320,7 @@
                                     <div class="cart_content__price">
                                         <span class="cart_content__price--current">13.179.000đ</span>
                                         <span class="cart-content__discount-prices">
-                                            <span class="cart_content__price--old">15.990.000đ</span>
+                                            <span class="cart_content__price--old">17.990.000đ</span>
                                             <span class="cart_content__discout--percent">-18%</span>
                                         </span>
                                     </div>
@@ -356,8 +356,8 @@
                                     <div class="cart_content__price">
                                         <span class="cart_content__price--current">13.179.000đ</span>
                                         <span class="cart-content__discount-prices">
-                                            <span class="cart_content__price--old">15.990.000đ</span>
-                                            <span class="cart_content__discout--percent">-18%</span>
+                                            <span class="cart_content__price--old">17.990.000đ</span>
+                                            <span class="cart_content__discout--percent">-12%</span>
                                         </span>
                                     </div>
                                     <div class="cart_content__quanity">
@@ -397,7 +397,7 @@
                                     <div class="cart-total-prices__sale">
                                         <input type="text" class="cart-total-prices__input-sale"
                                             placeholder="Nhập ở đây..." value="">
-                                        <button type="button" class="cart-total-prices__btn-sale" disabled>Đồng
+                                        <button type="button" class="cart-total-prices__btn-sale">Đồng
                                             ý</button>
                                     </div>
                                 </div>
@@ -509,9 +509,44 @@
     <script src="./js/Homepage/LoadUser.js"></script>
     <!-- <script type="text/javascript">
         var btnGiams = document.getElementsByClassName('quantity-btn__decrease');
-        // console.log(btnGiams);
         var btnTangs = document.getElementsByClassName('quantity-btn__increase');
-        // console.log(btnTangs);
+        var priceOlds =document.getElementsByClassName('cart_content__price--old');
+        for(let old = 0 ; old < priceOlds.length ; old++){
+            var priceOld = priceOlds[old];
+            var textOfPrice = priceOld.innerText;
+            var currentText = textOfPrice.match(/\d/g).join('');
+            currentText = +currentText;
+            var percentText = priceOld.parentElement.getElementsByClassName('cart_content__discout--percent');
+            percentText = percentText[0].innerText;
+            var percent = percentText.match(/\d/g).join('');
+            percent = +percent;
+            var priceAfter = Math.ceil(currentText * (100 - percent) / 100);
+            var currentPrice = priceOld.parentElement.parentElement.getElementsByClassName('cart_content__price--current')[0];
+            // currentPrice.innerText = priceAfter +'';
+            let kq = ['đ'];
+            let d = 0;
+            let previewResult = priceAfter +'';
+            previewResult = previewResult.split('');
+            let chiaHetChoBa = false;
+            if(previewResult.length % 3 ==0){
+                chiaHetChoBa = true;
+            }
+            while(priceAfter > 0) {
+                kq.unshift((priceAfter % 10) + '');
+                priceAfter = Math.floor(priceAfter / 10);
+                d++;
+                if(d == 3) {
+                    kq.unshift('.');
+                    d = 0;
+                }
+            }
+            if(chiaHetChoBa == true){
+                kq.shift();
+            }
+            kq = kq.join('');
+            currentPrice.innerText = kq;
+        }
+        
 
         for(var i = 0 ; i< btnGiams.length ; i++){
 
@@ -536,7 +571,6 @@
         for(var j = 0 ; j< btnTangs.length ; j++){
             var btnTang = btnTangs[j];
             // console.log(btnTang);
-
             btnTang.addEventListener('click',function(){
                 var inputValue =  this.parentElement.querySelectorAll('form input');
                 // console.log(inputValue[0]);
@@ -549,25 +583,19 @@
         }
 
         function addPrice(){
-            var thanhTien = document.getElementsByClassName('cart-total-prices__cal-number');
+        var thanhTien = document.getElementsByClassName('cart-total-prices__cal-number');
         var giaMotSPs =document.getElementsByClassName('cart_content__price--current');
         var result = 0;
         for(var k = 0 ; k <giaMotSPs.length ; k++){
             var giaMotSP = giaMotSPs[k];
             var text = giaMotSP.innerText;
             var currentValue = text.match(/\d/g).join('');
-            // console.log(currentValue);
             var spLuongs = giaMotSP.parentElement.parentElement.querySelectorAll('.cart_content__quanity form input');
             var spLuong = spLuongs[0].value;
-            // console.log(spLuong);
             result += currentValue * spLuong;
-            // console.log(typeof result);
         }  
         var kq = ['đ'];
         var d = 0;
-        // console.log(typeof (result % 10 + ''));
-        // kq.unshift((result % 10) + '');
-        // console.log(kq);
         var previewResult = result +'';
         previewResult = previewResult.split('');
         var chiaHetChoBa = false;
