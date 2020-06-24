@@ -1,6 +1,6 @@
 $(document).ready(function(){
    
-    $('.header__cart-wrap').click(() => {
+    $('.header__cart-icon').click(() => {
         redirect('cart.html')
     })
     $('.fa-bell').click(()=> {
@@ -8,6 +8,9 @@ $(document).ready(function(){
     })
     $('.logo').click(() => {
         redirect('homepage.html')
+    })
+    $('.header__cart-view-cart').click(() => {
+        redirect('cart.html')
     })
 
 });

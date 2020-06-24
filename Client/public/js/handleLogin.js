@@ -27,10 +27,14 @@ async function login(email , password) {
 			const token = loginResponse.data.access_token;
 			const userId = loginResponse.data.userId;
 			const username = loginResponse.data.username;
+			const path = localStorage.getItem('path')
+			// const cart = loginResponse.data.cart._id;
 			localStorage.setItem('token', token);
 			localStorage.setItem('userId', userId);
 			localStorage.setItem('username', username);
-			return redirect('homepage.html');
+			// localStorage.setItem('cartId', cart);
+			console.log(token, userId, username )
+			return redirect(path? path: 'homepage.html');
 		}
 		return alert("Login not successfully");
 	} catch (e) {

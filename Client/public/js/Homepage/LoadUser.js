@@ -54,5 +54,6 @@ async function loadUser() {
             localStorage.removeItem('username');
             redirect('loginandregiter.html')
         });
+        loadCart();
     }
 }
