@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         min: 6,
-        required: true
+        // required: true
     },
     type: {
         type: String,
@@ -43,9 +43,17 @@ const userSchema = new mongoose.Schema({
     deleteAt: {
         type: Date
     },
-    cart: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Cart'
+    facebook: {
+        id: {
+            type: String,
+            max: 50
+        } 
+    },
+    verifyCode: {
+        type: String
+    },
+    verifyCodeExpiredAt: {
+        type: Date
     }
 }, { timestamps: true });
 

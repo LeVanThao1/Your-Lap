@@ -8,5 +8,8 @@ exports.load = (app) => {
     app.get('/api/v1/users/:id',  controllerUser.getUser);
     app.get( '/api/v1/users',  controllerUser.getAllUser);
     app.put('/api/v1/users/:id',  controllerUser.updateUser);
-    // app.get('/api/v1/users/token',  controllerUser.updateUser);
+    app.post('/api/v1/users/forget-password', controllerUser.forgetPassword);
+    app.post('/api/v1/users/reset-password', controllerUser.resetPassword);
+    app.post('/api/v1/loginFB', controllerUser.loginFB);
+    app.get('/api/v1/auth', controllerUser.geUserWithToken)
 }

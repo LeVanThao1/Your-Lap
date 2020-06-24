@@ -3,21 +3,26 @@ const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
 const { ObjectId } = require('mongodb');
-
+const Product = require('../models/products')
 const deleteSP = async (req, res, next) => {
     try {
-        const { cartId, productId } = req.query;
-        const cart = await Cart.findOne({_id: cartId}).lean();
+        const { userId, productId } = req.body;
+        console.log(req.body)
+        const cart = await Cart.findOne({user: userId}).lean();
         if (!cart) {
             return next(new Error('CART_NOT_FOUND'));
         }
-        const product = cart.cart.some((c) => c.productId.toString() === productId);
+        const product = cart.cart.some((c) => {
+            console.log(c.productId, productId, c.productId.toString() === productId)
+            return c.productId.toString() === productId;
+        });
         if(!product) {
             return next(new Error('PRODUCT_DOES_NOT_EXIST_IN_CART'));
         }
-        await Cart.updateOne({ _id: cart._id }, {$pull: { cart: {productId: productId}}} );
+        const result = await Cart.updateOne({ user: userId }, {$pull: { cart: {productId: productId}}} );
         return res.status(200).json({
             message : 'delete product in cart successful',
+            result
         });
     } catch (e) {
         next(e);
@@ -25,20 +30,21 @@ const deleteSP = async (req, res, next) => {
 };
 const addSP = async (req, res, next) => {
     try {
-        const { cartId, productId, price } = req.query;
-        // console.log(req.query)
-        const cart = await Cart.findOne({_id: cartId}).lean();
+        const { userId, productId, price, amount } = req.body;
+        console.log(req.body)
+        const cart = await Cart.findOne({user: userId}).lean();
         if (!cart) {
             return next(new Error('CART_NOT_FOUND'));
         }
         const product = cart.cart.filter((c) => {
             return c.productId.toString() == productId;
         });
-        let cartUpdate;
+        console.log(product)
+        let cartUpdate, result;
         if(product.length === 0) {
             const productCart = {
                 productId: productId,
-                amount: 1,
+                amount: amount || 1,
                 price: +price
             }
             cartUpdate= await Cart.updateOne({ _id: cart._id }, {$push: { cart: productCart}} );
@@ -46,15 +52,18 @@ const addSP = async (req, res, next) => {
         else {
             const productCart = {
                 productId: productId,
-                amount: parseInt(product[0].amount) + 1,
+                amount: parseInt(product[0].amount) + amount,
                 price: +price
             }
-            cartUpdate =await Cart.updateOne({ _id: cart._id }, {$set: { cart: productCart}} );
+            //  {$addToSet: { cart: productCart}} 
+            // cartUpdate = await Cart.findOne({ _id: cart._id});
+            cartUpdate = await Cart.updateOne({_id: cart._id, "cart.productId" : productId}, {$set: {"cart.$.amount": parseInt(product[0].amount) + amount}})
+            // cartUpadte = await Cart.updateOne({_id: cart._id, "cart.${}._id": product._id}, {$inc: {"cart.$[].amount": amount}}, {multi: false})
         }
-
+        // console.log(cart)
         return res.status(200).json({
             message : 'add product into cart successful',
-            cartUpdate
+            cartUpdate,
         });
     } catch (e) {
         next(e);
@@ -63,9 +72,9 @@ const addSP = async (req, res, next) => {
 
 const changeAmount = async (req, res, next) => {
     try {
-        const { check,cartId, productId } = req.query;
+        const { check, userId, productId } = req.body;
         if (!check) return;
-        const cart = await Cart.findOne({_id: cartId}).lean();
+        const cart = await Cart.findOne({user: userId}).lean();
         if (!cart) {
             return next(new Error('CART_NOT_FOUND'));
         }
@@ -75,26 +84,43 @@ const changeAmount = async (req, res, next) => {
         if(product.length <= 0) {
             return next(new Error('PRODUCT_DOES_NOT_EXIST_IN_CART'))
         }
+        const getProduct = await Product.findOne({_id: productId}).lean();
         if(check === 'true') {
-            const productCart = {
-                productId: productId,
-                amount: parseInt(product[0].amount) + 1,
-                price: product[0].price
+
+            const amount = (parseInt(product[0].amount)) < getProduct.amount ? 
+                    parseInt(product[0].amount)+ 1 : 
+                    parseInt(product[0].amount);
+
+            if(parseInt(product[0].amount) < amount) {
+                cartUpdate = await Cart.updateOne({_id: cart._id, "cart.productId" : productId}, {$set: {"cart.$.amount":  amount}});
+                return res.status(200).json({
+                    message : 'change amount product in cart successful',
+                });
             }
-            await Cart.updateOne({ _id: cart._id }, {$set: { cart: productCart}} );
+            console.log(cartUpdate)
+            return res.status(202).json({
+                message : 'The quantity exceeds the limit',
+            });
         }
         else {
-            const productCart = {
-                productId: productId,
-                amount: parseInt(product[0].amount) - 1,
-                price: product[0].price
+            const amount = (parseInt(product[0].amount)) < getProduct.amount ? 
+                    parseInt(product[0].amount) - 1 : 
+                    parseInt(product[0].amount);
+            if(amount === 0) {
+                await Cart.updateOne({ user: userId }, {$pull: { cart: {productId: productId}}});
+                return res.status(200).json({
+                    message : 'delete cart success',
+                });
             }
-            await Cart.updateOne({ _id: cart._id }, {$set: { cart: productCart}} );
+            cartUpdate = await Cart.updateOne({_id: cart._id, "cart.productId" : productId}, {$set: {"cart.$.amount": amount}})
+            return res.status(200).json({
+                message : 'change amount product in cart successful',
+            });
         }
 
-        return res.status(200).json({
-            message : 'change amount product in cart successful',
-        });
+        // return res.status(200).json({
+        //     message : 'change amount product in cart successful',
+        // });
     } catch (e) {
         next(e);
     }
@@ -103,10 +129,10 @@ const changeAmount = async (req, res, next) => {
 const getCart = async (req, res, next) => {
     try {
         const {id} = req.params;
-        const cart = await Cart.find({_id: id}).lean();
+        const cart = await Cart.findOne({user: id}).lean();
         return res.status(200).json({
             message: 'Cart',
-            cart: cart.cart
+            cart: cart
         })
     } catch (e) {
         next(e);

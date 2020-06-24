@@ -30,15 +30,21 @@ const getProduct = async (req, res, next) => {
             {
                 path: 'postBy',
                 select: 'fullname'
-            },
+            }
+        ).populate(
             {
-                path: 'typeProduct NSX',
+                path: 'typeProduct',
+                select: 'name'
+            }
+        ).populate(
+            {
+                path: 'NSX',
                 select: 'name'
             }
         );
         if(!product) return next(new Error('PRODUCT_NOT_FOUND'));
         return res.status(200).json({
-            message: 'User',
+            message: 'Product',
             product
         })
     } catch (e) {
