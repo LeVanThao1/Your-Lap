@@ -168,13 +168,8 @@ const getProductByType = async (req, res, next) => {
         }
     ).populate(
         {
-            path: 'typeProduct',
-            select: 'name'
-        }
-    ).populate(
-        {
-            path: 'NSX',
-            select: 'name'
+            path: 'typeProduct NSX',
+            select: 'name nation'
         }
     );
     if(!products) {

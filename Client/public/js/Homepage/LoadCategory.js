@@ -17,6 +17,7 @@ async function loadCategory() {
         $(`.ct-${ct._id}`).click(() => {
             axios.get(`http://localhost:3001/api/v1/products/type/${ct._id}`).then((respon) => {
                 const products = respon.data.data;
+                console.log(products);
                 $('.allProduct').html('');
                 products.map((pr) => {
                     $('.allProduct').append(
