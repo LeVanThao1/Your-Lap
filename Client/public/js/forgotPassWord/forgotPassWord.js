@@ -4,14 +4,13 @@
         console.log(new_password);
         console.log(confirm_password);
         // Validate form change password
-        form.addEventListener('submit',function(e){
-            e.preventDefault();
-            checkInputs();
-        });
+        form.addEventListener('submit',checkInputs);
 
-        function checkInputs(){
+        function checkInputs(e){
+            e.preventDefault();
             const newPassValue = new_password.value.trim();
             const confirmPassValue = confirm_password.value.trim();
+            console.log(newPassValue);
             let ck = 0;
             if(newPassValue === ''){
                 setErrorFor(new_password,'Mật khẩu không được để trống');
