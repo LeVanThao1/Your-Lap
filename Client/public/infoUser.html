@@ -492,36 +492,36 @@
                     <div class="auth-form__group group_change_password">
                         <div id="message" class="error-message"></div>
                     </div>`;
-        function noneInputName(){
-            const old_password = document.getElementById('old_password');
-            // console.log(old_password);
-            const password = document.getElementById('password');
-            const confirm_password = document.getElementById('confirm_password');
-            old_password.removeAttribute('name');
-            password.removeAttribute('name');
-            confirm_password.removeAttribute('name');
-        }
+        // function noneInputName(){
+        //     const old_password = document.getElementById('old_password');
+        //     // console.log(old_password);
+        //     const password = document.getElementById('password');
+        //     const confirm_password = document.getElementById('confirm_password');
+        //     old_password.removeAttribute('name');
+        //     password.removeAttribute('name');
+        //     confirm_password.removeAttribute('name');
+        // }
 
-        function onInputName(){
-            const old_password = document.getElementById('old_password');
-            // console.log(old_password);
-            const password = document.getElementById('password');
-            const confirm_password = document.getElementById('confirm_password');
-            old_password.setAttribute('name','info_oldpass')
-            password.setAttribute('name','info_newpass');
-            confirm_password.setAttribute('name','info_confirmpass');
-        }
+        // function onInputName(){
+        //     const old_password = document.getElementById('old_password');
+        //     // console.log(old_password);
+        //     const password = document.getElementById('password');
+        //     const confirm_password = document.getElementById('confirm_password');
+        //     old_password.setAttribute('name','info_oldpass')
+        //     password.setAttribute('name','info_newpass');
+        //     confirm_password.setAttribute('name','info_confirmpass');
+        // }
         
-        noneInputName();
+        // noneInputName();
         $('.changepassword').hide();
         $('#submit_change_password').click(function (e) {
             if (e.target.checked) {
                 $('.changepassword').show();
-                onInputName();
+                // onInputName();
             }
             else {
                 $('.changepassword').hide();
-                noneInputName();
+                // noneInputName();
             }
         })
         
