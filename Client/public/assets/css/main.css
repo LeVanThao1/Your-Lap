@@ -564,7 +564,7 @@
 }
 
 .header__cart-list::after {
-    content: "";
+    /* content: ""; */
     position: absolute;
     cursor: pointer;
     right: 3px;
@@ -588,13 +588,13 @@
 
 .header__cart-no-cart-img{
     width: 60%;
-    display: none;
+    display: initial;
 }
 
 .header__cart-list-no-cart-msg {
-    display: none;
-    font-size: 1.4rem;
-    /* margin-top: 12px; */
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 25px; font-weight: 500;
     color: var(--text-color);
 }
 

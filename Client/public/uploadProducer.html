@@ -124,23 +124,23 @@
                                 <h5>Thêm nhà sản xuất</h5>
                               </div>
                           <div class="child-header">
-                            <form>
+                            <form id="producer"> 
                                 <div class="form-group row">
                                   <label for="productIDUpload" class="col-sm-3 col-form-label">Mã sản phẩm</label>
                                   <div class="col-sm-9">
-                                    <input type="id"  name="productIDUpload" class="form-control" id="inputIdPr">
+                                    <input type="id"  name="productIDUpload" class="form-control" id="productIDUpload" placeholder="Nhập mã sản phẩm">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="productNameUp" class="col-sm-3 col-form-label">Tên sản phẩm</label>
                                   <div class="col-sm-9">
-                                    <input type="name" name="productNameUp" class="form-control" id="inputNamePr">
+                                    <input type="name" name="productNameUp" class="form-control" id="productNameUp" placeholder="Nhập tên sản phẩm">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="producerIDUp" class="col-sm-3 col-form-label">Mã nhà sản xuất</label>
                                   <div class="col-sm-9">
-                                    <input type="id" name="producerIDUp" class="form-control" id="inputIdNSX">
+                                    <input type="id" name="producerIDUp" class="form-control" id="producerIDUp" placeholder="Nhập mã nhà sản xuất">
                                   </div>
                                 </div>
                                 
@@ -162,6 +162,7 @@
                                     <button type="submit" class="btn btn-primary btn-add">Thêm</button>
                                   </div>
                                 </div>
+                                <div class="errors"></div>
                             </form>
                               </div>
                                <!-- content - user -->
@@ -183,6 +184,7 @@
         
 <!-- /////////////////////////////////         -->
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="./js/addProducer.js"></script>
 </body>
    
 </html>

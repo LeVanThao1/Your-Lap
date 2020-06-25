@@ -9,13 +9,13 @@ async function loadCategory() {
     dataCT.data.listPT.forEach(ct => {
         $('.category-list').append(
             `<li class="category-item category-item--active ct-${ct._id}">
-                <a href="#" class="category-item__link">${ct.name}</a>
+                <a href="homepage.html?ct=${ct._id}" class="category-item__link">${ct.name}</a>
             </li>`
         )
-        $(`.ct-${ct._id}`).click(() => {
-            // window.location.href = "http://localhost:3000/homepage.html?ct="+ct._id;
-            // pageTracker._trackPageview(trackCode);
-            redirect("homepage.html?ct="+ct._id)
-        })
+        // $(`.ct-${ct._id}`).click(() => {
+        //     // window.location.href = "http://localhost:3000/homepage.html?ct="+ct._id;
+        //     // pageTracker._trackPageview(trackCode);
+        //     redirect(")
+        // })
     });
 }

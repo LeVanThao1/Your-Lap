@@ -3,8 +3,10 @@ const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
 const Cart = require('../models/cart')
-const { sign, verify } = require('../helper/jwt-helper')
-
+const { sign, verify } = require('../helper/jwt-helper');
+const randomstring = require('randomstring');
+const sendMail = require('../helper/mailer');
+const axios = require('axios');
 const deleteUser = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -55,8 +57,9 @@ const createUser = async (req, res, next) => {
         data.password = hashPassword;
         const createdUser = await User.create(data);
         if(createUser) {
+            const user = await User.findOne({email: data.email})
             const cart = {
-                user: createUser._id,
+                user: user._id,
                 cart: []
             };
             await Cart.create(cart);
@@ -115,12 +118,13 @@ const login = async (req, res, next) => {
         if (!isValidatePassword) {
             return next(new Error('PASSWORD_IS_INCORRECT'));
         }
+        console.log(user)
         const token = sign({ _id: user._id });
         return res.status(200).json({
             message: "login successfully",
             access_token: token,
             userId: user._id,
-            username: user.fullname
+            username: user.fullname,
         });
     } catch (e) {
         return next(e);
@@ -137,10 +141,94 @@ const geUserWithToken = async (req, res, next) => {
         }
         return res.status(200).json({
             message: "token hop le",
+            user
         });
     } catch (e) {
         return next(e);
     }
+};
+
+const loginFB = async (req, res, next) => {
+    try {
+        const { accessToken } = req.body;
+        let token, userId;
+        const responseFB = await axios.get(`https://graph.facebook.com/me?access_token=${accessToken}&fields=email,name`);
+        console.log(responseFB.data);
+        const { id, email, name } = responseFB.data;
+        const existedUser = await User.findOne({ facebook: { id } });
+        if (!existedUser) {
+            const newUser = await User.create({ facebook:{ id }, email, fullname: name});
+            token = sign({ _id: newUser._id });
+            userId = newUser._id
+        } else {
+            const update = await User.findOneAndUpdate({ facebook: { id } },{ email, fullname: name });
+            token = sign({ _id: update._id });
+            userId = update._id;
+            console.log(update)
+        }
+        // console.log(update)
+        
+        return res.status(201).json({
+            message: "login successfully",
+            access_token: token,
+            userId: userId,
+            username: name
+        });
+        
+    } catch (e) {
+        return next(e);
+    }
+};
+const forgetPassword = async (req, res, next) => {
+    try {
+        const { email } = req.body;
+        const existedEmail = await User.findOne({ email: email});
+        if (!existedEmail) {
+            return next(new Error('EMAIL_OF_USER_NOT_FOUND'));
+        }
+        const code = randomstring.generate({
+            length: 6,
+            charset: 'alphanumeric',
+            capitalization: 'uppercase'
+        });
+        await sendMail(email, code);
+        await User.updateOne({ email }, { verifyCode: code, verifyCodeExpiredAt: new Date() });
+        // return res.status(200).json({
+        //     message: 'We sent you a mail'
+        // });
+        return res.status(200).json({
+            message: "We sent you a mail",
+        });
+    } catch (e) {
+        return next(new Error(e));
+    }
+};
+
+const resetPassword = async (req, res, next) => {
+    try {
+        const { email, code, newPassword } = req.body;
+        const user = await User.getOne({ email: email }).select('verifyCode verifyCodeExpiredAt').lean();
+        if (!user) {
+            return next(new Error('EMAIL_NOT_INVALID'));
+        }
+        if (user.verifyCode === null) {
+            return next(new Error('YOU_HAVE_NOT_REQUESTED_FORGET_PASSWORD')); 
+        }
+        if (code !== user.verifyCode) {
+            return next(new Error('CODE_NOT_INVALID'));
+        }
+        if (new Date() - user.verifyCodeExpiredAt > 1000*60*5) {
+            return next(new Error('CODE_EXPIRED'));       
+        }
+        const salt = bcrypt.genSaltSync(2);
+        const hashPassword = bcrypt.hashSync(newPassword, salt);
+        await userRepository.updateOne({ email }, { password: hashPassword, verifyCode: undefined });
+        return res.status(200).json({
+            message : 'change password successful',
+        });
+    } catch (error) {
+        return next(error);
+    } 
 };
 
 module.exports = {
@@ -150,5 +238,8 @@ module.exports = {
     updateUser,
     deleteUser,
     createUser,
-    geUserWithToken
+    geUserWithToken,
+    forgetPassword,
+    resetPassword,
+    loginFB
 }

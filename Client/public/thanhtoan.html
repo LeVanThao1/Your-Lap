@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="./assets/css/thanhtoan.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.13.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
 
 <body>
+    
     <!-- BEM - block elements modifier -->
     <div class="modal">
         <div class="modal__overlay">
@@ -69,6 +70,19 @@
             </div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/until.js"></script>
+    <script>
+        $('.auth-form__controls-back').click(() => {
+            const prev = localStorage.getItem('pathprev');
+            if(prev) {
+                redirect(prev);
+            } else {
+                redirect('homepage.html')
+            }
+        })
+    </script>
 </body>
 
 </html>
