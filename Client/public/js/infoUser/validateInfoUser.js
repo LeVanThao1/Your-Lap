@@ -29,7 +29,7 @@ $('#submit_change_password').click(function (e) {
                             </div>`);
         // onInputName();
         var inputPass = document.getElementById('password');
-var inputConfirmPass = document.getElementById('confirm_password');
+        var inputConfirmPass = document.getElementById('confirm_password');
         inputPass.addEventListener('keyup',check);
         inputConfirmPass.addEventListener('keyup',check);
     }
