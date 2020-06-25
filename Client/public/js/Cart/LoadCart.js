@@ -23,13 +23,13 @@ async function loadCartProduct2(pd) {
         <img src=${pd.images[0].url}
             alt="photo" class="cart_content__img">
         <div class="cart_content__info">
-            <a href="#" class="cart_content__heading">${pd.name}</a>
+            <a href="http://localhost:3000/chitiet.html?id=${pd.productId}" class="cart_content__heading">${pd.name}</a>
             <span class="cart_content__seller">Cung cấp bởi
-                <a href="#">${pd.NSX}</a>
+                <a href="http://localhost:3000/homepage.html?ct=${pd.typeProduct}">${pd.NSX}</a>
             </span>
             <div class="cart_content__actions">
-                <span class="cart_content__del">Xóa</span>
-                <span class="cart_content__buylater">Để dành mua sau</span>
+                <span class="cart_content__del del-${pd.productId}">Xóa</span>
+                <span class="cart_content__buylater buylater-${pd.productId}">Để dành mua sau</span>
             </div>
         </div>
         <div class="cart_content__details">
@@ -54,14 +54,14 @@ async function loadCartProduct2(pd) {
         </div>
     </li>
         `)
-    console.log(pd.price * pd.amount);
     total += pd.price * pd.amount;
     loadTotal(total);
     $(`.increase-${pd.productId}`).click(() => {
-        if($('.cart_content__quanity-input').val() >= pd.amountProduct) {
+        if(+$(`.quantity-${pd.productId}`) >= pd.amountProduct) {
             return;
         }
-        const result = axios.put(`http://localhost:3001/api/v1/cart/change`, {
+        else {
+            const result = axios.put(`http://localhost:3001/api/v1/cart/change`, {
             check: "true",
             userId: userId,
             productId: pd.productId
@@ -71,17 +71,26 @@ async function loadCartProduct2(pd) {
             // quantity.value = ++pd.amount + "";
             $(`.quantity-${pd.productId}`).val(++pd.amount)
             loadTotal(total);
-            // loadCartProduct();
+            loadCart()
         })
+        }
     })
     $(`.decrease-${pd.productId}`).click(() => {
-        if($('.cart_content__quanity-input').val() === 1)  {
-            
+        console.log(+$(`.quantity-${pd.productId}`).val(), +$(`.quantity-${pd.productId}`).val() === 1);
+        if(+$(`.quantity-${pd.productId}`).val() === 1)  {
+            const result = axios.put('http://localhost:3001/api/v1/cart/deletesp', {
+                    userId: userId,
+                    productId: pd.productId
+            }).then((res) => {
+                $(`.child-${pd.productId}`).remove();
+                loadCart();
+            });
         }
-        if($('.cart_content__quanity-input').val() < 0) {
+        if(+$(`.quantity-${pd.productId}`).val() <= 0) {
             return;
         }
-        const result = axios.put(`http://localhost:3001/api/v1/cart/change`, {
+        else {
+            const result = axios.put(`http://localhost:3001/api/v1/cart/change`, {
             check: "false",
             userId: userId,
             productId: pd.productId
@@ -92,9 +101,24 @@ async function loadCartProduct2(pd) {
             // quantity.value = --pd.amount;
             loadTotal(total);
             // loadCartProduct();
+            loadCart();
         })
+        }
     });
-    
+    $(`.del-${pd.productId}`).click(() => {
+        const result = axios.put('http://localhost:3001/api/v1/cart/deletesp', {
+                    userId: userId,
+                    productId: pd.productId
+        }).then((res) => {
+            $(`.child-${pd.productId}`).remove();
+            // loadCart();
+        })
+    })
+    $(`.buylater-${pd.productId}`).click(() => {
+        total -= pd.price * pd.amount;
+        $(`.child-${pd.productId}`).remove();
+        loadTotal(total);
+    })
 }
 async function loadCartProduct() {
     const cart = await axios.get(`http://localhost:3001/api/v1/cart/${userId}`);
@@ -113,6 +137,7 @@ async function loadCartProduct() {
                 amount: pd.amount,
                 type:  response.data.product.typeProduct.name,
                 NSX: response.data.product.NSX.name,
+                typeProduct:  response.data.product._id
 
             }
             loadCartProduct2(product);

@@ -52,14 +52,14 @@ async function loadCart() {
         $('.header__cart-list ').html(
         `<img src="../assets/img/noCart.png" alt="No-cart" class="header__cart-no-cart-img">
         <span class="header__cart-list-no-cart-msg">Chưa có sản phẩm</span>
-        <a href="#" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>`)
+        <a href="http://localhost:3000/cart.html" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>`)
         $('.header__cart-notice').html(`${length}`);
         return;
     }
     else {
         $('.header__cart-notice').html(`${length}`);
         $('.header__cart-list ').html(`<ul class="header__cart-list-item"></ul>
-        <a href="#" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>`)
+        <a href="http://localhost:3000/cart.html" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>`)
     console.log(getCart);
     const a = getCart.map((pd,cb) => {
         console.log(pd)
