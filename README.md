@@ -20,4 +20,4 @@
     $ node server.js
     ```
 ---
-After done steps 1 and 2 then open your browser and open the link [link](http://localhost:3000/homepage.html)
+After done steps 1 and 2 then open your browser and open the [link](http://localhost:3000/homepage.html)
