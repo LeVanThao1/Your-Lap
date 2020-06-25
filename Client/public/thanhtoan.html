@@ -74,6 +74,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/until.js"></script>
     <script>
+
+        localStorage.removeItem('path')
         $('.auth-form__controls-back').click(() => {
             const prev = localStorage.getItem('pathprev');
             if(prev) {
@@ -81,7 +83,7 @@
             } else {
                 redirect('homepage.html')
             }
-        })
+        });
     </script>
 </body>
 
