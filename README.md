@@ -21,3 +21,12 @@
     ```
 ---
 After done steps 1 and 2 then open your browser and open the [link](http://localhost:3000/homepage.html)
+
+#### Account Member : 
+    Email: hieunguyen@gmail.com
+    Password: 12345678
+
+#### Account Admin : 
+    Email: yourlap@gmail.com
+    Password: yourlap@2020
+
