@@ -327,8 +327,9 @@
                                             for="submit_change_passwords">Thay Đổi Mật Khẩu</label>
                                     </div>
                                 </div>
-                                <div class="changepassword">
-                                    <div class="auth-form__group">
+
+                                 <div class="changepassword">
+                                    <!--<div class="auth-form__group">
                                         <label class="info_user_label" for="old_password">Mật Khẩu Cũ</label>
                                         <input spellcheck="false" name="info_oldpass" id="old_password" required
                                             type="password" class="auth-form__input" value>
@@ -338,7 +339,7 @@
                                     </div>
                                     <div class="auth-form__group">
                                         <label class="info_user_label" for="password">Mật Khẩu Mới</label>
-                                        <input id="password" name="info_newpass" spellcheck="false" onkeyup="check();"
+                                        <input id="password" name="info_newpass" spellcheck="false"
                                             required type="password" class="auth-form__input" value>
                                         <i class="fas fa-check-circle"></i>
                                         <i class="fas fa-exclamation-circle"></i>
@@ -347,14 +348,14 @@
                                     <div class="auth-form__group deleted_marinbottom">
                                         <label class="info_user_label" for="confirm_password">Nhập Lại Mật Khẩu</label>
                                         <input id="confirm_password" name="info_confirmpass" spellcheck="false"
-                                            onkeyup="check();" required type="password" class="auth-form__input" value>
+                                             required type="password" class="auth-form__input" value>
                                         <i class="fas fa-check-circle"></i>
                                         <i class="fas fa-exclamation-circle"></i>
                                     </div>
                                     <div class="auth-form__group group_change_password">
                                         <div id="message" class="error-message"></div>
-                                    </div>
-                                </div>
+                                    </div>-->
+                                </div> 
                                 <div class="auth-form__group group_change_password">
                                     <button type="submit" class="btn btn--primary">Cập Nhật</button>
                                 </div>
@@ -459,189 +460,7 @@
             </div>
         </footer>
     </div>
-    <script type="text/javascript">
-        var x = `<div class="changepassword">
-                        <div class="auth-form__group">
-                            <label class="info_user_label" for="">Mật Khẩu Cũ</label>
-                            <input spellcheck="false" required type="password" class="auth-form__input" value>
-                        </div>
-                        <div class="auth-form__group">
-                            <label class="info_user_label" for="">Mật Khẩu Mới</label>
-                            <input id="password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
-                        </div>
-                        <div class="auth-form__group deleted_marinbottom">
-                            <label class="info_user_label" for="">Nhập Lại Mật Khẩu</label>
-                            <input id="confirm_password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
-                        </div>
-                        <div class="auth-form__group group_change_password">
-                            <div id="message" class="error-message"></div>
-                        </div>
-                    </div>`;
-        var z = `<div class="auth-form__group">
-                        <label class="info_user_label" for="">Mật Khẩu Cũ</label>
-                        <input spellcheck="false" required type="password" class="auth-form__input" value>
-                    </div>
-                    <div class="auth-form__group">
-                        <label class="info_user_label" for="">Mật Khẩu Mới</label>
-                        <input id="password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
-                    </div>
-                    <div class="auth-form__group deleted_marinbottom">
-                        <label class="info_user_label" for="">Nhập Lại Mật Khẩu</label>
-                        <input id="confirm_password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
-                    </div>
-                    <div class="auth-form__group group_change_password">
-                        <div id="message" class="error-message"></div>
-                    </div>`;
-        // function noneInputName(){
-        //     const old_password = document.getElementById('old_password');
-        //     // console.log(old_password);
-        //     const password = document.getElementById('password');
-        //     const confirm_password = document.getElementById('confirm_password');
-        //     old_password.removeAttribute('name');
-        //     password.removeAttribute('name');
-        //     confirm_password.removeAttribute('name');
-        // }
-
-        // function onInputName(){
-        //     const old_password = document.getElementById('old_password');
-        //     // console.log(old_password);
-        //     const password = document.getElementById('password');
-        //     const confirm_password = document.getElementById('confirm_password');
-        //     old_password.setAttribute('name','info_oldpass')
-        //     password.setAttribute('name','info_newpass');
-        //     confirm_password.setAttribute('name','info_confirmpass');
-        // }
-        
-        // noneInputName();
-        $('.changepassword').hide();
-        $('#submit_change_password').click(function (e) {
-            if (e.target.checked) {
-                $('.changepassword').show();
-                // onInputName();
-            }
-            else {
-                $('.changepassword').hide();
-                // noneInputName();
-            }
-        })
-        
-        // var myForm = document.getElementsByClassName('auth-form__form');
-        // var y= myForm[0].innerHTML;
-        // var sub =    document.getElementById('submit_change_password');
-        // sub.addEventListener('click',function(){
-        //     console.log(this.checked);
-        //     if (this.checked){
-        //             myForm[0].innerHTML = y + z;
-        //             var lk = document.getElementById('submit_change_password');
-        //             lk.checked = true;
-        //         }
-        //         else{
-        //             // $('.changepassword').hide();
-        //             var lk = document.getElementById('submit_change_password');
-        //             console.log(sub.checked);
-        //             myForm[0].innerHTML = y;
-        //             lk.checked = false;
-        //         } 
-
-        // });
-        // var myForm = document.getElementsByClassName('auth-form__form');
-        // var sub =    document.getElementById('submit_change_password');
-        // sub.addEventListener('click',function(){
-        //     if(this.checked){
-        //         $('.auth-form__form')[0].append(
-        //             `<div class="auth-form__group">
-        //                 <label class="info_user_label" for="">Mật Khẩu Cũ</label>
-        //                 <input spellcheck="false" required type="password" class="auth-form__input" value>
-        //              </div>
-        //             <div class="auth-form__group">
-        //                 <label class="info_user_label" for="">Mật Khẩu Mới</label>
-        //                 <input id="password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
-        //             </div>
-        //             <div class="auth-form__group deleted_marinbottom">
-        //                 <label class="info_user_label" for="">Nhập Lại Mật Khẩu</label>
-        //                 <input id="confirm_password" spellcheck="false" onkeyup="check();" required type="password" class="auth-form__input" value>
-        //             </div>
-        //             <div class="auth-form__group group_change_password">
-        //                 <div id="message" class="error-message"></div>
-        //             </div>`
-        //         )
-        //     }
-        // });
-        function check() {
-            if (document.getElementById('password').value ==
-                document.getElementById('confirm_password').value) {
-                document.getElementById('message').style.color = 'blue';
-                document.getElementById('message').innerHTML = 'Mật khẩu hợp lệ';
-                const confirm_password = document.getElementById('confirm_password');
-                confirm_password.parentElement.classList.remove('error');
-                confirm_password.parentElement.classList.add('success');
-            }
-            else {
-                document.getElementById('message').style.color = 'red';
-                document.getElementById('message').innerHTML = 'Mật khẩu thay đổi phải trùng nhau';
-                const confirm_password = document.getElementById('confirm_password');
-                confirm_password.parentElement.classList.remove('success');
-                confirm_password.parentElement.classList.add('error');
-            }
-        }
-
-        const form = document.getElementById('form');
-        const user_name = document.getElementById('user_name');
-        const user_sdt = document.getElementById('user_sdt');
-        const user_address = document.getElementById('user_address');
-        const user_date = document.getElementById('user_date');
-        const old_password = document.getElementById('old_password');
-        const password = document.getElementById('password');
-        const confirm_password = document.getElementById('confirm_password');
-        form.addEventListener('submit',function(e){
-            e.preventDefault();
-            checkInputs();
-        });
-
-        function checkInputs(){
-            const user_nameValue = user_name.value.trim();
-            const user_sdtValue = user_sdt.value.trim();
-            const user_addressValue = user_address.value.trim();
-            const user_dateValue = user_date.value.trim();
-            // const user_oldpassValue = old_password.value.trim();
-            // const user_newpassValue = password.value.trim();
-            // const user_confirmpasssValue = confirm_password.value.trim();
-
-            if(user_nameValue === ''){
-                setErrorFor(user_name,'Tên khách hàng không được để trống');
-            }else{
-                setSuccessFor(user_name);
-            }
-
-            if(user_sdtValue === ''){
-                setErrorFor(user_sdt,'Số điện thoại không được để trống');
-            }else{
-                setSuccessFor(user_sdt);
-            }
-            if(user_addressValue === ''){
-                setErrorFor(user_address,'Địa chỉ không dược để trống')
-            }else{
-                setSuccessFor(user_address);
-            }
-        }
-
-        function isPassword(pass) {
-            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(pass);
-        }
-
-        function setErrorFor(input,message){
-            const formcontrol = input.parentElement;
-            console.log(formcontrol);
-            const small = formcontrol.querySelector('small');
-            small.innerText = message;
-            formcontrol.classList.add('error');
-        }
-
-        function setSuccessFor(input){
-            const formControl = input.parentElement;
-            formControl.classList.add('success');
-        }
-    </script>
+    <script src="./js/infoUser/validateInfoUser.js"></script>
 </body>
 
 </html>
