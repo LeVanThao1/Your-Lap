@@ -2,9 +2,9 @@ $(document).ready(function(){
     loadProduct();
 });
 
-async function loadProduct() {
-    // const category = document.querySelector('.category-list');
-    const dataCT = await axios.get(`http://localhost:3001/api/v1/products`);
+async function loadProduct(url="http://localhost:3001/api/v1/products") {
+    // const category = document.querySelector('.category-list');http://localhost:3001/api/v1/products
+    const dataCT = await axios.get(url);
     console.log(dataCT);
     dataCT.data.ListProducts.forEach(pr => {
         const checkPr = (pr.amount > 0);

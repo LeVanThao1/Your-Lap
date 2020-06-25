@@ -88,7 +88,7 @@ const createProduct = async (req, res, next) => {
             urls.push(newPath);
             fs.unlinkSync(path);
         }
-        console.log(req.files);
+        // console.log(req.files);
         const data = req.body;
         data.images = urls;
         // req.files.forEach(img => {
@@ -99,6 +99,7 @@ const createProduct = async (req, res, next) => {
         // const hashPassword = bcrypt.hashSync(data.password, salt);
         // data.password = hashPassword;
         console.log(data);
+        data.price = +data.price;
         data.postBy = req.user._id;
         const existedNSX = await NSX.findOne({_id: data.NSX});
         if(!existedNSX) {
@@ -158,10 +159,38 @@ const updateProduct = async (req, res, next) => {
     }
 };
 
+const getProductByType = async (req, res, next) => {
+    const { id }= req.params;
+    const products = await Product.find({typeProduct: id, deleteAt: undefined}).lean().populate(
+        {
+            path: 'postBy',
+            select: 'fullname'
+        }
+    ).populate(
+        {
+            path: 'typeProduct',
+            select: 'name'
+        }
+    ).populate(
+        {
+            path: 'NSX',
+            select: 'name'
+        }
+    );
+    if(!products) {
+        return next(new Error("TYPE_PRODUCT_IS_NOT_EXISTED"));
+    }
+    return res.status(200).json({
+        message : 'List Product By Type',
+        data: products,
+    });
+}
+
 module.exports = {
     getProduct,
     getAllProducts,
     createProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getProductByType
 }
