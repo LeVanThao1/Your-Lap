@@ -126,16 +126,14 @@
                         </div>
                     <div class="child-header">
                       <form>
-                        <div class="form-group row">
-                            <label for="orderID" class="col-sm-3 col-form-label">Mã đơn hàng</label>
-                            <div class="col-sm-9">
-                              <input type="id" name="orderID" class="form-control" id="inputIdPr">
-                            </div>
-                          </div>
                           <div class="form-group row">
                             <label for="productID" class="col-sm-3 col-form-label">Mã sản phẩm</label>
                             <div class="col-sm-9">
-                              <input type="id" name="productID" class="form-control" id="inputIdPr">
+                                <select name="typeProductID" id="typeProductID selectt">
+                                  <option value="Chọn mã loại sản phẩm">Chọn mã sản phẩm</option>
+                                  <option value="Chọn mã loại sản phẩm">A</option>
+                                  <option value="Chọn mã loại sản phẩm">B</option>
+                                </select>
                             </div>
                           </div>
                           <div class="form-group row">
@@ -147,40 +145,49 @@
                           <div class="form-group row">
                             <label for="producerID" class="col-sm-3 col-form-label">Mã nhà sản xuất</label>
                             <div class="col-sm-9">
-                              <input type="id" name="producerID" class="form-control" id="inputIdNSX">
+                              <select name="typeProductID" id="typeProductID selectt" >
+                                <option value="Chọn mã loại sản phẩm">Chọn mã nhà sản xuất</option>
+                                <option value="Chọn mã loại sản phẩm">A</option>
+                                <option value="Chọn mã loại sản phẩm">B</option>
+                              </select>
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="typeProductID" class="col-sm-3 col-form-label">Mã loại sản phẩm</label>
                             <div class="col-sm-9">
-                              <input type="id" name="typeProductID" class="form-control" id="inputIdType">
+                              <select name="typeProductID" id="typeProductID selectt" >
+                                <option value="Chọn mã loại sản phẩm">Chọn mã loại sản phẩm</option>
+                                <option value="Chọn mã loại sản phẩm">A</option>
+                                <option value="Chọn mã loại sản phẩm">B</option>
+                              </select>
+                                
                             </div>
                           </div>
                           
                           <div class="form-group row">
                             <label for="entryPrice" class="col-sm-3 col-form-label">Giá nhập</label>
                             <div class="col-sm-9">
-                              <input type="price" name="entryPrice" class="form-control" id="inputBuyPrice">
+                              <input type="number" name="entryPrice" class="form-control" id="inputBuyPrice">
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="sellPrice" class="col-sm-3 col-form-label">Giá bán</label>
                             <div class="col-sm-9">
-                              <input type="price" name="sellPrice" class="form-control" id="inputSellPrice">
+                              <input type="number" name="sellPrice" class="form-control" id="inputSellPrice">
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="amountDetailPro" class="col-sm-3 col-form-label">Số lượng</label>
                             <div class="col-sm-9">
-                              <input type="amount" name="amountDetailPro" class="form-control" id="inputAmount">
+                              <input type="number" name="amountDetailPro" class="form-control" id="inputAmount">
                             </div>
                           </div>
-                          <div class="form-group row">
+                          <!-- <div class="form-group row">
                             <label for="dateUpdateDetails" class="col-sm-3 col-form-label">Ngày cập nhật</label>
                             <div class="col-sm-9">
                               <input type="date" name="dateUpdateDetails" class="form-control" id="inputEmail3">
                             </div>
-                          </div>
+                          </div> -->
                           <div class="form-group row">
 
                             <label for="descriptionDetailPro" class="col-sm-3 col-form-label">Mô tả</label>
