@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/submenu.css">
     <link rel="stylesheet" href="css/statistics.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -44,7 +45,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
      <!--  -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap" rel="stylesheet"
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,13 +55,13 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <!-- <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
                 <a class="nav-link headingbav" href="#">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link headingbav" href="#">Setting</a>
-              </li>
+              </li> -->
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Dropdown
@@ -75,12 +76,12 @@
               <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li> -->
-            </ul>
-            <form class="form-inline my-2 my-lg-0 mr-5">
+            <!-- </ul> -->
+            <!-- <form class="form-inline my-2 my-lg-0 mr-5">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
             </form>
-          </div>
+          </div> -->
         <!--   <div class="ad mr-3">
                <a class="dropdown-item" href="#"></a>     
               <a href="#"></a>
@@ -103,8 +104,8 @@
         <div class="main">
             <div class="container">
                 <div class="row">
-                    <div class="col-3">
-                    <ul class="nav flex-column">
+                  <div class="col-3">
+                    <ul class="nav flex-column submenu2" >
                         <li class="nav-item">                            
                         <a class="nav-link active" href="admin.html">Trang chủ</a>
                       </li>
@@ -117,29 +118,58 @@
                       <li class="nav-item">                       
                         <a class="nav-link active" href="mes.html"> <div class="icon"></div>Khuyến mãi</a>
                       </li>
-                      <li class="nav-item">                        
+                      <li class="nav-item submenu" >                        
                         <a class="nav-link active" href="product.html"><div class="icon"></div>Quản lý sản phẩm</a>
+                        <ul class="sub-menu">
+                          <li><a href="uploadProduct.html">Thêm sản phẩm</a></li>
+                          <li><a href="#">Xoá sản phẩm</a></li>
+                          <li><a href="productDetails.html">Sửa thông tin sản phẩm</a></li>
+                        </ul>
                       </li>
-                      <li class="nav-item">
-                        
+                      <li class="nav-item submenu">                        
                         <a class="nav-link" href="user.html"><div class="icon"></div>Quản lý tài khoản</a>
+                        <ul class="sub-menu">
+                          <li><a href="uploadUser.html">Thêm tài khoản</a></li>
+                          <li><a href="#">Xoá sản phẩm</a></li>
+                        </ul>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item submenu">
                         
                         <a class="nav-link" href="order.html"><div class="icon"></div>Quản lý đơn hàng</a>
+                        <ul class="sub-menu">
+                          <li><a href="uploadOrder.html">Thêm đơn hàng</a></li>
+                          <li><a href="#">Xoá đơn hàng</a></li>
+                          <li><a href="orderDetails.html">Sửa đơn hàng</a></li>
+                        </ul>
                       </li>
-                      <li class="nav-item">                       
+                      </li>
+                      <li class="nav-item submenu">                       
                         <a class="nav-link" href="typeProduct.html"> <div class="icon"></div>Loại sản phẩm</a>
+                        <ul class="sub-menu">
+                          <li><a href="uploadProductType.html">Thêm loại sản phẩm</a></li>
+                          <li><a href="#">Xoá loại sản phẩm</a></li>
+                          <li><a href="">Sửa loại sản phẩm</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item submenu">                       
+                        <a class="nav-link" href="producer.html"> <div class="icon"></div>Nhà sản xuất</a>
+                        <ul class="sub-menu">
+                          <li><a href="uploadProducer.html">Thêm NSX</a></li>
+                          <li><a href="#">Xoá NSX</a></li>
+                          <li><a href="">Sửa thông tin NSX</a></li>
+                        </ul>
                       </li>
                       <li class="nav-item">                       
-                        <a class="nav-link" href="producer.html"> <div class="icon"></div>Nhà sản xuất</a>
-                      </li>
-                      <li class="nav-item">              
                         <a class="nav-link" href="rate.html"> <div class="icon"></div>Đánh giá</a>
                       </li>
-                      <li class="nav-item">
-                       
+                      <li class="nav-item submenu">                       
                         <a class="nav-link" href="charts.html"> <div class="icon"></div>Thống kê</a>
+                        <ul class="sub-menu">
+                          <li><a href="#">Theo tuần</a></li>
+                          <li><a href="#">Theo tháng</a></li>
+                          <li><a href="#">Theo quý</a></li>
+                          <li><a href="#">Theo năm</a></li>
+                        </ul>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="login.html" tabindex="-1" aria-disabled="false">Log out</a>

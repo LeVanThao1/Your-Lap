@@ -6,8 +6,6 @@
   <title></title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/submenu.css">
-    <link rel="stylesheet" href="css/new-feed.css">
-    <link rel="stylesheet" href="css/notification.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&family=Lato:wght@700&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/25d5d42d76.js" crossorigin="anonymous"></script>
@@ -28,32 +26,7 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link headingbav" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link headingbav" href="#">Setting</a>
-              </li>
-               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li> 
-            </ul>
-            <form class="form-inline my-2 my-lg-0 mr-5">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-            </form> -->
+            
           </div>
         <!--   <div class="ad mr-3">
                <a class="dropdown-item" href="#"></a>     
@@ -151,94 +124,59 @@
                   </div>
                        <div class="col-9">
                           <div class="content content-t">
+                            <div class="module message">
                               <div class="main-header">
-                                <h5>Thông báo</h5>
+                                <h5>Thêm loại sản phẩm</h5>
                               </div>
-                              <div class="member-status"><!-- member-status -->
-                                <div class="update-status">
-                                 <img src="https://img.icons8.com/officel/80/000000/businessman.png"/>
-                                  <div class="content-status">
-                                      <p>Tài khoản "ABC123" đã đánh giá<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> cho sản phẩm</p>
-                                      <div class="upload-photo comment">
-                                            <div class="like">
-                                              <button type="submit"><i class="far fa-hand-point-left">&emsp;Xem</i></button>
-                                              <p></p>
-                                            </div>
-                                            <div class="reply">
-                                              <button type="submit"><i class="far fa-eye">  &emsp;Đánh đấu đã xem</i></button>
-                                              <p></p>
-                                            </div>
-                                            <div class="report">
-                                              <button type="submit"><i class="far fa-trash-alt">&emsp;Xoá</i></button>
-                                              <p></p>
-                                            </div>
-                                      </div>
+                          <div class="child-header">
+                            <form id="producttype">
+                                <div class="form-group row">
+                                  <label for="productIDType" class="col-sm-3 col-form-label">Mã loại sản phẩm</label>
+                                  <div class="col-sm-9">
+                                    <input type="id"  name="productIDType" class="form-control" id="productIDType" placeholder="Nhập mã loại sản phẩm">
                                   </div>
-                              </div>
-                              <div class="update-status">
-                                 <img src="https://img.icons8.com/officel/80/000000/businessman.png"/>
-                                  <div class="content-status">
-                                      <p>Tài khoản "EFG456" đã đánh giá<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> cho sản phẩm
-                                      máy "DELL vostro 3758 "</p>
-                                      <div class="upload-photo comment">
-                                            <div class="like">
-                                              <button type="submit"><i class="far fa-hand-point-left">&emsp;Xem</i></button>
-                                              <p></p>
-                                            </div>
-                                            <div class="reply">
-                                              <button type="submit"><i class="far fa-eye">  &emsp;Đánh đấu đã xem</i></button>
-                                              <p></p>
-                                            </div>
-                                            <div class="report">
-                                              <button type="submit"><i class="far fa-trash-alt">&emsp;Xoá</i></button>
-                                              <p></p>
-                                            </div>
-                                      </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label for="productNameType" class="col-sm-3 col-form-label">Tên loại sản phẩm</label>
+                                  <div class="col-sm-9">
+                                    <input type="name" name="productNameType" class="form-control" id="productNameType" placeholder="Nhập tên sản phẩm">
                                   </div>
-                              </div>
-                              <div class="update-status">
-                                 <img src="https://img.icons8.com/officel/80/000000/businessman.png"/>
-                                  <div class="content-status">
-                                      <p>Như buoi <i class="far fa-star"></i></p>
-                                      <div class="upload-photo comment">
-                                            <div class="like">
-                                              <button type="submit"><i class="far fa-hand-point-left">&emsp;Xem</i></button>
-                                              <p></p>
-                                            </div>
-                                            <div class="reply">
-                                              <button type="submit"><i class="far fa-eye">  &emsp;Đánh đấu đã xem</i></button>
-                                              <p></p>
-                                            </div>
-                                            <div class="report">
-                                              <button type="submit"><i class="far fa-trash-alt">&emsp;Xoá</i></button>
-                                              <p></p>
-                                            </div>
-                                      </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label for="warehouseID" class="col-sm-3 col-form-label">Mã kho</label>
+                                  <div class="col-sm-9">
+                                    <input type="id" name="warehouseID" class="form-control" id="warehouseID" placeholder="Nhập mã kho">
                                   </div>
+                                </div>
+                                
+                                
+                          <!-- Brower-img -->
+                         <!-- <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroupFileAddon01">Ảnh</span>
+                            </div>
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                          </div> -->
+                          <!-- Brower-img -->
+                               
+                                <div class="form-group row">
+                                  <div class="col-sm-12 btn-add">
+                                    <button type="submit" class="btn btn-primary btn-add">Thêm</button>
+                                  </div>
+                                </div>
+                                <div class="errors">
+
+                                </div>
+                            </form>
                               </div>
-                              </div>
+                               <!-- content - user -->
+                            
+                            <!--  content- user -->
+                            </div>      
                           </div>
-                           <!-- next- previous -->
-                              <div class="page-navigation">
-                                <nav aria-label="Page navigation example">
-                                  <ul class="pagination">
-                                    <li class="page-item">
-                                      <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                      </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                      <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </nav>
-                              </div>                            
-                              <!-- next- previous -->
                         </div>
             </div> 
               </div>
@@ -253,6 +191,7 @@
         
 <!-- /////////////////////////////////         -->
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="./js/producttype.js"></script>
 </body>
    
 </html>
