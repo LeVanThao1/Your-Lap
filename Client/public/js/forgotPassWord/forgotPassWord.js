@@ -1,4 +1,4 @@
-        const form = document.getElementById('form2');
+        const form = document.getElementById('formChangePassword');
         const confirm_password = document.getElementById('confirm_password');
         const new_password = document.getElementById('password');
         console.log(new_password);
@@ -45,10 +45,12 @@
             const formcontrol = input.parentElement;
             const small = formcontrol.querySelector('small');
             small.innerText = message;
+            formcontrol.classList.remove('success');
             formcontrol.classList.add('error');
         }
 
         function setSuccessFor(input){
             const formControl = input.parentElement;
+            formControl.classList.remove('error');
             formControl.classList.add('success');
         }
