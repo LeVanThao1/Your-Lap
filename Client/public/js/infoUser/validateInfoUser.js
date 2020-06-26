@@ -104,10 +104,12 @@ function setErrorFor(input,message){
     console.log(formcontrol);
     const small = formcontrol.querySelector('small');
     small.innerText = message;
+    formcontrol.classList.remove('success');
     formcontrol.classList.add('error');
 }
 
 function setSuccessFor(input){
     const formControl = input.parentElement;
+    formControl.classList.remove('error');
     formControl.classList.add('success');
 }
