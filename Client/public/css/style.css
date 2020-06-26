@@ -15,7 +15,7 @@
 }
 
 .navbar-nav li{
-	padding-left:30px;
+	padding: 0 20px;
 }
 
 .navbar-YouLap a{
@@ -30,6 +30,10 @@
 
 .row{
 	display: flex;
+}
+
+.col-sm-9 {
+    padding: 7px 15px;
 }
 
 .col-3{
@@ -65,12 +69,13 @@
 }
 
 .col-3 li:hover{
-	color: fff;
+	color: #fff;
 }
 
 .col-3 .nav-link{
 	display: flex;
 }
+
 
 .member{
 	display: flex;
