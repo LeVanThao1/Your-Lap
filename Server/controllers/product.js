@@ -54,7 +54,34 @@ const getProduct = async (req, res, next) => {
 
 const getAllProducts = async (req, res, next) => {
     try {
-        const ListProducts = await Product
+        let {date, price, search, page, limit } = req.query;
+        if(!page) {
+            page = 0;
+        }
+        else {
+            page = parseInt(page)
+        }
+        if(!limit) {
+            limit = 0;
+        }
+        else {
+            limit = parseInt(limit);
+        }
+        let sort, skip;
+        if(page) {
+            skip = (page - 1) * limit;
+        }
+        if(date) {
+            sort = {
+                createdAt: date === "true"? 1 : -1,
+            }
+        }
+        if(price){
+            sort = {
+                price: price === "true"? 1 : -1,
+            }
+        }
+        let ListProducts = await Product
             .find({deleteAt: undefined})
             .lean()
             .populate(
@@ -67,7 +94,16 @@ const getAllProducts = async (req, res, next) => {
                     path: 'typeProduct NSX',
                     select: 'name nation'
                 }
-            );
+            ).sort(
+                sort
+            )
+            .limit(limit)
+            .skip(skip);
+        if(search) {
+            ListProducts = ListProducts.filter((pd) => {
+                return pd.name.toLowerCase().includes(search.toLowerCase());
+            })
+        }
         return res.status(200).json({
             message: 'ListProducts',
             ListProducts
@@ -180,6 +216,31 @@ const getProductByType = async (req, res, next) => {
         data: products,
     });
 }
+const getProductWithDate = async (req, res, next) => {
+    const { check }= req.body;
+    console.log(req)
+    const products = await Product.find({deleteAt: undefined}).lean().populate(
+        {
+            path: 'postBy',
+            select: 'fullname'
+        }
+    ).populate(
+        {
+            path: 'typeProduct NSX',
+            select: 'name nation'
+        }
+    )
+    // .sort({
+    //     createdAt: check? 1: -1
+    // });
+    if(!products) {
+        return next(new Error("TYPE_PRODUCT_IS_NOT_EXISTED"));
+    }
+    return res.status(200).json({
+        message : 'List Product By Type',
+        data: products,
+    });
+}
 
 module.exports = {
     getProduct,
@@ -187,5 +248,6 @@ module.exports = {
     createProduct,
     updateProduct,
     deleteProduct,
-    getProductByType
+    getProductByType,
+    getProductWithDate
 }

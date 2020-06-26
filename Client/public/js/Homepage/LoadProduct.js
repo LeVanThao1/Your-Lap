@@ -1,11 +1,19 @@
+let productsList;
 $(document).ready(function(){
     loadProduct();
 });
 
-async function loadProduct(url="http://localhost:3001/api/v1/products") {
+async function loadProduct(url="http://localhost:3001/api/v1/products?page=1&limit=4") {
     // const category = document.querySelector('.category-list');http://localhost:3001/api/v1/products
+    console.log(`qqeeqw`)
+    $('.allProduct').html('');
     const dataCT = await axios.get(url);
+    if(dataCT.data.ListProducts.length === 0) {
+        $('.allProduct').html('<h3 style="text-align: center; font-size: 14px; width: 100%;">Không có kết quả phù hợp</h3>');
+    }
+    localStorage.setItem('listProduct', JSON.stringify(dataCT.data.ListProducts))
     console.log(dataCT);
+    // productsList = dataCT.data.ListProducts;
     dataCT.data.ListProducts.forEach(pr => {
         const checkPr = (pr.amount > 0);
         $('.allProduct').append(

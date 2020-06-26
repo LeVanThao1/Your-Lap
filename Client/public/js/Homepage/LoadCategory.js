@@ -10,11 +10,15 @@ async function loadCategory() {
     console.log(dataCT);
     dataCT.data.listPT.forEach(ct => {
         $('.category-list').append(
-            `<li class="category-item category-item--active ct-${ct._id}">
+            `<li class="category-item ct-${ct._id}">
                 <div class="category-item__link">${ct.name}</div>
             </li>`
         )
         $(`.ct-${ct._id}`).click(() => {
+            dataCT.data.listPT.forEach(ct2 => {
+                $(`.ct-${ct2._id}`).removeClass("category-item--active");
+            })
+            $(`.ct-${ct._id}`).addClass("category-item--active");
             axios.get(`http://localhost:3001/api/v1/products/type/${ct._id}`).then((respon) => {
                 const products = respon.data.data;
                 console.log(products);
