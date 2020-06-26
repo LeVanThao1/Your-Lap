@@ -2,14 +2,17 @@ const express = require('express');
 const app = express();
 const port = 3001;
 const cors = require('cors')
-// const mongoose = require('mongoose');
+const helmet = require('helmet');
+const bodyParser = require('body-parser');
+
 const NSXRoute = require('./apis/NSX');
 const PTRoute = require('./apis/productType');
 const ProductRoute = require('./apis/product');
 const userRoute = require('./apis/user.js');
 const CartRoute = require('./apis/cart');
-const bodyParser = require('body-parser');
-const models = require('./models')
+
+const models = require('./models');
+
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
@@ -27,9 +30,10 @@ const headers = {
     // 'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
     // 'preflightContinue': true
 };
+
 app.use(cors(headers));
 app.options('*', cors(headers));
-
+app.use(helmet());
 userRoute.load(app);
 NSXRoute.load(app);
 ProductRoute.load(app);
@@ -45,7 +49,7 @@ app.use(function (err, req, res, next) {
             error : messagese
         });
     }
-    return res.json({
+    return res.status(400).json({
         message: err.message || 'have error'
     });
 });

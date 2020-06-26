@@ -54,7 +54,7 @@ const getProduct = async (req, res, next) => {
 
 const getAllProducts = async (req, res, next) => {
     try {
-        let {date, price, search, page, limit } = req.query;
+        let {date, price, search, page, limit, amount } = req.query;
         if(!page) {
             page = 0;
         }
@@ -74,6 +74,11 @@ const getAllProducts = async (req, res, next) => {
         if(date) {
             sort = {
                 createdAt: date === "true"? 1 : -1,
+            }
+        }
+        if(amount) {
+            sort = {
+                amount: amount === "true"? 1 : -1,
             }
         }
         if(price){
@@ -136,6 +141,7 @@ const createProduct = async (req, res, next) => {
         // data.password = hashPassword;
         console.log(data);
         data.price = +data.price;
+        data.entryPrice = +data.entryPrice;
         data.postBy = req.user._id;
         const existedNSX = await NSX.findOne({_id: data.NSX});
         if(!existedNSX) {

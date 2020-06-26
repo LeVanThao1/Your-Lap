@@ -24,11 +24,12 @@ const orderSchema = new mongoose.Schema({
     recipientPhone: {
         type: String,
         min: 10,
-        max: 10
+        max: 10,
+        require: true
     },
     recipientAddress: {
         type: String,
-        min: 10,line item
+        min: 10,
         require: true
     },
     recipientEmail: {

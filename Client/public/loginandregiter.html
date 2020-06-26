@@ -153,6 +153,7 @@
     </div>
     <script type="text/javascript">
         if(window.location.hash === "#register") {
+            $('#login').css("visibility", "hidden")
             $('#login').css("left", "-500px")
             $('#register').css("left", "0")
         }
@@ -164,17 +165,22 @@
         $('#pass-to-login').click(function(){
             // register.style.left = '-500px';
             // login.style.left = '0';
-
+            $('#login').css("visibility", "visible")
             $('#login').css("left", "0");
-            $('#register').css("left", "500px");
+
+            $('#register').css("visibility", "hidden")
+            $('#register').css("right", "-500px");
         });
         $('#pass-to-register').click(function(){
             // register.style.left = '0';
             // login.style.left = '500px';
-
+            $('#login').css("visibility", "hidden")
             $('#login').css("left", "-500px")
+            
 
-            $('#register').css("left", "0")
+            $('#login').css("visibility", "visible")
+            $('#register').css("right", "500px")
+            
         });
 
 
