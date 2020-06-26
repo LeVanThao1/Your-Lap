@@ -13,9 +13,13 @@ async function loadUser() {
     // const category = document.querySelector('.category-list');
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
+    // if(!userId) {
+    //     loadCart();
+    //     return;
+    // }
     const dataCT = await axios.get(`http://localhost:3001/api/v1/users/${userId}`);
     console.log(dataCT);
-    if(!token || dataCT.status !== 200) {
+    if(!token || dataCT.status !== 200 || !userId) {
         $('.header__navbar-list').append(`<li class="header__navbar-item header__navbar-item--bold header__navbar-item--separate Register" >Đăng ký</li>
         <li class="header__navbar-item header__navbar-item--bold Login">Đăng nhập</li>`)
 
@@ -25,6 +29,8 @@ async function loadUser() {
         $('.Register').click(() => {
             redirect('loginandregiter.html#register')
         })
+        loadCart();
+        return;
     }
     else {
         $('.header__navbar-user').append(

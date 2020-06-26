@@ -54,7 +54,34 @@ const getProduct = async (req, res, next) => {
 
 const getAllProducts = async (req, res, next) => {
     try {
-        const ListProducts = await Product
+        let {date, price, search, page, limit } = req.query;
+        if(!page) {
+            page = 0;
+        }
+        else {
+            page = parseInt(page)
+        }
+        if(!limit) {
+            limit = 0;
+        }
+        else {
+            limit = parseInt(limit);
+        }
+        let sort, skip;
+        if(page) {
+            skip = (page - 1) * limit;
+        }
+        if(date) {
+            sort = {
+                createdAt: date === "true"? 1 : -1,
+            }
+        }
+        if(price){
+            sort = {
+                price: price === "true"? 1 : -1,
+            }
+        }
+        let ListProducts = await Product
             .find({deleteAt: undefined})
             .lean()
             .populate(
@@ -67,7 +94,16 @@ const getAllProducts = async (req, res, next) => {
                     path: 'typeProduct NSX',
                     select: 'name nation'
                 }
-            );
+            ).sort(
+                sort
+            )
+            .limit(limit)
+            .skip(skip);
+        if(search) {
+            ListProducts = ListProducts.filter((pd) => {
+                return pd.name.toLowerCase().includes(search.toLowerCase());
+            })
+        }
         return res.status(200).json({
             message: 'ListProducts',
             ListProducts
@@ -88,7 +124,7 @@ const createProduct = async (req, res, next) => {
             urls.push(newPath);
             fs.unlinkSync(path);
         }
-        console.log(req.files);
+        // console.log(req.files);
         const data = req.body;
         data.images = urls;
         // req.files.forEach(img => {
@@ -99,6 +135,7 @@ const createProduct = async (req, res, next) => {
         // const hashPassword = bcrypt.hashSync(data.password, salt);
         // data.password = hashPassword;
         console.log(data);
+        data.price = +data.price;
         data.postBy = req.user._id;
         const existedNSX = await NSX.findOne({_id: data.NSX});
         if(!existedNSX) {
@@ -158,10 +195,59 @@ const updateProduct = async (req, res, next) => {
     }
 };
 
+const getProductByType = async (req, res, next) => {
+    const { id }= req.params;
+    const products = await Product.find({typeProduct: id, deleteAt: undefined}).lean().populate(
+        {
+            path: 'postBy',
+            select: 'fullname'
+        }
+    ).populate(
+        {
+            path: 'typeProduct NSX',
+            select: 'name nation'
+        }
+    );
+    if(!products) {
+        return next(new Error("TYPE_PRODUCT_IS_NOT_EXISTED"));
+    }
+    return res.status(200).json({
+        message : 'List Product By Type',
+        data: products,
+    });
+}
+const getProductWithDate = async (req, res, next) => {
+    const { check }= req.body;
+    console.log(req)
+    const products = await Product.find({deleteAt: undefined}).lean().populate(
+        {
+            path: 'postBy',
+            select: 'fullname'
+        }
+    ).populate(
+        {
+            path: 'typeProduct NSX',
+            select: 'name nation'
+        }
+    )
+    // .sort({
+    //     createdAt: check? 1: -1
+    // });
+    if(!products) {
+        return next(new Error("TYPE_PRODUCT_IS_NOT_EXISTED"));
+    }
+    return res.status(200).json({
+        message : 'List Product By Type',
+        data: products,
+    });
+}
+
 module.exports = {
     getProduct,
     getAllProducts,
     createProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getProductByType,
+    getProductWithDate
 }

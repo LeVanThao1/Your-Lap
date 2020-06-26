@@ -46,10 +46,20 @@ async function loadCart2(pd) {
 async function loadCart() {
     $('.header__cart-list-item').html('');
     const cart = await axios.get(`http://localhost:3001/api/v1/cart/${userId}`);
-    const getCart = cart.data.cart.cart;
+    if(!cart.data.cart) {
+        $('.header__cart-list').html(
+            `<img src="../assets/img/noCart.png" alt="No-cart" class="header__cart-no-cart-img">
+            <span class="header__cart-list-no-cart-msg">Chưa có sản phẩm</span>
+            <a href="http://localhost:3000/cart.html" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>`)
+            $('.header__cart-notice').html(`${length}`);
+            return;
+    }
+    else {
+        const getCart = cart.data.cart.cart;
+    console.log(cart);
     length = getCart.length;
     if(length === 0) {
-        $('.header__cart-list ').html(
+        $('.header__cart-list').html(
         `<img src="../assets/img/noCart.png" alt="No-cart" class="header__cart-no-cart-img">
         <span class="header__cart-list-no-cart-msg">Chưa có sản phẩm</span>
         <a href="http://localhost:3000/cart.html" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>`)
@@ -75,5 +85,6 @@ async function loadCart() {
             loadCart2(product);
         });
     })
+    }
     }
 }

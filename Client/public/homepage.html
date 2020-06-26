@@ -138,7 +138,7 @@
                     <div class="header__search">
                         <div class="header__search-input-wrap">
                             <form action="#" class="header__search-form">
-                                <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
+                                <input type="text" class="header__search-input" value="" placeholder="Nhập để tìm kiếm sản phẩm">
                             </form>
                             <!-- Search history -->
                             <div class="header__search-history">
@@ -275,9 +275,9 @@
                     <div class="grid__column-10">
                         <div class="home-filter">
                             <span class="home-filter__label">Sắp xếp theo</span>
-                            <button class="home-filter__btn btn">Phổ biến</button>
-                            <button class="home-filter__btn btn btn--primary">Mới nhất</button>
-                            <button class="home-filter__btn btn">Bán chạy</button>
+                            <button class="home-filter__btn btn btn--primary" data-i="0" disabled="true">Phổ biến</button>
+                            <button class="home-filter__btn btn " data-i="1">Mới nhất</button>
+                            <button class="home-filter__btn btn" data-i="2">Bán chạy</button>
 
                             <div class="select-input">
                                 <span class="select-input__label">Giá</span>
@@ -285,11 +285,11 @@
 
                                 <!-- List option -->
                                 <ul class="select-input__list">
-                                    <li class="select-input__item">
-                                        <a href="#" class="select-input__link">Giá: Thấp đến cao</a>
+                                    <li class="select-input__item" data-p="0">
+                                        <div href="#" class="select-input__link">Giá: Thấp đến cao</div>
                                     </li>
-                                    <li class="select-input__item">
-                                        <a href="#" class="select-input__link">Giá: Cao đến thấp</a>
+                                    <li class="select-input__item" data-p="1">
+                                        <div href="#" class="select-input__link">Giá: Cao đến thấp</div>
                                     </li>
                                 </ul>
                             </div>
@@ -324,7 +324,7 @@
                     <div class="grid__column-12">
                         <ul class="pagination home-product__pagination">
                             <!-- active là hiện được bấm -->
-                            <li class="pagination-item">
+                            <!-- <li class="pagination-item">
                                 <a href="#" class="pagination-item__link">
                                     <i class="pagination-item__icon fas fa-angle-left"></i>
                                 </a>
@@ -354,7 +354,7 @@
                                 <a href="#" class="pagination-item__link">
                                     <i class="pagination-item__icon fas fa-angle-right"></i>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -558,9 +558,11 @@
     <script src="./js/until.js"></script>
     <script src="./js/LoadCart.js"></script>
     <script src="./js/Homepage/LoadUser.js"></script>
-    <script src="./js/Homepage/LoadCategory.js"></script>
     <script src="./js/Homepage/LoadProduct.js"></script>
+    <script src="./js/Homepage/LoadCategory.js"></script>
     <script src="./js/Homepage/linked.js"></script>
+    <script src="./js/LoadSearch.js"></script>
+    <script src="./js/Pagegination.js"></script>
 </body>
 
 </html>
