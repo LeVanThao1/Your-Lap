@@ -16,7 +16,6 @@
 	/* margin: 6% auto; */
 	/* background: #fff; */
 	/* padding: 5px; */
-	overflow: hidden;
 }
 
 .auth-form {
@@ -197,12 +196,9 @@
 .auth-form__help-forgot {
     color: var(--primary-color);
 }
-
-#register {
-    /* display: none; */
+/* #register {
     left: 500px;
 }
 #login {
-    /* display: none; */
     left: 0;
-}
+} */
