@@ -1,4 +1,4 @@
-        const form = document.getElementById('form2');
+        const form = document.getElementById('formChangePassword');
         const confirm_password = document.getElementById('confirm_password');
         const new_password = document.getElementById('password');
         console.log(new_password);
