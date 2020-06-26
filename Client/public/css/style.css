@@ -20,6 +20,7 @@
 
 .navbar-YouLap a{
 	font-size: 40px;
+	margin-left:40px;
 	font-family: 'Varela Round', sans-serif;
 	color: #d60c0c!important;
 }
@@ -32,11 +33,13 @@
 	display: flex;
 }
 
+
 .col-sm-9 {
     padding: 7px 15px;
 }
 
 .col-3{
+	border-radius: 5px;
 	height: 100%;
 	width: 100%;
 	max-width: 18em;
@@ -46,10 +49,14 @@
 
 
 .col-3 li{
-	border-bottom: 1px solid #FFF;
+	/* border-bottom: 1px solid #FFF; */
 	margin:10px;
 	align-items: center;
 	text-align: center;
+}
+
+.col-3>li>a{
+	border-bottom: 1px solid #e8f6e4;
 }
 
 .col-3 a{
@@ -64,9 +71,9 @@
 	text-align: center;
 }
 
-.col-3 li>a:hover{
+/* .col-3 li>a:hover{
 	color: #bbb;
-}
+} */
 
 .col-3 li:hover{
 	color: #fff;
@@ -150,6 +157,7 @@
 	color: #fff;
 	background-color: #d60c0c;
 	padding: 10px;
+	border-radius: 5px;
 }
 
 .child-header{
@@ -232,9 +240,23 @@ form label{
 	text-align: center;
 }
 
+/* button{
+	-webkit-box-shadow: inset 68px 6px 77px -16px rgb(255, 0, 0);
+-moz-box-shadow: inset 68px 6px 77px -16px rgb(209, 32, 32);
+box-shadow: inset 68px 6px 77px -16px rgb(88, 56, 56);
+} */
+
 .btn{
+	-webkit-box-shadow: inset 68px 6px 77px -16px rgb(177, 156, 55);
+	-moz-box-shadow: inset 68px 6px 77px -16px rgb(216, 153, 142);
+	box-shadow: inset 68px 6px 77px -16px rgb(214, 28, 28);
 	border-color: #d60c0c!important;
 	background-color: #d60c0c!important;
+}
+
+.btn:hover{
+	background-color: #c2e915!important;
+	
 }
 
 .form-inline>.btn{
@@ -265,8 +287,21 @@ form label{
 	background-color: rgba(241, 117, 0, 0.918);
 	color: #FFF;
 	font-size: 14px;
-	/* transform: translateY(300px); */
 	pointer-events: all;
 	margin-bottom: 10px;	
 	animation: slide-in 1s ease-out forwards;
+}
+
+select{
+	padding-left: 10px;
+	text-align: left;
+	height: 30px;
+	width: 50%;
+	color: #fff;
+	border-radius: 10px;
+	background-color: #d60c0c;
+}
+
+option{
+	border: 1px solid #fff;
 }
