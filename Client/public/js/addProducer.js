@@ -34,10 +34,16 @@ function validateRegisterForm (e) {
         return false;
     }
     
-    alert('SUBMITTED');
-        return true;
+    // alert('SUBMITTED');
+    //     return true;
+        const name = document.querySelector('input[name="productNameUp"');
+        const nsx = document.querySelector('input[name="producerIDUp"');
+        const typeProduct = document.querySelector('input[name="typeProductIDUp"');
+        const nsx = document.querySelector('input[name="producerIDUp"');
+        const name = document.querySelector('input[name="productNameUp"');
+        const nsx = document.querySelector('input[name="producerIDUp"');
     }
-
+    
     function handle_errors(errs) {
         let str = "You have not filled with the following fields: ";    
         errs.map((er) => {
