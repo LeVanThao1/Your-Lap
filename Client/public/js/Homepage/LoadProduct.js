@@ -25,8 +25,8 @@ async function loadProduct(url="http://localhost:3001/api/v1/products?page=1&lim
                 </div>
                 <h4 class="home-product-item__name">${pr.name}</h4>
                 <div class="home-product-item__price">
-                    <span class="home-product-item__price-old">${Math.ceil(pr.price * 1.2)}</span>
-                    <span class="home-product-item__price-current">${pr.price}</span>
+                    <span class="home-product-item__price-old">${formatMoney(pr.price)}</span>
+                    <span class="home-product-item__price-current">${formatMoney(moneyAfterDiscount(pr.price,10))}</span>
                 </div>
                 </a>
                 
