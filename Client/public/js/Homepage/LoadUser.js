@@ -4,7 +4,7 @@ $(document).ready(function(){
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
         localStorage.removeItem('username');
-        redirect('loginandregiter.html')
+        redirect('loginUser.html')
     });
 
 });
@@ -24,10 +24,10 @@ async function loadUser() {
         <li class="header__navbar-item header__navbar-item--bold Login">Đăng nhập</li>`)
 
         $('.Login').click(() => {
-            redirect('loginandregiter.html')
+            redirect('loginUser.html')
         })
         $('.Register').click(() => {
-            redirect('loginandregiter.html#register')
+            redirect('registerUser.html')
         })
         loadCart();
         return;
@@ -58,7 +58,7 @@ async function loadUser() {
             localStorage.removeItem('token');
             localStorage.removeItem('userId');
             localStorage.removeItem('username');
-            redirect('loginandregiter.html')
+            redirect('loginUser.html')
         });
         loadCart();
     }

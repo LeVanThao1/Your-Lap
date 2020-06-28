@@ -2,7 +2,7 @@ const API_URL = 'http://localhost:3001';
 const token = localStorage.getItem('token');
 const userId = localStorage.getItem('userId');
 const dataCT = axios.get(`http://localhost:3001/api/v1/users/${userId}`);
-if(token || dataCT.status === 200) {
+if(token && userId || dataCT.status === 200) {
 	redirect('homepage.html');
 }
 $('.Login').click(function () {

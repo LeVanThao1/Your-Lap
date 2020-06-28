@@ -110,7 +110,7 @@ async function loadProduct() {
     $(`.id-${product.data.product._id}`).click(() => {
         if(!userId) {
             localStorage.setItem('path', `chitiet.html?id=${product.data.product._id}`);
-            redirect('loginandregiter.html')
+            redirect('loginUser.html')
             return;
         }
         const addCart = axios.put('http://localhost:3001/api/v1/cart/addsp', {
@@ -155,18 +155,19 @@ async function loadProduct() {
         }
     });
     $('.info-prodcut__buy').click( () => {
-        const token = localStorage.getItem('token')
-        const reponse = axios.get(`http://localhost:3001/api/v1/auth?token=${token}`).then((data) =>{
-            console.log(data)
-            if(!data.data.user) {
+        const token = localStorage.getItem('token');
+        const userId = localStorage.getItem('userId');
+        // const reponse = axios.get(`http://localhost:3001/api/v1/auth?token=${token}`).then((data) =>{
+        //     console.log(data)
+            if(!token || !userId) {
                 localStorage.setItem('path', `thanhtoan.html?productId=${product.data.product._id}`)
-                redirect('loginandregiter.html')
+                redirect('loginUser.html')
             }
             else {
                 localStorage.setItem('pathprev', `${window.location.pathname.slice(1)+ window.location.search}`)
                 redirect(`thanhtoan.html?productId=${product.data.product._id}`)
             }
-        });
+        // });
         
     })
 }
