@@ -11,10 +11,12 @@ filterDate.forEach((ft, i) => {
             ft2.disabled = false;
         })
         if(this.dataset.i === '1') {
-            loadProduct('http://localhost:3001/api/v1/products?date=false');
+            loadProduct('http://localhost:3001/api/v1/products?date=false&page=1&limit=4');
+            loadPagination(`http://localhost:3001/api/v1/products?date=false&`)
         }
         if(this.dataset.i === '0') {
-            loadProduct('http://localhost:3001/api/v1/products?date=true');
+            loadProduct('http://localhost:3001/api/v1/products?date=true&page=1&limit=4');
+            loadPagination('http://localhost:3001/api/v1/products?date=true&')
         }
         ft.classList.add('btn--primary');
         this.disabled = true;
@@ -28,10 +30,12 @@ filterPrice.forEach((ft, i) => {
         })
         console.log(this.dataset.p)
         if(this.dataset.p === '1') {
-            loadProduct('http://localhost:3001/api/v1/products?price=false');
+            loadProduct('http://localhost:3001/api/v1/products?price=false&page=1&limit=4');
+            loadPagination('http://localhost:3001/api/v1/products?price=false&')
         }
         if(this.dataset.p === '0') {
-            loadProduct('http://localhost:3001/api/v1/products?price=true');
+            loadProduct('http://localhost:3001/api/v1/products?price=true&page=1&limit=4');
+            loadPagination('http://localhost:3001/api/v1/products?price=true&');
         }
         document.querySelector('.select-input__label').innerHTML = this.textContent;
         this.style.pointerEvents = "none";
@@ -44,6 +48,8 @@ filterName.addEventListener('input', function (){
         clearTimeout(timeOutId);
     }
     timeOutId = setTimeout(() => {
-        loadProduct(`http://localhost:3001/api/v1/products?search=${valueSearch}`);
+        console.log(valueSearch);
+        loadProduct(`http://localhost:3001/api/v1/products?search=${valueSearch}&page=1&limit=4`);
+        loadPagination(`http://localhost:3001/api/v1/products?search=${valueSearch}&`);
     },300)
 })

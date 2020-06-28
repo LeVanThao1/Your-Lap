@@ -21,6 +21,10 @@ const productSchema = new mongoose.Schema({
             require: true
         }
     }],
+    entryPrice: {
+        type: Number,
+        require: true,
+    },
     price: {
         type: Number,
         require: true,
@@ -40,8 +44,12 @@ const productSchema = new mongoose.Schema({
         require: true,
     },
     comments: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment'
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+        },
+        message: {
+            type: String,
+        }
     }],
     deleteAt: {
         type: Date

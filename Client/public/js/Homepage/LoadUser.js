@@ -20,7 +20,7 @@ async function loadUser() {
     const dataCT = await axios.get(`http://localhost:3001/api/v1/users/${userId}`);
     console.log(dataCT);
     if(!token || dataCT.status !== 200 || !userId) {
-        $('.header__navbar-list').append(`<li class="header__navbar-item header__navbar-item--bold header__navbar-item--separate Register" >Đăng ký</li>
+        $('.user').append(`<li class="header__navbar-item header__navbar-item--bold header__navbar-item--separate Register" >Đăng ký</li>
         <li class="header__navbar-item header__navbar-item--bold Login">Đăng nhập</li>`)
 
         $('.Login').click(() => {
