@@ -11,10 +11,10 @@ async function loadUsers() {
         $('tbody').append(
             `<tr class="unread">
                 <td class="cell-check">
-                <input type="checkbox" class="inbox-checkbox">
+                    ${product._id}
                 </td>
                 <td class="cell-check">
-                    ${user._id}
+                    ${product._name}
                 </td>
 
                 <td class="cell-author hidden-phone hidden-tablet">

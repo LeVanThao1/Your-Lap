@@ -6,7 +6,6 @@ regForm.addEventListener('submit', validateRegisterForm);
 function validateRegisterForm (e) {
     e.preventDefault();
     
-    const orderIDor = document.querySelector('#addOrder #orderIDor');
     const cusIDor = document.querySelector('#addOrder #cusIDor');
     const cusNameor = document.querySelector('#addOrder #cusNameor');
     const cusPhoneNumberor = document.querySelector('#addOrder #cusPhoneNumberor');
@@ -20,21 +19,17 @@ function validateRegisterForm (e) {
     const email_reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const pass_reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     const num_reg= /^([0-9])/;
-    
-    if (orderIDor.value == "") {
-        errors.push({text: "Order ID", el: orderIDor});
-    }
-    
+        
     if (cusIDor.value == "") {
-        errors.push({text: "customer ID", el: cusIDor});
+        errors.push({text: "mã khách hàng", el: cusIDor});
     }
 
     if (cusNameor.value == "") {
-        errors.push({text: "customer name", el: cusNameor});
+        errors.push({text: "tên khách hàng", el: cusNameor});
     }
 
     if (cusPhoneNumberor.value == "") {
-        errors.push({text: "phone number", el: cusPhoneNumberor});
+        errors.push({text: "số điện thoại", el: cusPhoneNumberor});
     }
 
     if (cusEmailor.value == "") {
@@ -44,17 +39,9 @@ function validateRegisterForm (e) {
     }
 
     if (cusAddor.value == "") {
-        errors.push({text: "address", el: cusAddor});
+        errors.push({text: "địa chỉ", el: cusAddor});
     }
 
-    if (dateUpdateOr.value == "") {
-        errors.push({text: "date update", el: dateUpdateOr});
-    }
-
-    // if (statusOr.value == null) {
-    //     errors.push({text: "date update", el: statusOr});
-    // }
-    
     if (errors.length > 0) {
         handle_errors(errors);
         return false;
@@ -65,7 +52,7 @@ function validateRegisterForm (e) {
     }
 
     function handle_errors(errs) {
-        let str = "You have not filled with the following fields: ";    
+        let str = "Bạn chưa điền thông tin vào các cột: ";     
         errs.map((er) => {
         er.el.classList.add('error');
         str += er.text + ", ";

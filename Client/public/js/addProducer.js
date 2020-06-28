@@ -5,10 +5,9 @@ regForm.addEventListener('submit', validateRegisterForm);
 
 function validateRegisterForm (e) {
     e.preventDefault();
-    
-    const productIDUpload = document.querySelector('#producer #productIDUpload');
+
+    const producerNameUp = document.querySelector('#producer #producerNameUp');
     const productNameUp = document.querySelector('#producer #productNameUp');
-    const producerIDUp = document.querySelector('#producer #producerIDUp');
     
     let errors = [];
  
@@ -16,16 +15,12 @@ function validateRegisterForm (e) {
     const pass_reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     const num_reg= /^([0-9])/;
     
-    if (productIDUpload.value == "") {
-        errors.push({text: "Order ID", el: productIDUpload});
-    }
-    
-    if (productNameUp.value == "") {
-        errors.push({text: "customer ID", el: productNameUp});
+    if (producerNameUp.value == "") {
+        errors.push({text: "Tên nhà sản xuất", el: producerNameUp});
     }
 
-    if (producerIDUp.value == "") {
-        errors.push({text: "customer name", el: producerIDUp});
+    if (productNameUp.value == "") {
+        errors.push({text: "tên sản phẩm", el: productNameUp});
     }
 
  
@@ -45,7 +40,7 @@ function validateRegisterForm (e) {
     }
     
     function handle_errors(errs) {
-        let str = "You have not filled with the following fields: ";    
+        let str = "Bạn chưa điền thông tin vào các cột: ";   
         errs.map((er) => {
         er.el.classList.add('error');
         str += er.text + ", ";
