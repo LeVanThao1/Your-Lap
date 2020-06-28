@@ -111,7 +111,7 @@ const getAllProducts = async (req, res, next) => {
         }
         return res.status(200).json({
             message: 'ListProducts',
-            ListProducts
+            data:ListProducts
         })
     } catch (e) {
         next(e)
@@ -121,6 +121,7 @@ const createProduct = async (req, res, next) => {
     const uploader = async(path) => await cloudinary.uploads(path,'Images');
     try {
         const urls = [];
+        console.log("res",req.body.images)
         const files = req.files;
         for(const file of files) {
             const {path} = file;
@@ -152,10 +153,11 @@ const createProduct = async (req, res, next) => {
             return new Error('Type Product NOT FOUND')
         }
         const createdProduct = await Product.create(data);
-        return res.status(200).json({
+        return res.status(201).json({
             message: "create product successfully",
             createdProduct
         });
+        // return res.location('http://localhost:3000/uploadProduct.html')
     } catch (e) {
         next(e);
     }
@@ -203,6 +205,23 @@ const updateProduct = async (req, res, next) => {
 
 const getProductByType = async (req, res, next) => {
     const { id }= req.params;
+    let {page, limit} = req.query;
+    let skip;
+        if(!page) {
+            page = 0;
+        }
+        else {
+            page = parseInt(page)
+        }
+        if(!limit) {
+            limit = 0;
+        }
+        else {
+            limit = parseInt(limit);
+        }
+        if(page) {
+            skip = (page - 1) * limit;
+        }
     const products = await Product.find({typeProduct: id, deleteAt: undefined}).lean().populate(
         {
             path: 'postBy',
@@ -213,7 +232,7 @@ const getProductByType = async (req, res, next) => {
             path: 'typeProduct NSX',
             select: 'name nation'
         }
-    );
+    ).limit(limit).skip(skip);
     if(!products) {
         return next(new Error("TYPE_PRODUCT_IS_NOT_EXISTED"));
     }

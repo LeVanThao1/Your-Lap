@@ -32,10 +32,10 @@ const orderSchema = new mongoose.Schema({
         min: 10,
         require: true
     },
-    recipientEmail: {
-        type: String,
-        require: true
-    }
+    // recipientEmail: {
+    //     type: String,
+    //     require: true
+    // }
 }, {timestamps: true});
 
 const Order = mongoose.model('Order', orderSchema);

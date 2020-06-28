@@ -49,7 +49,7 @@ app.use(function (err, req, res, next) {
             error : messagese
         });
     }
-    return res.status(400).json({
+    return res.json({
         message: err.message || 'have error'
     });
 });

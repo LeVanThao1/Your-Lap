@@ -18,6 +18,7 @@
         rel='stylesheet'>
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -130,7 +131,7 @@
                                 <h5>Thêm sản phẩm</h5>
                               </div>
                           <div class="child-header">
-                            <form>
+                            <form id="register" enctype="multipart/form-data" onsubmit="return validationForm()" action="http://localhost:3001/api/v1/products?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWVkYjZlYzAyZmE4ODIxYTI4OGJmN2QiLCJpYXQiOjE1OTMyNzUzNzksImV4cCI6MTU5MzI3ODk3OX0.C6lpgKNQV98v74995EGTkB1ZMGJdWVe547XqgTb-tSelpAYD0PqlnfONToIrgYrCssZxOe0ZDS89zJ6Mz2kfLReNvPhv4rklPg02QPddrWB35qkYL-NbKD_Gj16S_h8XJjQIWrJFm67g1QXg3WjuatTJXlaBl_wR58s_5voJNi8" method="POST">
                               <!-- <div class="form-group row">
                                 <label for="productID" class="col-sm-3 col-form-label">Mã sản phẩm</label>
                                 <div class="col-sm-9">
@@ -144,13 +145,13 @@
                               <div class="form-group row">
                                 <label for="productName" class="col-sm-3 col-form-label">Tên sản phẩm</label>
                                 <div class="col-sm-9">
-                                  <input type="name" name="productID" class="form-control" id="inputNamePr">
+                                  <input type="text" name="name" class="form-control" id="name">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="producerID" class="col-sm-3 col-form-label">Mã nhà sản xuất</label>
                                 <div class="col-sm-9">
-                                  <select name="typeProductID" id="typeProductID selectt" >
+                                  <select name="NSX" id="NSX selectt" >
                                     <option value="Chọn mã loại sản phẩm">Chọn mã nhà sản xuất</option>
                                     <option value="Chọn mã loại sản phẩm">A</option>
                                     <option value="Chọn mã loại sản phẩm">B</option>
@@ -160,7 +161,7 @@
                               <div class="form-group row">
                                 <label for="typeProductID" class="col-sm-3 col-form-label">Mã loại sản phẩm</label>
                                 <div class="col-sm-9">
-                                  <select name="typeProductID" id="typeProductID selectt" >
+                                  <select name="typeProduct" id="typeProduct selectt" >
                                     <option value="Chọn mã loại sản phẩm">Chọn mã loại sản phẩm</option>
                                     <option value="Chọn mã loại sản phẩm">A</option>
                                     <option value="Chọn mã loại sản phẩm">B</option>
@@ -172,19 +173,19 @@
                               <div class="form-group row">
                                 <label for="entryPrice" class="col-sm-3 col-form-label">Giá nhập</label>
                                 <div class="col-sm-9">
-                                  <input type="number" name="entryPrice" class="form-control" id="inputBuyPrice">
+                                  <input type="number" name="entryPrice" class="form-control" id="entryPrice">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="sellPrice" class="col-sm-3 col-form-label">Giá bán</label>
                                 <div class="col-sm-9">
-                                  <input type="number" name="sellPrice" class="form-control" id="inputSellPrice">
+                                  <input type="number" name="price" class="form-control" id="price">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="amountDetailPro" class="col-sm-3 col-form-label">Số lượng</label>
                                 <div class="col-sm-9">
-                                  <input type="number" name="amountDetailPro" class="form-control" id="inputAmount">
+                                  <input type="number" name="amount" class="form-control" id="amount">
                                 </div>
                               </div>
                               <!-- <div class="form-group row">
@@ -197,7 +198,7 @@
                             
                                 <label for="descriptionDetailPro" class="col-sm-3 col-form-label">Mô tả</label>
                                 <div class="col-sm-9">
-                                   <textarea name="descriptionDetailPro" id="" cols="70" rows="6"></textarea>
+                                   <textarea name="description" id="description" cols="70" rows="6"></textarea>
                                 </div>
                               </div>
                             <!-- Brower-img -->
@@ -206,7 +207,7 @@
                             <span class="input-group-text" id="inputGroupFileAddon01">Ảnh</span>
                             </div>
                             <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <input type="file" class="custom-file-input" name="images" id="images" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                             </div>
                             </div>
@@ -238,7 +239,10 @@
         
 <!-- /////////////////////////////////         -->
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="./js/obligatory.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="./js/Admin/LoadTypeAndNSXProduct.js"></script>
+        <script src="./js/Admin/uploadProduct.js"></script>
+        <!-- <script type="text/javascript" src="./js/obligatory.js"></script> -->
 </body>
    
 </html>

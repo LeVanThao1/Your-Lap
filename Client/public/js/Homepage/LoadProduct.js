@@ -8,13 +8,13 @@ async function loadProduct(url="http://localhost:3001/api/v1/products?page=1&lim
     console.log(`qqeeqw`)
     $('.allProduct').html('');
     const dataCT = await axios.get(url);
-    if(dataCT.data.ListProducts.length === 0) {
+    if(dataCT.data.data.length === 0) {
         $('.allProduct').html('<h3 style="text-align: center; font-size: 14px; width: 100%;">Không có kết quả phù hợp</h3>');
     }
-    localStorage.setItem('listProduct', JSON.stringify(dataCT.data.ListProducts))
+    localStorage.setItem('listProduct', JSON.stringify(dataCT.data.data))
     console.log(dataCT);
     // productsList = dataCT.data.ListProducts;
-    dataCT.data.ListProducts.forEach(pr => {
+    dataCT.data.data.forEach(pr => {
         const checkPr = (pr.amount > 0);
         $('.allProduct').append(
             `<div class="grid__column-3">
