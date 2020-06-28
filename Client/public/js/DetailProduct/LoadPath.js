@@ -44,8 +44,8 @@ async function loadProduct() {
         <div class="info-product">
         <h3 class="info-product__heading">${product.data.product.name}</h3>
         <div class="home-product-item__price info-product__price">
-            <span class="home-product-item__price-old info-product__price--old">${Math.ceil(product.data.product.price * 1.1)}</span>
-            <span class="home-product-item__price-current info-product__price--current">${product.data.product.price}</span>
+            <span class="home-product-item__price-old info-product__price--old">${formatMoney(moneyAfterDiscount(product.data.product.price,10))}</span>
+            <span class="home-product-item__price-current info-product__price--current">${formatMoney(product.data.product.price)}</span>
         </div>
         <div class="info-product__summary">
             <span class="item">
@@ -110,7 +110,7 @@ async function loadProduct() {
     $(`.id-${product.data.product._id}`).click(() => {
         if(!userId) {
             localStorage.setItem('path', `chitiet.html?id=${product.data.product._id}`);
-            redirect('loginandregiter.html')
+            redirect('loginUser.html')
             return;
         }
         const addCart = axios.put('http://localhost:3001/api/v1/cart/addsp', {
@@ -160,7 +160,7 @@ async function loadProduct() {
             console.log(data)
             if(!data.data.user) {
                 localStorage.setItem('path', `thanhtoan.html?productId=${product.data.product._id}`)
-                redirect('loginandregiter.html')
+                redirect('loginUser.html')
             }
             else {
                 localStorage.setItem('pathprev', `${window.location.pathname.slice(1)+ window.location.search}`)

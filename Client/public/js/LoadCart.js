@@ -19,7 +19,7 @@ async function loadCart2(pd) {
                     <div class="header__cart-item-head">
                         <h5 class="header__cart-item-name">${pd.name}</h5>
                         <div class="header__cart-item-buy-wrap">
-                            <span class="header__cart-item-price">${pd.price}</span>
+                            <span class="header__cart-item-price">${formatMoney(pd.price)}</span>
                             <span class="header__cart-item-multipy">x</span>
                             <span class="header__cart-item-quantity">${pd.amount}</span>
                         </div>
