@@ -2,18 +2,23 @@ const multer =require('multer');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
+        console.log("file1",file);
         cb(null, './uploads')
     },
     filename: function(req, file, cb) {
+        console.log("file",file);
         cb(null, Date.now() + '-' + file.originalname)
     },
 })
 
 const fileFilter = (req, file ,cb) => {
+    console.log("file41",file)
     if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        console.log("file1",file);
         cb(null, true)
     }
     else {
+        console.log("file3",file);
         cb({message: 'Upsupported File Format'}, false)
     }
 }

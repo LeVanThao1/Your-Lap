@@ -19,7 +19,7 @@ async function loadCategory() {
                 $(`.ct-${ct2._id}`).removeClass("category-item--active");
             })
             $(`.ct-${ct._id}`).addClass("category-item--active");
-            axios.get(`http://localhost:3001/api/v1/products/type/${ct._id}`).then((respon) => {
+            axios.get(`http://localhost:3001/api/v1/products/type/${ct._id}?page=1&limit=4`).then((respon) => {
                 const products = respon.data.data;
                 console.log(products);
                 $('.allProduct').html('');
@@ -75,6 +75,7 @@ async function loadCategory() {
                 
             })
             // loadProduct(`http://localhost:3001/api/v1/products/type/${ct._id}`)
+            loadPagination(`http://localhost:3001/api/v1/products/type/${ct._id}?`)
         })
     });
 }

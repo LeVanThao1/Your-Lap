@@ -53,6 +53,10 @@ const createUser = async (req, res, next) => {
         const data = req.body;
         const salt = bcrypt.genSaltSync(2);
         console.log(data);
+        const checkUser = await User.findOne({email: data.email});
+        if(checkUser) {
+            return next(new Error('Email is already in use'))
+        }
         const hashPassword = bcrypt.hashSync(data.password, salt);
         data.password = hashPassword;
         const createdUser = await User.create(data);

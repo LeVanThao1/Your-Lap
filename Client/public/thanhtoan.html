@@ -43,13 +43,16 @@
                             <input type="text" class="auth-form__input" placeholder="Số điện thoại">
                         </div>
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Tỉnh/Thành phố">
+                            <!-- <input type="text" class="auth-form__input tinh" placeholder="Tỉnh/Thành phố"> -->
+                            <select class="auth-form__input tinh">
+                                <option value="0">Tỉnh/Thành phố</option>
+                            </select>
                         </div>
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Quận/Huyện">
+                            <input type="text" class="auth-form__input quan" placeholder="Quận/Huyện">
                         </div>
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Phường/Xã">
+                            <input type="text" class="auth-form__input xa" placeholder="Phường/Xã">
                         </div>
                         <div class="auth-form__group">
                             <input type="text" class="auth-form__input" placeholder="Tòa nhà/Tên đường...">
@@ -85,6 +88,7 @@
             }
         });
     </script>
+    <script src="./js/Payment/LoadField.js"></script>
 </body>
 
 </html>
