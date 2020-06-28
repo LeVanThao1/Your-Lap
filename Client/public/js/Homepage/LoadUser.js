@@ -4,7 +4,7 @@ $(document).ready(function(){
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
         localStorage.removeItem('username');
-        redirect('loginandregiter.html')
+        redirect('loginUser.html')
     });
 
 });
@@ -58,7 +58,7 @@ async function loadUser() {
             localStorage.removeItem('token');
             localStorage.removeItem('userId');
             localStorage.removeItem('username');
-            redirect('loginandregiter.html')
+            redirect('loginUser.html')
         });
         loadCart();
     }

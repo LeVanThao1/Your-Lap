@@ -155,10 +155,11 @@ async function loadProduct() {
         }
     });
     $('.info-prodcut__buy').click( () => {
-        const token = localStorage.getItem('token')
-        const reponse = axios.get(`http://localhost:3001/api/v1/auth?token=${token}`).then((data) =>{
-            console.log(data)
-            if(!data.data.user) {
+        const token = localStorage.getItem('token');
+        const userId = localStorage.getItem('userId');
+        // const reponse = axios.get(`http://localhost:3001/api/v1/auth?token=${token}`).then((data) =>{
+        //     console.log(data)
+            if(!token || !userId) {
                 localStorage.setItem('path', `thanhtoan.html?productId=${product.data.product._id}`)
                 redirect('loginUser.html')
             }
@@ -166,7 +167,7 @@ async function loadProduct() {
                 localStorage.setItem('pathprev', `${window.location.pathname.slice(1)+ window.location.search}`)
                 redirect(`thanhtoan.html?productId=${product.data.product._id}`)
             }
-        });
+        // });
         
     })
 }
