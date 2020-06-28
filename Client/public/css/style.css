@@ -29,6 +29,10 @@
 	color: red;
 }
 
+.dropleft>.dropdown-toggle{
+	text-decoration: none;
+}
+
 .row{
 	display: flex;
 }
@@ -255,7 +259,7 @@ box-shadow: inset 68px 6px 77px -16px rgb(88, 56, 56);
 }
 
 .btn:hover{
-	background-color: #c2e915!important;
+	background-color: #e96315!important;
 	
 }
 
@@ -300,6 +304,7 @@ select{
 	color: #fff;
 	border-radius: 10px;
 	background-color: #d60c0c;
+	object-fit: none;
 }
 
 option{

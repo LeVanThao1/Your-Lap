@@ -130,7 +130,7 @@
                                 <h5>Thêm sản phẩm</h5>
                               </div>
                           <div class="child-header">
-                            <form>
+                            <form id="register">
                               <!-- <div class="form-group row">
                                 <label for="productID" class="col-sm-3 col-form-label">Mã sản phẩm</label>
                                 <div class="col-sm-9">
@@ -144,7 +144,7 @@
                               <div class="form-group row">
                                 <label for="productName" class="col-sm-3 col-form-label">Tên sản phẩm</label>
                                 <div class="col-sm-9">
-                                  <input type="name" name="productID" class="form-control" id="inputNamePr">
+                                  <input type="name" name="productName" class="form-control" id="productName">
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -172,19 +172,19 @@
                               <div class="form-group row">
                                 <label for="entryPrice" class="col-sm-3 col-form-label">Giá nhập</label>
                                 <div class="col-sm-9">
-                                  <input type="number" name="entryPrice" class="form-control" id="inputBuyPrice">
+                                  <input type="number" name="entryPrice" class="form-control" id="entryPrice">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="sellPrice" class="col-sm-3 col-form-label">Giá bán</label>
                                 <div class="col-sm-9">
-                                  <input type="number" name="sellPrice" class="form-control" id="inputSellPrice">
+                                  <input type="number" name="sellPrice" class="form-control" id="sellPrice">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="amountDetailPro" class="col-sm-3 col-form-label">Số lượng</label>
                                 <div class="col-sm-9">
-                                  <input type="number" name="amountDetailPro" class="form-control" id="inputAmount">
+                                  <input type="number" name="amountDetailPro" class="form-control" id="amountDetailPro">
                                 </div>
                               </div>
                               <!-- <div class="form-group row">
@@ -197,7 +197,7 @@
                             
                                 <label for="descriptionDetailPro" class="col-sm-3 col-form-label">Mô tả</label>
                                 <div class="col-sm-9">
-                                   <textarea name="descriptionDetailPro" id="" cols="70" rows="6"></textarea>
+                                   <textarea name="descriptionDetailPro" id="descriptionDetailPro" cols="70" rows="6"></textarea>
                                 </div>
                               </div>
                             <!-- Brower-img -->
@@ -217,6 +217,7 @@
                                   <button type="submit" class="btn btn-primary btn-add">Thêm</button>
                                 </div>
                               </div>
+                              <div class="errors"></div>
                             </form>
                               </div>
                                <!-- content - user -->
