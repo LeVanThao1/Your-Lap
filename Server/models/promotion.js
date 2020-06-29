@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const promotionSChema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
     promotionType: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'PromotionType',
@@ -15,6 +19,12 @@ const promotionSChema = new mongoose.Schema({
     },
     dateEnd: {
         type: Date,
+        require: true
+    },
+    code :{
+        type: String,
+        min: 6,
+        max: 6,
         require: true
     }
 }, { timestamps: true });
