@@ -22,7 +22,9 @@ const deleteOrder = async (req, res, next) => {
 const getOrder = async (req, res, next) => {
     try {
         const {id} = req.params;
-        const order = await Order.findOne({_id: id, deleteAt: undefined}).lean();
+        const order = await Order.findOne({_id: id, deleteAt: undefined}).lean().populate({
+            path: 'user'
+        });
         if(!order) return next(new Error('order_NOT_FOUND'));
         return res.status(200).json({
             message: 'Order',
@@ -35,7 +37,55 @@ const getOrder = async (req, res, next) => {
 
 const getAllOrder = async (req, res, next) => {
     try {
-        const listOrder = await Order.find({deleteAt: undefined}).lean();
+        let { page, limit, date, state } = req.query;
+        if(!page) {
+            page = 0;
+        }
+        else {
+            page = parseInt(page)
+        }
+        if(!limit) {
+            limit = 0;
+        }
+        else {
+            limit = parseInt(limit);
+        }
+        let sort, skip;
+        if(page) {
+            skip = (page - 1) * limit;
+        }
+        if(date) {
+            sort = {
+                createdAt: date === "true"? 1 : -1,
+            }
+        }
+        let listOrder;
+        if(state) {
+            listOrder = await Order.find({deleteAt: undefined, state: state}).lean().populate(
+                {
+                    path: 'user',
+                    // select: 'fullname'
+                }
+            ).populate(
+                {
+                    path: 'promotion',
+                    // select: 'name nation'
+                }
+            ).limit(limit).skip(skip);
+        }
+        else {
+            listOrder = await Order.find({deleteAt: undefined}).lean().populate(
+                {
+                    path: 'user',
+                    // select: 'fullname'
+                }
+            ).populate(
+                {
+                    path: 'promotion',
+                    // select: 'name nation'
+                }
+            ).sort(sort).limit(limit).skip(skip);
+        }
         return res.status(200).json({
             message: 'ListOrder',
             listOrder
@@ -47,6 +97,7 @@ const getAllOrder = async (req, res, next) => {
 const createOrder = async (req, res, next) => {
     try {
         const data = req.body;
+        const 
         const createdOrder = await Order.create(data);
         return res.status(200).json({
             message: "create Order successfully",

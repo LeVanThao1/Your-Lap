@@ -7,9 +7,8 @@ const orderSchema = new mongoose.Schema({
         default: "Chưa Giao",
         require: true
     },
-    dateOfBooking: {
-        type: Date,
-        require: true
+    dateOfRecive: {
+        type: Date
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -32,6 +31,10 @@ const orderSchema = new mongoose.Schema({
         min: 10,
         require: true
     },
+    promotion: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Promotion'
+    }
     // recipientEmail: {
     //     type: String,
     //     require: true
