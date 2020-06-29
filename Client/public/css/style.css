@@ -33,6 +33,10 @@
 	text-decoration: none;
 }
 
+#dropdownSort{
+	width: 155px;
+}
+
 .row{
 	display: flex;
 }

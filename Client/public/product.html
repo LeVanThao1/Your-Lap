@@ -87,20 +87,30 @@
                       </li>
                       <li class="nav-item">                       
                         <a class="nav-link active" href="mes.html"> <div class="icon"></div>Khuyến mãi</a>
+                        <ul class="sub-menu">
+                          <li><a href="uploadPromtion.html">Thêm khuyến mãi</a></li>
+                          <li>
+                              <a href="promotionType.html">Loại khuyến mãi</a>
+                              <ul class="sub-menu uploadProtionType">
+                                  <li><a href="uploadPromotionType.html">Thêm loại khuyến mãi</a></li> 
+                              </ul>
+                          </li>
+                                                        
+                        </ul>
                       </li>
                       <li class="nav-item submenu" >                        
                         <a class="nav-link active" href="product.html"><div class="icon"></div>Quản lý sản phẩm</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProduct.html">Thêm sản phẩm</a></li>
-                          <li><a href="#">Xoá sản phẩm</a></li>
-                          <li><a href="productDetails.html">Sửa thông tin sản phẩm</a></li>
+                          <!-- <li><a href="#">Xoá sản phẩm</a></li>
+                          <li><a href="productDetails.html">Sửa thông tin sản phẩm</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item submenu">                        
                         <a class="nav-link" href="user.html"><div class="icon"></div>Quản lý tài khoản</a>
                         <ul class="sub-menu">
                           <li><a href="uploadUser.html">Thêm tài khoản</a></li>
-                          <li><a href="#">Xoá sản phẩm</a></li>
+                          <!-- <li><a href="#">Xoá sản phẩm</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item submenu">
@@ -108,8 +118,8 @@
                         <a class="nav-link" href="order.html"><div class="icon"></div>Quản lý đơn hàng</a>
                         <ul class="sub-menu">
                           <li><a href="uploadOrder.html">Thêm đơn hàng</a></li>
-                          <li><a href="#">Xoá đơn hàng</a></li>
-                          <li><a href="orderDetails.html">Sửa đơn hàng</a></li>
+                          <!-- <li><a href="#">Xoá đơn hàng</a></li>
+                          <li><a href="orderDetails.html">Sửa đơn hàng</a></li> -->
                         </ul>
                       </li>
                       </li>
@@ -117,16 +127,16 @@
                         <a class="nav-link" href="typeProduct.html"> <div class="icon"></div>Loại sản phẩm</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProductType.html">Thêm loại sản phẩm</a></li>
-                          <li><a href="#">Xoá loại sản phẩm</a></li>
-                          <li><a href="">Sửa loại sản phẩm</a></li>
+                          <!-- <li><a href="#">Xoá loại sản phẩm</a></li>
+                          <li><a href="">Sửa loại sản phẩm</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item submenu">                       
                         <a class="nav-link" href="producer.html"> <div class="icon"></div>Nhà sản xuất</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProducer.html">Thêm NSX</a></li>
-                          <li><a href="#">Xoá NSX</a></li>
-                          <li><a href="">Sửa thông tin NSX</a></li>
+                          <!-- <li><a href="#">Xoá NSX</a></li>
+                          <li><a href="">Sửa thông tin NSX</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item">                       
@@ -154,17 +164,16 @@
                               </div>
                               <div class="child-header">
                               <div class="dropdown">
-                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                     Sắp xếp
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                      <button class="dropdown-item" type="button">Tên sp A-Z</button>
-                                      <button class="dropdown-item" type="button">Tên sp Z-A</button>
-                                      <button class="dropdown-item" type="button">Mã NSX</button>
-                                      <button class="dropdown-item" type="button">Số lượng tăng</button>
-                                      <button class="dropdown-item" type="button">Số lượng giảm</button>
-                                      <button class="dropdown-item" type="button">Ngày cập nhật</button>
-                                    </div>
+                                    <select name="dropownSort" id="dropdownSort">
+                                      <option value="">Mã SP</option>
+                                      <option value="">Tên SP a-z </option>
+                                      <option value="">Tên SP z-a</option>
+                                      <option value="">Mã NSX</option>
+                                      <option value="">Số lượng tăng</option>
+                                      <option value="">Số lượng giảm</option>
+                                      <option value="">Đơn giá</option>
+                                      <option value="">Ngày cập nhật</option>
+                                    </select>
                                   </div>
                                   <div class="pull-center">
                                         <a href="uploadProduct.html" class="btn btn-primary">Thêm</a>

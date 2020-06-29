@@ -82,6 +82,19 @@
 	  padding-left: 20px;
     }
 
+  .submenu2 li:hover>.uploadProtionType{
+      display: block;
+      top: 55px;
+      left: 200px;
+      border-radius: 0 7px 7px 7px;
+      background: #d60c0c;
+ }
+
+.submenu2>li>.uploadProtionType{
+    left: 90%;
+    top:50px;
+}
+
 @keyframes rotate {
 	100% {
 		transform: rotate(1turn);
