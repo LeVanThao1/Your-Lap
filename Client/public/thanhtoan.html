@@ -37,10 +37,10 @@
 
                     <form class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Họ và tên">
+                            <input type="text" id="name" class="auth-form__input" placeholder="Họ và tên">
                         </div>
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Số điện thoại">
+                            <input type="text" id="phone" class="auth-form__input" placeholder="Số điện thoại">
                         </div>
                         <div class="auth-form__group">
                             <!-- <input type="text" class="auth-form__input tinh" placeholder="Tỉnh/Thành phố"> -->
@@ -55,10 +55,10 @@
                             </select>
                         </div>
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input xa" placeholder="Phường/Xã">
+                            <input type="text" id="warn" class="auth-form__input xa" placeholder="Phường/Xã">
                         </div>
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Tòa nhà/Tên đường...">
+                            <input type="text" id="street" class="auth-form__input" placeholder="Tòa nhà/Tên đường...">
                         </div>
                     </form>
 
@@ -70,7 +70,7 @@
 
                     <div class="auth-form__controls">
                         <button class="btn auth-form__controls-back">TRỞ LẠI</button>
-                        <button class="btn btn--primary">HOÀN THÀNH</button>
+                        <button class="btn btn--primary payment">HOÀN THÀNH</button>
                     </div>
                 </div>
             </div>
@@ -84,6 +84,7 @@
         localStorage.removeItem('path')
         $('.auth-form__controls-back').click(() => {
             const prev = localStorage.getItem('pathprev');
+            localStorage.removeItem('productId')
             if(prev) {
                 redirect(prev);
             } else {

@@ -256,7 +256,7 @@ const districts = [["Huyện Cái Bè", "Thị Xã Cai Lậy", "Huyện Cai Lậ
             ];
             provinces.forEach(province => {
                 $('#provinces').append(
-                    `<option value="${province.ID}">${province.Title}</option>`
+                    `<option value="${province.ID}" data-name="${province.Title}">${province.Title}</option>`
                 )
             });
         }
@@ -268,7 +268,7 @@ const districts = [["Huyện Cái Bè", "Thị Xã Cai Lậy", "Huyện Cai Lậ
                 if ($('#provinces').val() != '') {
                     districts[+$('#provinces').val() - 1].forEach(district => {
                         $('#district').append(
-                            `<option value="">${district}</option>`
+                            `<option value="${district}">${district}</option>`
                         );
                     })
                 }
