@@ -139,7 +139,7 @@
                                 <h5>Thêm đơn hàng</h5>
                               </div>
                           <div class="child-header">
-                            <form id="addOrder">
+                            <form id="uploadOrder">
                                 <!-- <div class="form-group row">
                                   <label for="orderIDor" class="col-sm-3 col-form-label">Mã đơn hàng</label>
                                   <div class="col-sm-9">
@@ -159,15 +159,15 @@
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="cusNameor" class="col-sm-3 col-form-label">Mã khuyến mãi</label>
+                                  <label for="promotion" class="col-sm-3 col-form-label">Mã khuyến mãi</label>
                                   <div class="col-sm-9">
-                                    <input type="id" name="cusNameor" class="form-control" id="cusNameor" placeholder="Nhập mã khuyến mãi">
+                                    <input type="id" name="promotion" class="form-control" id="promotion" placeholder="Nhập mã khuyến mãi">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="cusPhoneNumberor" class="col-sm-3 col-form-label">SĐT khách hàng</label>
+                                  <label for="recipientPhone" class="col-sm-3 col-form-label">SĐT khách hàng</label>
                                   <div class="col-sm-9">
-                                    <input type="number" name="cusPhoneNumberor" class="form-control" id="cusPhoneNumberor" placeholder="Nhập số điện thoại khách hàng">
+                                    <input type="number" name="recipientPhone" class="form-control" id="recipientPhone" placeholder="Nhập số điện thoại khách hàng">
                                   </div>
                                 </div>
                                 
@@ -178,16 +178,17 @@
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="cusAddor" class="col-sm-3 col-form-label">Địa chỉ khách hàng</label>
+    recipientAddress: {
+                                  <label for="recipientAddress" class="col-sm-3 col-form-label">Địa chỉ khách hàng</label>
                                   <div class="col-sm-9">
-                                    <input type="price" name="cusAddor" class="form-control" id="cusAddor" placeholder="Nhập địa chỉ khách hàng">
+                                    <input type="price" name="recipientAddress" class="form-control" id="recipientAddress" placeholder="Nhập địa chỉ khách hàng">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="statusOr" class="col-sm-3 col-form-label">Trạng thái đơn hàng</label>
+                                  <label for="dateOfRecive" class="col-sm-3 col-form-label">Trạng thái đơn hàng</label>
                                   <div class="col-sm-9">
                                     <div class="btn-group">
-                                      <button class="btn btn-danger btn-sm dropdown-toggle" id="choiceBtn" type="button" name="statusOr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <button class="btn btn-danger btn-sm dropdown-toggle" id="dateOfRecive" type="button" name="dateOfRecive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Lựa chọn
                                       </button>
                                       <div class="dropdown-menu">
