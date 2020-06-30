@@ -77,20 +77,30 @@
                       </li>
                       <li class="nav-item">                       
                         <a class="nav-link active" href="mes.html"> <div class="icon"></div>Khuyến mãi</a>
+                        <ul class="sub-menu">
+                          <li><a href="uploadPromtion.html">Thêm khuyến mãi</a></li>
+                          <li>
+                              <a href="promotionType.html">Loại khuyến mãi</a>
+                              <ul class="sub-menu uploadProtionType">
+                                  <li><a href="uploadPromotionType.html">Thêm loại khuyến mãi</a></li> 
+                              </ul>
+                          </li>
+                                                        
+                        </ul>
                       </li>
                       <li class="nav-item submenu" >                        
                         <a class="nav-link active" href="product.html"><div class="icon"></div>Quản lý sản phẩm</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProduct.html">Thêm sản phẩm</a></li>
-                          <li><a href="#">Xoá sản phẩm</a></li>
-                          <li><a href="productDetails.html">Sửa thông tin sản phẩm</a></li>
+                          <!-- <li><a href="#">Xoá sản phẩm</a></li>
+                          <li><a href="productDetails.html">Sửa thông tin sản phẩm</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item submenu">                        
                         <a class="nav-link" href="user.html"><div class="icon"></div>Quản lý tài khoản</a>
                         <ul class="sub-menu">
                           <li><a href="uploadUser.html">Thêm tài khoản</a></li>
-                          <li><a href="#">Xoá sản phẩm</a></li>
+                          
                         </ul>
                       </li>
                       <li class="nav-item submenu">
@@ -98,8 +108,7 @@
                         <a class="nav-link" href="order.html"><div class="icon"></div>Quản lý đơn hàng</a>
                         <ul class="sub-menu">
                           <li><a href="uploadOrder.html">Thêm đơn hàng</a></li>
-                          <li><a href="#">Xoá đơn hàng</a></li>
-                          <li><a href="orderDetails.html">Sửa đơn hàng</a></li>
+                        
                         </ul>
                       </li>
                       </li>
@@ -107,16 +116,14 @@
                         <a class="nav-link" href="typeProduct.html"> <div class="icon"></div>Loại sản phẩm</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProductType.html">Thêm loại sản phẩm</a></li>
-                          <li><a href="#">Xoá loại sản phẩm</a></li>
-                          <li><a href="">Sửa loại sản phẩm</a></li>
+                        
                         </ul>
                       </li>
                       <li class="nav-item submenu">                       
                         <a class="nav-link" href="producer.html"> <div class="icon"></div>Nhà sản xuất</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProducer.html">Thêm NSX</a></li>
-                          <li><a href="#">Xoá NSX</a></li>
-                          <li><a href="">Sửa thông tin NSX</a></li>
+                         
                         </ul>
                       </li>
                       <li class="nav-item">                       
@@ -143,7 +150,7 @@
                           <h5>Chi tiết khuyến mãi</h5>
                         </div>
                     <div class="child-header">
-                      <form>
+                      <form id="mesDetails">
                           <div class="form-group row">
                             <label for="inputPromotionID" class="col-sm-3 col-form-label">Mã khuyến mãi</label>
                             <div class="col-sm-9">
@@ -151,13 +158,13 @@
                             </div>
                           </div>
                           <div class="form-group row">
-                            <label for="inputCusIDPr" class="col-sm-3 col-form-label">Mã khách hàng</label>
+                            <label for="inputCusIDPr" class="col-sm-3 col-form-label">Tên khuyến mãi</label>
                             <div class="col-sm-9">
                               <input type="name" name="inputCusIDPr" class="form-control" id="inputNamePr">
                             </div>
                           </div>
                           <div class="form-group row">
-                            <label for="moneyDeals" class="col-sm-3 col-form-label">Số tiến khuyến mãi</label>
+                            <label for="moneyDeals" class="col-sm-3 col-form-label">Tỷ lệ khuyến mãi</label>
                             <div class="col-sm-9">
                               <input type="id" name="moneyDeals" class="form-control" id="inputIdNSX">
                             </div>
@@ -174,12 +181,12 @@
                               <input type="date" name="dateEndPro" class="form-control" id="inputEmail3">
                             </div>
                           </div>
-                          <div class="form-group row">
+                          <!-- <div class="form-group row">
                             <label for="typePromotion" class="col-sm-3 col-form-label">Loại khuyến mãi</label>
                             <div class="col-sm-9">
                               <input type="id" name="typePromotion" class="form-control" id="inputIdNSX">
                             </div>
-                        </div> 
+                        </div>  -->
                           <!-- <div class="form-group row">
 
                             <label for="inputEmail3" class="col-sm-3 col-form-label">Nội dung</label>

@@ -63,20 +63,30 @@
                       </li>
                       <li class="nav-item">                       
                         <a class="nav-link active" href="mes.html"> <div class="icon"></div>Khuyến mãi</a>
+                        <ul class="sub-menu">
+                          <li><a href="uploadPromtion.html">Thêm khuyến mãi</a></li>
+                          <li>
+                              <a href="promotionType.html">Loại khuyến mãi</a>
+                              <ul class="sub-menu uploadProtionType">
+                                  <li><a href="uploadPromotionType.html">Thêm loại khuyến mãi</a></li> 
+                              </ul>
+                          </li>
+                                                        
+                        </ul>
                       </li>
                       <li class="nav-item submenu" >                        
                         <a class="nav-link active" href="product.html"><div class="icon"></div>Quản lý sản phẩm</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProduct.html">Thêm sản phẩm</a></li>
-                          <li><a href="#">Xoá sản phẩm</a></li>
-                          <li><a href="productDetails.html">Sửa thông tin sản phẩm</a></li>
+                          <!-- <li><a href="#">Xoá sản phẩm</a></li>
+                          <li><a href="productDetails.html">Sửa thông tin sản phẩm</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item submenu">                        
                         <a class="nav-link" href="user.html"><div class="icon"></div>Quản lý tài khoản</a>
                         <ul class="sub-menu">
                           <li><a href="uploadUser.html">Thêm tài khoản</a></li>
-                          <li><a href="#">Xoá sản phẩm</a></li>
+                          <!-- <li><a href="#">Xoá sản phẩm</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item submenu">
@@ -84,8 +94,8 @@
                         <a class="nav-link" href="order.html"><div class="icon"></div>Quản lý đơn hàng</a>
                         <ul class="sub-menu">
                           <li><a href="uploadOrder.html">Thêm đơn hàng</a></li>
-                          <li><a href="#">Xoá đơn hàng</a></li>
-                          <li><a href="orderDetails.html">Sửa đơn hàng</a></li>
+                          <!-- <li><a href="#">Xoá đơn hàng</a></li>
+                          <li><a href="orderDetails.html">Sửa đơn hàng</a></li> -->
                         </ul>
                       </li>
                       </li>
@@ -93,16 +103,16 @@
                         <a class="nav-link" href="typeProduct.html"> <div class="icon"></div>Loại sản phẩm</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProductType.html">Thêm loại sản phẩm</a></li>
-                          <li><a href="#">Xoá loại sản phẩm</a></li>
-                          <li><a href="">Sửa loại sản phẩm</a></li>
+                          <!-- <li><a href="#">Xoá loại sản phẩm</a></li>
+                          <li><a href="">Sửa loại sản phẩm</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item submenu">                       
                         <a class="nav-link" href="producer.html"> <div class="icon"></div>Nhà sản xuất</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProducer.html">Thêm NSX</a></li>
-                          <li><a href="#">Xoá NSX</a></li>
-                          <li><a href="">Sửa thông tin NSX</a></li>
+                          <!-- <li><a href="#">Xoá NSX</a></li>
+                          <li><a href="">Sửa thông tin NSX</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item">                       
@@ -129,7 +139,7 @@
                                 <h5>Thêm tài khoản</h5>
                               </div>
                           <div class="child-header">
-                            <form id="registerUser">
+                            <form id="uploadUsers">
                                 <!-- <div class="form-group row">
                                   <label for="cusIDUser" class="col-sm-3 col-form-label">Mã khách hàng</label>
                                   <div class="col-sm-9">
@@ -137,23 +147,23 @@
                                   </div>
                                 </div> -->
                                 <div class="form-group row">
-                                  <label for="cusNameUser" class="col-sm-3 col-form-label">Tên khách hàng</label>
+                                  <label for="fullname" class="col-sm-3 col-form-label">Tên khách hàng</label>
                                   <div class="col-sm-9">
-                                    <input type="name" name="cusNameUser" class="form-control" id="cusNameUser" placeholder="Nhập tên khách hàng">
+                                    <input type="name" name="fullname" class="form-control" id="fullname" placeholder="Nhập tên khách hàng">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="sexUser" class="col-sm-3 col-form-label">Giới tính</label>
+                                  <label for="gender" class="col-sm-3 col-form-label">Giới tính</label>
                                   <div class="col-sm-9">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sexUser" id="sexUser" value="option1" checked>
-                                        <label class="form-check-label" for="sexUser">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender" value="option1" checked>
+                                        <label class="form-check-label" for="gender">
                                           Nam
                                         </label>
                                       </div>
                                       <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sexUser" id="inputSex" value="option2">
-                                        <label class="form-check-label" for="sexUser">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender" value="option2">
+                                        <label class="form-check-label" for="gender">
                                           Nữ
                                         </label>
                                       </div>
@@ -161,22 +171,27 @@
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="dobUser" class="col-sm-3 col-form-label">Ngày sinh</label>
+                                  <label for="dateOfBirth" class="col-sm-3 col-form-label">Ngày sinh</label>
                                   <div class="col-sm-9">
-                                    <input type="date" name="dobUser" class="form-control" id="dobUser">
+                                    <input type="date" name="dateOfBirth" class="form-control" id="dateOfBirth">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label for="phoneNumberUser" class="col-sm-3 col-form-label">Số điện thoại</label>
+                                  <label for="phoneNumber" class="col-sm-3 col-form-label">Số điện thoại</label>
                                   <div class="col-sm-9">
-                                    <input type="number" name="phoneNumberUser" class="form-control" id="phoneNumberUser" placeholder="Nhập số điện thoại">
+                                    <input type="number" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Nhập số điện thoại">
                                   </div>
                                 </div>
-                                
                                 <div class="form-group row">
-                                  <label for="addUser" class="col-sm-3 col-form-label">Địa chỉ</label>
+                                  <label for="email" class="col-sm-3 col-form-label">Email</label>
                                   <div class="col-sm-9">
-                                    <input type="price" name="addUser" class="form-control" id="addUser" placeholder="Nhập địa chỉ">
+                                    <input type="text" name="email" class="form-control" id="email" placeholder="Nhập email">
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label for="address" class="col-sm-3 col-form-label">Địa chỉ</label>
+                                  <div class="col-sm-9">
+                                    <input type="price" name="address" class="form-control" id="address" placeholder="Nhập địa chỉ">
                                   </div>
                                 </div>
                                 <!-- <div class="form-group row">
