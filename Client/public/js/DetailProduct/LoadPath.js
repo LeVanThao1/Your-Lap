@@ -157,6 +157,7 @@ async function loadProduct() {
     $('.info-prodcut__buy').click( () => {
         const token = localStorage.getItem('token');
         const userId = localStorage.getItem('userId');
+        localStorage.setItem('productId' , product.data.product._id);
         // const reponse = axios.get(`http://localhost:3001/api/v1/auth?token=${token}`).then((data) =>{
         //     console.log(data)
             if(!token || !userId) {

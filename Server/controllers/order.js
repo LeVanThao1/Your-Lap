@@ -97,6 +97,7 @@ const getAllOrder = async (req, res, next) => {
 const createOrder = async (req, res, next) => {
     try {
         const data = req.body;
+        data.user = req.user._id;
         const createdOrder = await Order.create(data);
         return res.status(200).json({
             message: "create Order successfully",
