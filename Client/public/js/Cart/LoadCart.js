@@ -119,6 +119,9 @@ async function loadCartProduct2(pd) {
         $(`.child-${pd.productId}`).remove();
         loadTotal(total);
     })
+    $('.cart-total-prices__btn').click(() => {
+        localStorage.setItem('products', prod)
+    })
 }
 async function loadCartProduct() {
     const cart = await axios.get(`http://localhost:3001/api/v1/cart/${userId}`);
@@ -144,6 +147,11 @@ async function loadCartProduct() {
         });
 
         loadTotal(total);
+
+    $('.cart-total-prices__btn').click(() => {
+        localStorage.setItem('products', JSON.stringify(getCart));
+        redirect('thanhtoan.html')
+    })
         console.log(total)
     })
 }

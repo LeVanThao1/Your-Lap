@@ -161,12 +161,20 @@ async function loadProduct() {
         // const reponse = axios.get(`http://localhost:3001/api/v1/auth?token=${token}`).then((data) =>{
         //     console.log(data)
             if(!token || !userId) {
-                localStorage.setItem('path', `thanhtoan.html?productId=${product.data.product._id}`)
+                localStorage.setItem('path', `cart.html`)
                 redirect('loginUser.html')
             }
             else {
-                localStorage.setItem('pathprev', `${window.location.pathname.slice(1)+ window.location.search}`)
-                redirect(`thanhtoan.html?productId=${product.data.product._id}`)
+                // localStorage.setItem('pathprev', `${window.location.pathname.slice(1)+ window.location.search}`)
+                axios.put('http://localhost:3001/api/v1/cart/addsp', {
+                    userId: userId,
+                    productId: product.data.product._id,
+                    price: +product.data.product.price,
+                    amount: +$('.quantity-input').val()
+                }).then((data) => {
+                    redirect(`cart.html`)
+                })
+                
             }
         // });
         

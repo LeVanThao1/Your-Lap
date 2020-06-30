@@ -1,4 +1,6 @@
 const Order = require('../models/orders');
+const {createOrderDetail} = require('./orderDetail');
+const {resetCart} = require('./cart');
 const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
@@ -96,9 +98,22 @@ const getAllOrder = async (req, res, next) => {
 }
 const createOrder = async (req, res, next) => {
     try {
-        const data = req.body;
-        data.user = req.user._id;
-        const createdOrder = await Order.create(data);
+        const {recipientName, recipientPhone, recipientAddress, products} = req.body;
+        const user = req.user._id;
+        const order = {
+            recipientName,
+            recipientPhone,
+            recipientAddress,
+            user
+        }
+        const createdOrder = await Order.create(order);
+
+        const detail = {
+            order: createdOrder._id,
+            products,
+        }
+        await createOrderDetail(detail, res,next);
+        await resetCart({userId: user}, res,next);
         return res.status(200).json({
             message: "create Order successfully",
             createdOrder
