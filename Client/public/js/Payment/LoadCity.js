@@ -268,7 +268,7 @@ const districts = [["Huyện Cái Bè", "Thị Xã Cai Lậy", "Huyện Cai Lậ
                 if ($('#provinces').val() != '') {
                     districts[+$('#provinces').val() - 1].forEach(district => {
                         $('#district').append(
-                            `<option value="${district}">${district}</option>`
+                            `<option value="${district}" data-name="${district}">${district}</option>`
                         );
                     })
                 }

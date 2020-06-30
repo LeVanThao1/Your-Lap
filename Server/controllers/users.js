@@ -134,6 +134,34 @@ const login = async (req, res, next) => {
         return next(e);
     }
 };
+const loginAdmin = async (req, res, next) => {
+    try {
+        const data = req.body;
+        const salt  = bcrypt.genSaltSync('10');
+        const hashPassword = bcrypt.hashSync(data.password, salt);
+        // const password = hashPassword;
+        const user = await User.findOne({ email: data.email, type: 'admin' });
+        if (!user) {
+            // return next(new Error('USERNAME_NOT_EXISTED'));
+            return next(new Error('USER_NOT_FOUND'));
+        }
+        const isValidatePassword = bcrypt.compareSync(data.password, user.password);
+        if (!isValidatePassword) {
+            return next(new Error('PASSWORD_IS_INCORRECT'));
+        }
+        console.log(user)
+        const token = sign({ _id: user._id });
+        return res.status(200).json({
+            message: "login successfully",
+            access_token: token,
+            userId: user._id,
+            username: user.fullname,
+        });
+    } catch (e) {
+        return next(e);
+    }
+};
+
 
 const geUserWithToken = async (req, res, next) => {
     try {

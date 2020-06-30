@@ -80,7 +80,7 @@ const getAllOrderDetail = async (req, res, next) => {
 }
 const createOrderDetail = async (req, res, next) => {
     try {
-        const data = req.body;
+        const data = req;
         const createdOrderDetail = await OrderDetail.create(data);
         return res.status(200).json({
             message: "create OrderDetail successfully",
