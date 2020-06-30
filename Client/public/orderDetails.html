@@ -102,8 +102,8 @@
                         <a class="nav-link" href="typeProduct.html"> <div class="icon"></div>Loại sản phẩm</a>
                         <ul class="sub-menu">
                           <li><a href="uploadProductType.html">Thêm loại sản phẩm</a></li>
-                          <li><a href="#">Xoá loại sản phẩm</a></li>
-                          <li><a href="">Sửa loại sản phẩm</a></li>
+                          <!-- <li><a href="#">Xoá loại sản phẩm</a></li>
+                          <li><a href="">Sửa loại sản phẩm</a></li> -->
                         </ul>
                       </li>
                       <li class="nav-item submenu">                       
@@ -142,13 +142,21 @@
                         <div class="form-group row">
                             <label for="orderIDDetails" class="col-sm-3 col-form-label">Mã đơn hàng</label>
                             <div class="col-sm-9">
-                              <input type="id" name="orderIDDetails" class="form-control" id="inputIdPr">
+                              <select name="" id="orderIDDetails">
+                                <option value="">Mã đơn hàng</option>
+                                <option value="">ABC</option>
+                            </select>
+                              <!-- <input type="id" name="orderIDDetails" class="form-control" id="inputIdPr"> -->
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="productIDDetail" class="col-sm-3 col-form-label">Mã sản phẩm</label>
                             <div class="col-sm-9">
-                              <input type="id" name="productIDDetail" class="form-control" id="inputIdPr">
+                              <select name="" id="productIDDetail">
+                                <option value="">Mã sản phẩm</option>
+                                <option value="">ABC</option>
+                            </select>
+                              <!-- <input type="id" name="productIDDetail" class="form-control" id="inputIdPr"> -->
                             </div>
                           </div>
                           <div class="form-group row">
@@ -170,9 +178,13 @@
                             </div>
                           </div>
                           <div class="form-group row">
-                            <label for="promotionOrder" class="col-sm-3 col-form-label">Khuyến mãi</label>
+                            <label for="promotionOrder" class="col-sm-3 col-form-label">Mã khuyến mãi</label>
                             <div class="col-sm-9">
-                              <input type="price" name="promotionOrder" class="form-control" id="inputSellPrice">
+                              <select name="" id="promotionOrder">
+                                <option value="">Mã khuyến mãi</option>
+                                <option value="">ABC</option>
+                            </select>
+                              <!-- <input type="price" name="promotionOrder" class="form-control" id="inputSellPrice"> -->
                             </div>
                           </div>
                           
