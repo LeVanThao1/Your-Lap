@@ -44,12 +44,15 @@
                         </div>
                         <div class="auth-form__group">
                             <!-- <input type="text" class="auth-form__input tinh" placeholder="Tỉnh/Thành phố"> -->
-                            <select class="auth-form__input tinh">
+                            <select class="auth-form__input tinh " id="provinces">
                                 <option value="0">Tỉnh/Thành phố</option>
                             </select>
                         </div>
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input quan" placeholder="Quận/Huyện">
+                            <!-- <input type="text" class="auth-form__input quan" placeholder="Quận/Huyện"> -->
+                            <select class="auth-form__input tinh " id="district">
+                                <option value="0">Quận/Huyện</option>
+                            </select>
                         </div>
                         <div class="auth-form__group">
                             <input type="text" class="auth-form__input xa" placeholder="Phường/Xã">
@@ -88,7 +91,8 @@
             }
         });
     </script>
-    <script src="./js/Payment/LoadField.js"></script>
+    <script src="./js/Payment/LoadCity.js"></script>
+    <!-- <script src="./js/Payment/LoadField.js"></script> -->
 </body>
 
 </html>

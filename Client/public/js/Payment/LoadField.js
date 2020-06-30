@@ -5,5 +5,5 @@ $(document).ready(function () {
 })
 async function loadTinh() {
     const tinh = await axios.get('https://thongtindoanhnghiep.co/api/city');
-    console.log(tinh.ListItem[0]);
+    console.log(tinh);
 }
