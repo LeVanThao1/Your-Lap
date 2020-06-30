@@ -28,6 +28,28 @@ const deleteSP = async (req, res, next) => {
         next(e);
     }
 };
+
+const resetCart = async (req, res, next) => {
+    try {
+        const { userId } = req.body;
+        console.log(req.body)
+        const cart = await Cart.findOne({user: userId}).lean();
+        if (!cart) {
+            return next(new Error('CART_NOT_FOUND'));
+        }
+        if(cart.product === 0) {
+            return next(new Error('PRODUCT_DOES_NOT_EXIST_IN_CART'));
+        }
+        const result = await Cart.updateOne({ user: userId }, {cart: []} );
+        return res.status(200).json({
+            message : 'delete product in cart successful',
+            result
+        });
+    } catch (e) {
+        next(e);
+    }
+};
+
 const addSP = async (req, res, next) => {
     try {
         const { userId, productId, price, amount } = req.body;
@@ -159,5 +181,6 @@ module.exports = {
     addSP,
     changeAmount,
     getCart,
-    deleteCart
+    deleteCart,
+    resetCart
 }

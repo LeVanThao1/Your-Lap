@@ -8,4 +8,5 @@ exports.load = (app) => {
     app.put('/api/v1/cart/addsp',  controllerCart.addSP);
     app.put('/api/v1/cart/deletesp',  controllerCart.deleteSP);
     app.put('/api/v1/cart/change',  controllerCart.changeAmount);
+    app.put('/api/v1/cart/reset',  controllerCart.resetCart);
 }
