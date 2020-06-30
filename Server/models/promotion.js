@@ -26,7 +26,10 @@ const promotionSChema = new mongoose.Schema({
         min: 6,
         max: 6,
         require: true
-    }
+    },
+    deleteAt: {
+        type: Date
+    }   
 }, { timestamps: true });
 
 const Promotion = mongoose.model('Promotion', promotionSChema);

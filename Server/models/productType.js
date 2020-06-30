@@ -9,7 +9,10 @@ const productTypeSchema = new mongoose.Schema({
     depot: {
         type: mongoose.Schema.Types.String,
         ref: 'Depot'
-    }
+    },
+    deleteAt: {
+        type: Date
+    }   
 }, {timestamps: true});
 
 const ProductType = mongoose.model('ProductType', productTypeSchema);

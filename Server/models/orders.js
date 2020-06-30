@@ -34,7 +34,10 @@ const orderSchema = new mongoose.Schema({
     promotion: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Promotion'
-    }
+    },
+    deleteAt: {
+        type: Date
+    }   
     // recipientEmail: {
     //     type: String,
     //     require: true

@@ -8,7 +8,10 @@ const nsxSChema = new mongoose.Schema({
     nation: {
         type: String,
         require: true
-    }
+    },
+    deleteAt: {
+        type: Date
+    }   
 }, { timestamps: true });
 
 const NSX = mongoose.model('NSX', nsxSChema);
