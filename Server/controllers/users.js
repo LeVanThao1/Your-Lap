@@ -51,6 +51,7 @@ const getAllUser = async (req, res, next) => {
 const createUser = async (req, res, next) => {
     try {
         const data = req.body;
+        console.log(data)
         const salt = bcrypt.genSaltSync(2);
         console.log(data);
         const checkUser = await User.findOne({email: data.email});
