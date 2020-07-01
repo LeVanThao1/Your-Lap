@@ -124,6 +124,7 @@ async function loadCartProduct2(pd) {
     })
 }
 async function loadCartProduct() {
+    const userId = localStorage.getItem('userId');
     const cart = await axios.get(`http://localhost:3001/api/v1/cart/${userId}`);
     const getCart = cart.data.cart.cart;
     total = 0

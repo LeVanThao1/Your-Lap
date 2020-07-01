@@ -37,7 +37,10 @@ const orderSchema = new mongoose.Schema({
     },
     deleteAt: {
         type: Date
-    }   
+    },
+    dateOfDelivery: {
+        type: Date
+    }
     // recipientEmail: {
     //     type: String,
     //     require: true

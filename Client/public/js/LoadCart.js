@@ -1,4 +1,4 @@
-const userId = localStorage.getItem('userId');
+
 var length = 0;
 // if(!userId) {
 //     $('.header__cart-list ').hide();
@@ -44,6 +44,7 @@ async function loadCart2(pd) {
         })
 }
 async function loadCart() {
+    const userId = localStorage.getItem('userId');
     $('.header__cart-list-item').html('');
     const cart = await axios.get(`http://localhost:3001/api/v1/cart/${userId}`);
     if(!cart.data.cart) {
