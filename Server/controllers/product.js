@@ -10,11 +10,11 @@ const fs = require('fs')
 const deleteProduct = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const productDelete = await Product.findOne({_id: id}).lean();
+        const productDelete = await Product.findOne({_id: id, deleteAt: undefined}).lean();
         if (!productDelete) {
-            return next(new Error('USER_NOT_FOUND'));
+            return next(new Error('PRODUCT_NOT_FOUND'));
         }
-        await Product.updateOne({ _id: id }, {data: {$set: { deleteAt: new Date() }}} );
+        await Product.updateOne({ _id: id },  {$set: { deleteAt: new Date() }});
         return res.status(200).json({
             message : 'delete product successful',
         });

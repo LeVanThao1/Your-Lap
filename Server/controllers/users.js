@@ -10,11 +10,11 @@ const axios = require('axios');
 const deleteUser = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const userDelete = await User.findOne({_id: id}).lean();
+        const userDelete = await User.findOne({_id: id, deleteAt: undefined}).lean();
         if (!userDelete) {
             return next(new Error('USER_NOT_FOUND'));
         }
-        await User.updateOne({ _id: id }, {data: {$set: { deleteAt: new Date() }}} );
+        await User.updateOne({ _id: id }, {$set: { deleteAt: new Date() }} );
         return res.status(200).json({
             message : 'delete user successful',
         });
