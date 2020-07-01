@@ -40,13 +40,10 @@ async function loadUser() {
             <span class="header__navbar-user-name">${dataCT.data.user.fullname}</span>
                 <ul class="header__navbar-user-menu">
                     <li class="header__navbar-user-item">
-                        <a href="#">Tài khoản của tôi</a>
+                        <a href="./infoUser.html">Tài khoản của tôi</a>
                     </li>
                     <li class="header__navbar-user-item">
-                        <a href="#">Địa chỉ của tôi</a>
-                    </li>
-                    <li class="header__navbar-user-item">
-                        <a href="#">Đơn mua</a>
+                        <a href="./donhangOfOneUser.html">Đơn mua</a>
                     </li>
                     <li class="header__navbar-user-item header__navbar-user-item--separate">
                         <a href="#">Đăng xuất</a>
