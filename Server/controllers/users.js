@@ -7,6 +7,7 @@ const { sign, verify } = require('../helper/jwt-helper');
 const randomstring = require('randomstring');
 const sendMail = require('../helper/mailer');
 const axios = require('axios');
+
 const deleteUser = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -19,7 +20,7 @@ const deleteUser = async (req, res, next) => {
             message : 'delete user successful',
         });
     } catch (e) {
-        next(e);
+        return next(e);
     }
 };
 
@@ -33,7 +34,7 @@ const getUser = async (req, res, next) => {
             user
         })
     } catch (e) {
-        next(e);
+        return next(e);
     }
 }
 
@@ -45,9 +46,10 @@ const getAllUser = async (req, res, next) => {
             listUser
         })
     } catch (e) {
-        next(e)
+        return next(e)
     }
 }
+
 const createUser = async (req, res, next) => {
     try {
         const data = req.body;
@@ -83,7 +85,7 @@ const createUser = async (req, res, next) => {
             createdUser
         });
     } catch (e) {
-        next(e);
+        return next(e);
     }
 }
 
@@ -91,13 +93,13 @@ const updateUser = async (req, res, next) => {
     try {
         const { id } = req.params;
         const data = req.body;
-        if(data.password) {
-            const salt = bcrypt.genSaltSync(2);
-            const hashPassword = bcrypt.hashSync(data.password, salt);
-            data.password = hashPassword;
-        }
+        // if(data.password) {
+        //     const salt = bcrypt.genSaltSync(2);
+        //     const hashPassword = bcrypt.hashSync(data.password, salt);
+        //     data.password = hashPassword;
+        // }
         _.omitBy(data, _.isNull);
-        const existedUser = await User.findOne({ _id: id });
+        const existedUser = await User.findOne({ _id: id, deleteAt: undefined }).lean();
         if (!existedUser) {
             return next(new Error('USER_NOT_FOUND'));
         }
@@ -116,6 +118,32 @@ const updateUser = async (req, res, next) => {
         return next(e);
     }
 };
+
+const changePassword = async (req, res, next) => {
+    try {
+        const { id } = req.params
+        const { newPw, oldPw } = req.body;
+        const user = await User.findOne({ _id:id, deleteAt: undefined }).lean();
+        if(!user) {
+            return next(new Error('USER_NOT_FOUND'));
+        }
+        console.log(user)
+        const isValidatePassword = bcrypt.compareSync(oldPw, user.password);
+        console.log(isValidatePassword)
+        if (!isValidatePassword) {
+            return next(new Error('PASSWORD_IS_INCORRECT'));
+        }
+        const salt  = bcrypt.genSaltSync('10');
+        const hashPassword = bcrypt.hashSync(newPw, salt);
+        const updateUser = await User.updateOne({_id:id , deleteAt: undefined}, {password: hashPassword}).lean();
+        return res.status(200).json({
+            message: 'update password success',
+            data: updateUser
+        })
+    } catch (e) {
+        return next(e);
+    }
+}
 
 const verifyEmail = async (req, res, next) => {
     try {
@@ -189,6 +217,7 @@ const login = async (req, res, next) => {
         return next(e);
     }
 };
+
 const loginAdmin = async (req, res, next) => {
     try {
         const data = req.body;
@@ -216,7 +245,6 @@ const loginAdmin = async (req, res, next) => {
         return next(e);
     }
 };
-
 
 const geUserWithToken = async (req, res, next) => {
     try {
@@ -266,6 +294,7 @@ const loginFB = async (req, res, next) => {
         return next(e);
     }
 };
+
 const forgetPassword = async (req, res, next) => {
     try {
         const { email } = req.body;
@@ -331,5 +360,6 @@ module.exports = {
     loginFB,
     loginAdmin,
     verifyEmail,
-    sendCode
+    sendCode,
+    changePassword
 }

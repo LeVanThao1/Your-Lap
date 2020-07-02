@@ -90,6 +90,7 @@ async function loadCart() {
     const a = getCart.map((pd,cb) => {
         console.log(pd)
          axios.get(`http://localhost:3001/api/v1/products/${pd.productId}`).then(function (response) {
+             console.log(response)
             const product = {
                 productId: pd.productId,
                 name: response.data.product.name,

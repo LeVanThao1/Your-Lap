@@ -133,6 +133,11 @@ async function loadCartProduct() {
     const getCart = cart.data.cart.cart;
     total = 0
     console.log(getCart);
+    if(getCart.length === 0) {
+        $('.cart_content').append(`
+            <div style="font-size: 18px; color: gray; text-align:center; background-color: #f5f5f5;">Chưa có sản phẩm nào trong giỏ hàng</div>
+        `);
+    }
     const a = getCart.map((pd,cb) => {
         console.log(pd)
          axios.get(`http://localhost:3001/api/v1/products/${pd.productId}`).then(function (response) {

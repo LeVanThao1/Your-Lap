@@ -30,7 +30,7 @@ async function loadOrderDetail() {
         </div>
         <div class="info_bill__prices">
             <span>Tổng Thành Tiền : </span>
-            <span class="info_bill__price">${orderDetail.order.total? orderDetail.order.total : 0}</span>
+            <span class="info_bill__price">${formatMoney(orderDetail.order.total)}</span>
         </div>
     `)
     $('.cart_content').html('')
