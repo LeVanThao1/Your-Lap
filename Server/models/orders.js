@@ -40,6 +40,10 @@ const orderSchema = new mongoose.Schema({
     },
     dateOfDelivery: {
         type: Date
+    },
+    total: {
+        type: Number,
+        require: true
     }
     // recipientEmail: {
     //     type: String,

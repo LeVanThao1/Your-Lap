@@ -32,14 +32,15 @@ async function loadCart2(pd) {
             </li>
         `)
         $(`.del-${pd.productId}`).click(()=> {
+            const userId = localStorage.getItem('userId')
             const result = axios.put('http://localhost:3001/api/v1/cart/deletesp', {
                     userId: userId,
                     productId: pd.productId
             }).then((res) => {
-                // length--;
-                // $(`.id-${pd.productId}`).remove();
-                // $('.header__cart-notice').html(`${length}`)
-                loadCart()
+                length--;
+                $(`.id-${pd.productId}`).remove();
+                $('.header__cart-notice').html(`${length}`)
+                // loadCart()
             })
         })
 }
@@ -78,7 +79,7 @@ async function loadCart() {
         $('.header__cart-view-cart').click(() => {
             redirect('http://localhost:3000/cart.html')
         })
-    $('.header__cart-wrap').click(() => {
+    $('.fa-shopping-cart').click(() => {
         if(userId) {
             redirect('cart.html')
         }else {
@@ -89,6 +90,7 @@ async function loadCart() {
     const a = getCart.map((pd,cb) => {
         console.log(pd)
          axios.get(`http://localhost:3001/api/v1/products/${pd.productId}`).then(function (response) {
+             console.log(response)
             const product = {
                 productId: pd.productId,
                 name: response.data.product.name,

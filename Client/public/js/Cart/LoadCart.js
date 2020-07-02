@@ -1,5 +1,7 @@
 var total = 0;
 let VAT = 0;
+
+const userId = localStorage.getItem('userId')
 $(document).ready(function(){
     loadCartProduct();
 });
@@ -34,9 +36,9 @@ async function loadCartProduct2(pd) {
         </div>
         <div class="cart_content__details">
             <div class="cart_content__price">
-                <span class="cart_content__price--current">${formatMoney(moneyAfterDiscount(pd.price,10))}</span>
+                <span class="cart_content__price--current">${formatMoney(pd.price)}</span>
                 <span class="cart-content__discount-prices">
-                    <span class="cart_content__price--old">${formatMoney(pd.price)}</span>
+                    <span class="cart_content__price--old">${formatMoney(pd.price * 110 / 100)}</span>
                     <span class="cart_content__discout--percent">-10%</span>
                 </span>
             </div>
@@ -111,6 +113,8 @@ async function loadCartProduct2(pd) {
                     productId: pd.productId
         }).then((res) => {
             $(`.child-${pd.productId}`).remove();
+            total -= pd.amount * pd.price;
+            loadTotal(total);
             // loadCart();
         })
     })
@@ -129,6 +133,11 @@ async function loadCartProduct() {
     const getCart = cart.data.cart.cart;
     total = 0
     console.log(getCart);
+    if(getCart.length === 0) {
+        $('.cart_content').append(`
+            <div style="font-size: 18px; color: gray; text-align:center; background-color: #f5f5f5;">Chưa có sản phẩm nào trong giỏ hàng</div>
+        `);
+    }
     const a = getCart.map((pd,cb) => {
         console.log(pd)
          axios.get(`http://localhost:3001/api/v1/products/${pd.productId}`).then(function (response) {

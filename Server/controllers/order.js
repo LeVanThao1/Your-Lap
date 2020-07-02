@@ -133,6 +133,9 @@ const createOrder = async (req, res, next) => {
         }
         await createOrderDetail(detail);
         await resetCart({userId: user});
+        // products.map((pr) => {
+        //     await
+        // })
         return res.status(200).json({
             message: "create Order successfully",
             createdOrder

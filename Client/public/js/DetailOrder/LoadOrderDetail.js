@@ -10,7 +10,7 @@ async function loadOrderDetail() {
     $('.info_bill').html(`
         <div class="info_bill__name">
             <span>Đơn hàng : </span>
-            <span class="info_bill__name--id">${orderDetail.order._id}</span>
+            <span class="info_bill__name--id">${orderDetail.order._id.slice(15)}</span>
         </div>
         <div class="info_bill_states">
             <span>Trạng Thái : </span>
@@ -29,8 +29,8 @@ async function loadOrderDetail() {
             <span class="info_bill__date">${orderDetail.dateOfRecive ? orderDetail.dateOfRecive.slice(0,10): "Đang xử lý"}</span>
         </div>
         <div class="info_bill__prices">
-            <span>Tổng Tiền : </span>
-            <span class="info_bill__price">${orderDetail.order.total? orderDetail.order.total : 0}</span>
+            <span>Tổng Thành Tiền : </span>
+            <span class="info_bill__price">${formatMoney(orderDetail.order.total)}</span>
         </div>
     `)
     $('.cart_content').html('')
