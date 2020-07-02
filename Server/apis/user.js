@@ -13,5 +13,8 @@ exports.load = (app) => {
     app.post('/api/v1/users/forget-password' ,controllerUser.forgetPassword);
     app.post('/api/v1/users/reset-password',controllerUser.resetPassword);
     app.post('/api/v1/loginFB',controllerUser.loginFB);
+    app.put('/api/v1/verifyemail', controllerUser.verifyEmail);
+    app.put('/api/v1/sendcode', controllerUser.sendCode);
+    app.post('/api/v1/users/loginadmin', controllerUser.loginAdmin);
     // app.get('/api/v1/auth', validate(userValidation.creatUser) ,controllerUser.geUserWithToken)
 }

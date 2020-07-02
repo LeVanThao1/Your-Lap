@@ -1,18 +1,20 @@
 var total = 0;
 let VAT = 0;
+
+const userId = localStorage.getItem('userId')
 $(document).ready(function(){
     loadCartProduct();
 });
 
 function loadTotal(total) {
     console.log(total);
-    $('.total-tamp').html(`${total}`)
+    $('.total-tamp').html(`${formatMoney(total)}`)
     if(VAT > 0 ) {
-        $('.total-main').html(`${total}`)
+        $('.total-main').html(`${formatMoney(total)}`)
         $('.note').html('(Không bao gồm VAT)')
     }
     else{
-        $('.total-main').html(`${total * VAT + total}`)
+        $('.total-main').html(`${formatMoney(total * VAT + total)}`)
         $('.note').html('(Đã bao gồm VAT)')
     }
 }
@@ -34,10 +36,10 @@ async function loadCartProduct2(pd) {
         </div>
         <div class="cart_content__details">
             <div class="cart_content__price">
-                <span class="cart_content__price--current">${formatMoney(moneyAfterDiscount(pd.price,10))}đ</span>
+                <span class="cart_content__price--current">${formatMoney(pd.price)}</span>
                 <span class="cart-content__discount-prices">
-                    <span class="cart_content__price--old">${formatMoney(pd.price)}đ</span>
-                    <span class="cart_content__discout--percent">-21%</span>
+                    <span class="cart_content__price--old">${formatMoney(pd.price * 110 / 100)}</span>
+                    <span class="cart_content__discout--percent">-10%</span>
                 </span>
             </div>
             <div class="cart_content__quanity">
@@ -111,6 +113,8 @@ async function loadCartProduct2(pd) {
                     productId: pd.productId
         }).then((res) => {
             $(`.child-${pd.productId}`).remove();
+            total -= pd.amount * pd.price;
+            loadTotal(total);
             // loadCart();
         })
     })

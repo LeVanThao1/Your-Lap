@@ -58,10 +58,19 @@ const createUser = async (req, res, next) => {
         if(checkUser) {
             return next(new Error('Email is already in use'))
         }
+        const code = randomstring.generate({
+            length: 6,
+            charset: 'alphanumeric',
+            capitalization: 'uppercase'
+        });
+        
         const hashPassword = bcrypt.hashSync(data.password, salt);
         data.password = hashPassword;
+        data.verifyCode = code;
+        data.verifyCodeExpiredAt = new Date();
         const createdUser = await User.create(data);
         if(createUser) {
+            await sendMail(data.email,`Ma xac thuc cua ban la : `+ code);
             const user = await User.findOne({email: data.email})
             const cart = {
                 user: user._id,
@@ -108,13 +117,58 @@ const updateUser = async (req, res, next) => {
     }
 };
 
+const verifyEmail = async (req, res, next) => {
+    try {
+        const { email, code } = req.body;
+        const user = await User.findOne({ email: email, deleteAt: undefined }).select('verifyCode verifyCodeExpiredAt').lean();
+        if (!user) {
+            return next(new Error('EMAIL_NOT_INVALID'));
+        }
+        if (user.verifyCode === null) {
+            return next(new Error('YOU_HAVE_NOT_REQUESTED_VERIFY_EMAIL')); 
+        }
+        if (code !== user.verifyCode) {
+            return next(new Error('CODE_NOT_INVALID'));
+        }
+        if (new Date() - user.verifyCodeExpiredAt > 1000*60*10) {
+            return next(new Error('CODE_EXPIRED'));       
+        }
+        const update = await User.updateOne({ email, deleteAt: undefined }, { verifyCode: undefined });
+        return res.status(200).json({
+            message : 'update successful',
+            data: update
+        });
+    } catch (e) {
+        return next(new Error(e));
+    }
+};
+
+const sendCode = async (req, res, next) => {
+    try {
+        const {email} = req.body;
+        const code = randomstring.generate({
+            length: 6,
+            charset: 'alphanumeric',
+            capitalization: 'uppercase'
+        });
+        await sendMail(email,`Ma xac thuc cua ban la : `+ code);
+        const data = await User.updateOne({ email }, { verifyCode: code, verifyCodeExpiredAt: new Date()});
+        return res.status(200).json({
+            message : 'We have sent the code',
+            data
+        });
+    } catch (e) {
+        return next(new Error(e));
+    }
+}
+
 const login = async (req, res, next) => {
     try {
         const data = req.body;
         const salt  = bcrypt.genSaltSync('10');
         const hashPassword = bcrypt.hashSync(data.password, salt);
         // const password = hashPassword;
-        const user = await User.findOne({ email: data.email });
+        const user = await User.findOne({ email: data.email, deleteAt: undefined, verifyCode: null });
         if (!user) {
             // return next(new Error('USERNAME_NOT_EXISTED'));
             return next(new Error('USER_NOT_FOUND'));
@@ -141,7 +195,7 @@ const loginAdmin = async (req, res, next) => {
         const salt  = bcrypt.genSaltSync('10');
         const hashPassword = bcrypt.hashSync(data.password, salt);
         // const password = hashPassword;
-        const user = await User.findOne({ email: data.email, type: 'admin' });
+        const user = await User.findOne({ email: data.email, type: 'admin',deleteAt: undefined, });
         if (!user) {
             // return next(new Error('USERNAME_NOT_EXISTED'));
             return next(new Error('USER_NOT_FOUND'));
@@ -215,7 +269,7 @@ const loginFB = async (req, res, next) => {
 const forgetPassword = async (req, res, next) => {
     try {
         const { email } = req.body;
-        const existedEmail = await User.findOne({ email: email});
+        const existedEmail = await User.findOne({ email: email, deleteAt: undefined});
         if (!existedEmail) {
             return next(new Error('EMAIL_OF_USER_NOT_FOUND'));
         }
@@ -240,7 +294,7 @@ const forgetPassword = async (req, res, next) => {
 const resetPassword = async (req, res, next) => {
     try {
         const { email, code, newPassword } = req.body;
-        const user = await User.getOne({ email: email }).select('verifyCode verifyCodeExpiredAt').lean();
+        const user = await User.findOne({ email: email }).select('verifyCode verifyCodeExpiredAt').lean();
         if (!user) {
             return next(new Error('EMAIL_NOT_INVALID'));
         }
@@ -255,7 +309,7 @@ const resetPassword = async (req, res, next) => {
         }
         const salt = bcrypt.genSaltSync(2);
         const hashPassword = bcrypt.hashSync(newPassword, salt);
-        await userRepository.updateOne({ email }, { password: hashPassword, verifyCode: undefined });
+        await User.updateOne({ email }, { password: hashPassword, verifyCode: undefined });
         return res.status(200).json({
             message : 'change password successful',
         });
@@ -274,5 +328,8 @@ module.exports = {
     geUserWithToken,
     forgetPassword,
     resetPassword,
-    loginFB
+    loginFB,
+    loginAdmin,
+    verifyEmail,
+    sendCode
 }
