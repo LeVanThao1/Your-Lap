@@ -14,7 +14,7 @@ async function loadOrderUser() {
     orders.forEach(or => {
         $('tbody').append(`
             <tr data-i="${or._id}" style="cursor:pointer">
-                <td scope="row" style="font-weight: 500">${or._id}</td>
+                <td scope="row" style="font-weight: 500">${or._id.slice(15)}</td>
                 <td>${or.createdAt.slice(0,10)}</td>
                 <td>${or.dateOfDelivery ? or.dateOfDelivery.slice(0,10): "Đang xử lý"}</td>
                 <td>${or.dateOfRecive ? or.dateOfRecive.slice(0,10): `Đang xử lý`}</td>

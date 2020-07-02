@@ -10,22 +10,22 @@ async function loadOrderDetail() {
     $('.info_bill').html(`
         <div class="info_bill__name">
             <span>Đơn hàng : </span>
-            <span class="info_bill__name--id">${orderDetail.order._id}</span>
+            <span class="info_bill__name--id">${orderDetail.order._id.slice(15)}</span>
         </div>
         <div class="info_bill_states">
             <span>Trạng Thái : </span>
             <span class="info_bill_state">${orderDetail.order.state}</span>
         </div>
         <div class="info_bill__dates">
-            <span>Ngày Đặt Hàng : </span>
+            <span>Ngày Đặt : </span>
             <span class="info_bill__date">${orderDetail.order.createdAt.slice(0,10)}</span>
         </div>
         <div class="info_bill__dates">
-            <span>Ngày Giao Hàng : </span>
+            <span>Ngày Giao : </span>
             <span class="info_bill__date">${orderDetail.dateOfDelivery ? orderDetail.dateOfDelivery.slice(0,10): "Đang xử lý"}</span>
         </div>
         <div class="info_bill__dates">
-            <span>Ngày Nhận Hàng : </span>
+            <span>Ngày Nhận : </span>
             <span class="info_bill__date">${orderDetail.dateOfRecive ? orderDetail.dateOfRecive.slice(0,10): "Đang xử lý"}</span>
         </div>
         <div class="info_bill__prices">

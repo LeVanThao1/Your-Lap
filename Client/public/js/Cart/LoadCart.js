@@ -56,7 +56,7 @@ async function loadCartProduct2(pd) {
         </div>
     </li>
         `)
-    total += pd.price * pd.amount;
+    total += Math.ceil(pd.price * (100 - 10) / 100) * pd.amount;
     loadTotal(total);
     $(`.increase-${pd.productId}`).click(() => {
         if(+$(`.quantity-${pd.productId}`) >= pd.amountProduct) {
