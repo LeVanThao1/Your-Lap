@@ -6,13 +6,13 @@ $(document).ready(function(){
 
 function loadTotal(total) {
     console.log(total);
-    $('.total-tamp').html(`${total}`)
+    $('.total-tamp').html(`${formatMoney(total)}`)
     if(VAT > 0 ) {
-        $('.total-main').html(`${total}`)
+        $('.total-main').html(`${formatMoney(total)}`)
         $('.note').html('(Không bao gồm VAT)')
     }
     else{
-        $('.total-main').html(`${total * VAT + total}`)
+        $('.total-main').html(`${formatMoney(total * VAT + total)}`)
         $('.note').html('(Đã bao gồm VAT)')
     }
 }
@@ -34,10 +34,10 @@ async function loadCartProduct2(pd) {
         </div>
         <div class="cart_content__details">
             <div class="cart_content__price">
-                <span class="cart_content__price--current">${formatMoney(moneyAfterDiscount(pd.price,10))}đ</span>
+                <span class="cart_content__price--current">${formatMoney(moneyAfterDiscount(pd.price,10))}</span>
                 <span class="cart-content__discount-prices">
-                    <span class="cart_content__price--old">${formatMoney(pd.price)}đ</span>
-                    <span class="cart_content__discout--percent">-21%</span>
+                    <span class="cart_content__price--old">${formatMoney(pd.price)}</span>
+                    <span class="cart_content__discout--percent">-10%</span>
                 </span>
             </div>
             <div class="cart_content__quanity">
@@ -54,7 +54,7 @@ async function loadCartProduct2(pd) {
         </div>
     </li>
         `)
-    total += pd.price * pd.amount;
+    total += Math.ceil(pd.price * (100 - 10) / 100) * pd.amount;
     loadTotal(total);
     $(`.increase-${pd.productId}`).click(() => {
         if(+$(`.quantity-${pd.productId}`) >= pd.amountProduct) {
