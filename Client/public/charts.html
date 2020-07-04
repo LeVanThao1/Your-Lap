@@ -3,9 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
+  <title></title>
+    <link rel="stylesheet" href="css/chart.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/submenu.css">
+    
     <link rel="stylesheet" href="css/statistics.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -20,70 +22,28 @@
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
      <!--  -->
      <script type="text/javascript">
-      // google.charts.load('current', {'packages':['corechart']});
-      // google.charts.setOnLoadCallback(drawChart);
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-      // function drawChart() {
-      //   var data = google.visualization.arrayToDataTable([
-      //     ['Quý', 'Doanh thu', 'Chi phí'],
-      //     ['Quý 1',  1000,      400],
-      //     ['Quý 2',  1170,      460],
-      //     ['Quý 3',  660,       1120],
-      //     ['Quý 4',  1030,      540]
-      //   ]);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Quý', 'Doanh thu', 'Chi phí'],
+          ['Quý 1',  1000,      400],
+          ['Quý 2',  1170,      460],
+          ['Quý 3',  660,       1120],
+          ['Quý 4',  1030,      540]
+        ]);
 
-      //   var options = {
-      //     title: 'Company Performance',
-      //     curveType: 'function',
-      //     legend: { position: 'bottom' }
-      //   };
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
 
-      //   var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-      //   chart.draw(data, options);
-      // }
-      google.charts.load('current', {packages: ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawBasic);
-
-function drawBasic() {
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('timeofday', 'Time of Day');
-      data.addColumn('number', 'Motivation Level');
-
-      data.addRows([
-        [{v: [8, 0, 0], f: '8 am'}, 1],
-        [{v: [9, 0, 0], f: '9 am'}, 2],
-        [{v: [10, 0, 0], f:'10 am'}, 3],
-        [{v: [11, 0, 0], f: '11 am'}, 4],
-        [{v: [12, 0, 0], f: '12 pm'}, 5],
-        [{v: [13, 0, 0], f: '1 pm'}, 6],
-        [{v: [14, 0, 0], f: '2 pm'}, 7],
-        [{v: [15, 0, 0], f: '3 pm'}, 8],
-        [{v: [16, 0, 0], f: '4 pm'}, 9],
-        [{v: [17, 0, 0], f: '5 pm'}, 10],
-      ]);
-
-      var options = {
-        title: 'Motivation Level Throughout the Day',
-        hAxis: {
-          title: 'Time of Day',
-          format: 'h:mm a',
-          viewWindow: {
-            min: [7, 30, 0],
-            max: [17, 30, 0]
-          }
-        },
-        vAxis: {
-          title: 'Rating (scale of 1-10)'
-        }
-      };
-
-      var chart = new google.visualization.ColumnChart(
-        document.getElementById('chart_div'));
-
-      chart.draw(data, options);
-    }
+        chart.draw(data, options);
+      }    
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
      <!--  -->
@@ -215,11 +175,13 @@ function drawBasic() {
                       <li class="nav-item submenu">                       
                         <a class="nav-link" href="charts.html"> <div class="icon"></div>Thống kê</a>
                         <ul class="sub-menu">
-                          <li><a href="#">Theo tuần</a></li>
-                          <li><a href="#">Theo tháng</a></li>
-                          <li><a href="#">Theo quý</a></li>
-                          <li><a href="#">Theo năm</a></li>
-                        </ul>
+                          <li>
+                            <a href="productChart.html">Theo sản phẩm</a>                             
+                          </li>
+                          <li>
+                            <a href="charts.html">Theo doanh thu</a>                           
+                          </li>                     
+                      </ul>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="login.html" tabindex="-1" aria-disabled="false">Log out</a>
@@ -255,6 +217,12 @@ function drawBasic() {
                               <div class="child-header">
                                 <div class="dropdown">
                                     <select name="" id="dropdownSort" class="dropdown-chart">
+                                        <option value="">Thống kê doanh thu</option>
+                                        <option value="">Thống kê sản phẩm</option>
+                                    </select>
+                                  </div>    
+                                  <div class="dropdown">
+                                    <select name="" id="dropdownSort" class="dropdown-chart">
                                         <option value="">Loại thống kê</option>
                                         <option value="">Theo tuần</option>
                                         <option value="">Theo tháng</option>
@@ -262,8 +230,7 @@ function drawBasic() {
                                         <option value="">Theo năm</option>
 
                                       </select>
-                                  </div>
-                                  
+                                  </div>                                  
                               </div>
                                <!-- content - user -->
                             <div class="module-body table charts-table">
