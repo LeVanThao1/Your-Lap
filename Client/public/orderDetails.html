@@ -157,7 +157,11 @@
                         <div class="form-group row">
                           <label for="cusID" class="col-sm-3 col-form-label">Mã khách hàng</label>
                           <div class="col-sm-9">
-                            <input type="id" name="cusID" class="form-control" id="cusID" >
+                            <select name="" id="selectt" class="producerID">
+                              <option value="">ABC123</option>
+                              <option value="">ABC345</option>
+                            </select>
+                            <!-- <input type="id" name="cusID" class="form-control" id="cusID" > -->
                           </div>
                         </div>
                         <div class="form-group row">
@@ -166,35 +170,15 @@
                             <input type="id" name="cusNameor" class="form-control" id="cusNameor" >
                           </div>
                         </div>
-                        
-                        <!-- <div class="form-group row">
-                          <label for="productID" class="col-sm-3 col-form-label">Mã sản phẩm</label>
-                          <div class="col-sm-9">
-                            <input type="name" name="productID" class="form-control" id="productID">
-                          </div>
-                        </div>
-                          <div class="form-group row">
-                            <label for="productNameDetail" class="col-sm-3 col-form-label">Tên sản phẩm</label>
-                            <div class="col-sm-9">
-                              <input type="name" name="productNameDetail" class="form-control" id="inputNamePr">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="amountOrderDetail" class="col-sm-3 col-form-label">Số lượng</label>
-                            <div class="col-sm-9">
-                              <input type="amount" name="amountOrderDetail" class="form-control" id="inputAmount">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="priceOrder" class="col-sm-3 col-form-label">Đơn giá</label>
-                            <div class="col-sm-9">
-                              <input type="price" name="priceOrder" class="form-control" id="inputSellPrice">
-                            </div>
-                          </div> -->
+              
                           <div class="form-group row">
                             <label for="promotionID" class="col-sm-3 col-form-label">Mã khuyến mãi</label>
                             <div class="col-sm-9">
-                              <input type="id" name="promotionID" class="form-control" id="promotionID" >
+                              <select name="" id="selectt" class="producerID">
+                                <option value="">ABC123</option>
+                                <option value="">ABC345</option>
+                              </select>
+                              <!-- <input type="id" name="promotionID" class="form-control" id="promotionID" > -->
                             </div>
                           </div>
                                  
@@ -217,7 +201,17 @@
                               <input type="price" name="recipientAddress" class="form-control" id="recipientAddress" >
                             </div>
                           </div>
-                          
+                          <div class="form-group row">
+                            <label for="promotionID" class="col-sm-3 col-form-label">Trạng thái đơn hàng</label>
+                            <div class="col-sm-9">
+                              <select name="" id="selectt" class="orderState" style="width: 200px;">
+                                <option value="">Chưa giao hàng</option>
+                                <option value="">Đã giao hàng</option>
+                                <option value="">Đang giao hàng</option>
+                              </select>
+                              <!-- <input type="id" name="promotionID" class="form-control" id="promotionID" > -->
+                            </div>
+                          </div>
                           <div class="form-group row">
                             <label for="deliveryDateOr" class="col-sm-3 col-form-label">Ngày giao hàng</label>
                             <div class="col-sm-9">
@@ -267,25 +261,7 @@
                                       </tbody>
                                 </table>
                               </div>
-                          <!-- <div class="form-group row">
-
-                            <label for="descriptionOrder" class="col-sm-3 col-form-label">Mô tả</label>
-                            <div class="col-sm-9">
-                               <textarea name="descriptionOrder" id="" cols="70" rows="6"></textarea>
-                            </div>
-                          </div> -->
-                    <!-- Brower-img -->
-                   <!-- <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01">Ảnh</span>
-                      </div>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                      </div>
-                    </div> -->
-                    <!-- Brower-img -->
-                         
+                                                 
                           <div class="form-group row">
                             <div class="col-sm-12 btn-add">
                               <button type="submit" class="btn btn-primary btn-add">Cập nhật</button>
